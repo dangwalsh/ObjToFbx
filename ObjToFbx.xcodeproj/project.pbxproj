@@ -1,0 +1,365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B5597EE51D393E1600A38AD5 /* SdkException.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ECE1D393E1600A38AD5 /* SdkException.cxx */; };
+		B5597EE61D393E1600A38AD5 /* ObjGroup.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED11D393E1600A38AD5 /* ObjGroup.cxx */; };
+		B5597EE71D393E1600A38AD5 /* ObjFace.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED31D393E1600A38AD5 /* ObjFace.cxx */; };
+		B5597EE81D393E1600A38AD5 /* ObjMaterial.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED51D393E1600A38AD5 /* ObjMaterial.cxx */; };
+		B5597EE91D393E1600A38AD5 /* ObjScene.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED71D393E1600A38AD5 /* ObjScene.cxx */; };
+		B5597EEA1D393E1600A38AD5 /* ObjReader.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDA1D393E1600A38AD5 /* ObjReader.cxx */; };
+		B5597EEB1D393E1600A38AD5 /* ObjReaderFacade.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDC1D393E1600A38AD5 /* ObjReaderFacade.cxx */; };
+		B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDE1D393E1600A38AD5 /* main.cxx */; };
+		B5597EED1D393E1600A38AD5 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDF1D393E1600A38AD5 /* README.md */; };
+		B5597EEE1D393E1600A38AD5 /* SdkTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EE11D393E1600A38AD5 /* SdkTools.cxx */; };
+		B5597EEF1D393E1600A38AD5 /* StringTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EE31D393E1600A38AD5 /* StringTools.cxx */; };
+		B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
+		B5597EF31D393E8600A38AD5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
+		B5597EF51D393E9A00A38AD5 /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
+		B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5597EC11D393DE100A38AD5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B5597EC31D393DE100A38AD5 /* ObjToFbx */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjToFbx; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5597ECE1D393E1600A38AD5 /* SdkException.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SdkException.cxx; sourceTree = "<group>"; };
+		B5597ECF1D393E1600A38AD5 /* SdkException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdkException.h; sourceTree = "<group>"; };
+		B5597ED11D393E1600A38AD5 /* ObjGroup.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjGroup.cxx; sourceTree = "<group>"; };
+		B5597ED21D393E1600A38AD5 /* ObjGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjGroup.h; sourceTree = "<group>"; };
+		B5597ED31D393E1600A38AD5 /* ObjFace.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjFace.cxx; sourceTree = "<group>"; };
+		B5597ED41D393E1600A38AD5 /* ObjFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjFace.h; sourceTree = "<group>"; };
+		B5597ED51D393E1600A38AD5 /* ObjMaterial.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjMaterial.cxx; sourceTree = "<group>"; };
+		B5597ED61D393E1600A38AD5 /* ObjMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjMaterial.h; sourceTree = "<group>"; };
+		B5597ED71D393E1600A38AD5 /* ObjScene.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjScene.cxx; sourceTree = "<group>"; };
+		B5597ED81D393E1600A38AD5 /* ObjScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjScene.h; sourceTree = "<group>"; };
+		B5597EDA1D393E1600A38AD5 /* ObjReader.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjReader.cxx; sourceTree = "<group>"; };
+		B5597EDB1D393E1600A38AD5 /* ObjReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjReader.h; sourceTree = "<group>"; };
+		B5597EDC1D393E1600A38AD5 /* ObjReaderFacade.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjReaderFacade.cxx; sourceTree = "<group>"; };
+		B5597EDD1D393E1600A38AD5 /* ObjReaderFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjReaderFacade.h; sourceTree = "<group>"; };
+		B5597EDE1D393E1600A38AD5 /* main.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cxx; sourceTree = "<group>"; };
+		B5597EDF1D393E1600A38AD5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B5597EE11D393E1600A38AD5 /* SdkTools.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SdkTools.cxx; sourceTree = "<group>"; };
+		B5597EE21D393E1600A38AD5 /* SdkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdkTools.h; sourceTree = "<group>"; };
+		B5597EE31D393E1600A38AD5 /* StringTools.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringTools.cxx; sourceTree = "<group>"; };
+		B5597EE41D393E1600A38AD5 /* StringTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringTools.h; sourceTree = "<group>"; };
+		B5597EF01D393E7B00A38AD5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfbxsdk.dylib; path = "/Applications/Autodesk/FBX SDK/2016.1.1/lib/clang/debug/libfbxsdk.dylib"; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B5597EC01D393DE100A38AD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5597EF31D393E8600A38AD5 /* SystemConfiguration.framework in Frameworks */,
+				B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */,
+				B5597EF51D393E9A00A38AD5 /* libfbxsdk.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B5597EBA1D393DE100A38AD5 = {
+			isa = PBXGroup;
+			children = (
+				B5597EF71D39405300A38AD5 /* Frameworks */,
+				B5597EC51D393DE100A38AD5 /* ObjToFbx */,
+				B5597EC41D393DE100A38AD5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B5597EC41D393DE100A38AD5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5597EC31D393DE100A38AD5 /* ObjToFbx */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5597EC51D393DE100A38AD5 /* ObjToFbx */ = {
+			isa = PBXGroup;
+			children = (
+				B5597ECD1D393E1600A38AD5 /* Exceptions */,
+				B5597ED01D393E1600A38AD5 /* Geometry */,
+				B5597ED91D393E1600A38AD5 /* Io */,
+				B5597EDE1D393E1600A38AD5 /* main.cxx */,
+				B5597EDF1D393E1600A38AD5 /* README.md */,
+				B5597EE01D393E1600A38AD5 /* Utilities */,
+			);
+			path = ObjToFbx;
+			sourceTree = "<group>";
+		};
+		B5597ECD1D393E1600A38AD5 /* Exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				B5597ECE1D393E1600A38AD5 /* SdkException.cxx */,
+				B5597ECF1D393E1600A38AD5 /* SdkException.h */,
+			);
+			path = Exceptions;
+			sourceTree = "<group>";
+		};
+		B5597ED01D393E1600A38AD5 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				B5597ED11D393E1600A38AD5 /* ObjGroup.cxx */,
+				B5597ED21D393E1600A38AD5 /* ObjGroup.h */,
+				B5597ED31D393E1600A38AD5 /* ObjFace.cxx */,
+				B5597ED41D393E1600A38AD5 /* ObjFace.h */,
+				B5597ED51D393E1600A38AD5 /* ObjMaterial.cxx */,
+				B5597ED61D393E1600A38AD5 /* ObjMaterial.h */,
+				B5597ED71D393E1600A38AD5 /* ObjScene.cxx */,
+				B5597ED81D393E1600A38AD5 /* ObjScene.h */,
+			);
+			path = Geometry;
+			sourceTree = "<group>";
+		};
+		B5597ED91D393E1600A38AD5 /* Io */ = {
+			isa = PBXGroup;
+			children = (
+				B5597EDA1D393E1600A38AD5 /* ObjReader.cxx */,
+				B5597EDB1D393E1600A38AD5 /* ObjReader.h */,
+				B5597EDC1D393E1600A38AD5 /* ObjReaderFacade.cxx */,
+				B5597EDD1D393E1600A38AD5 /* ObjReaderFacade.h */,
+			);
+			path = Io;
+			sourceTree = "<group>";
+		};
+		B5597EE01D393E1600A38AD5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B5597EE11D393E1600A38AD5 /* SdkTools.cxx */,
+				B5597EE21D393E1600A38AD5 /* SdkTools.h */,
+				B5597EE31D393E1600A38AD5 /* StringTools.cxx */,
+				B5597EE41D393E1600A38AD5 /* StringTools.h */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B5597EF71D39405300A38AD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */,
+				B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */,
+				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B5597EC21D393DE100A38AD5 /* ObjToFbx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5597ECA1D393DE100A38AD5 /* Build configuration list for PBXNativeTarget "ObjToFbx" */;
+			buildPhases = (
+				B5597EBF1D393DE100A38AD5 /* Sources */,
+				B5597EC01D393DE100A38AD5 /* Frameworks */,
+				B5597EC11D393DE100A38AD5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjToFbx;
+			productName = ObjToFbx;
+			productReference = B5597EC31D393DE100A38AD5 /* ObjToFbx */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B5597EBB1D393DE100A38AD5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Daniel Walsh";
+				TargetAttributes = {
+					B5597EC21D393DE100A38AD5 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = B5597EBE1D393DE100A38AD5 /* Build configuration list for PBXProject "ObjToFbx" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B5597EBA1D393DE100A38AD5;
+			productRefGroup = B5597EC41D393DE100A38AD5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B5597EC21D393DE100A38AD5 /* ObjToFbx */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B5597EBF1D393DE100A38AD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5597EE61D393E1600A38AD5 /* ObjGroup.cxx in Sources */,
+				B5597EE71D393E1600A38AD5 /* ObjFace.cxx in Sources */,
+				B5597EEA1D393E1600A38AD5 /* ObjReader.cxx in Sources */,
+				B5597EE91D393E1600A38AD5 /* ObjScene.cxx in Sources */,
+				B5597EEB1D393E1600A38AD5 /* ObjReaderFacade.cxx in Sources */,
+				B5597EE81D393E1600A38AD5 /* ObjMaterial.cxx in Sources */,
+				B5597EEE1D393E1600A38AD5 /* SdkTools.cxx in Sources */,
+				B5597EED1D393E1600A38AD5 /* README.md in Sources */,
+				B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */,
+				B5597EEF1D393E1600A38AD5 /* StringTools.cxx in Sources */,
+				B5597EE51D393E1600A38AD5 /* SdkException.cxx in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B5597EC81D393DE100A38AD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B5597EC91D393DE100A38AD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B5597ECB1D393DE100A38AD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**";
+				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ObjToFbx\"/**";
+			};
+			name = Debug;
+		};
+		B5597ECC1D393DE100A38AD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**";
+				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ObjToFbx\"/**";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B5597EBE1D393DE100A38AD5 /* Build configuration list for PBXProject "ObjToFbx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5597EC81D393DE100A38AD5 /* Debug */,
+				B5597EC91D393DE100A38AD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5597ECA1D393DE100A38AD5 /* Build configuration list for PBXNativeTarget "ObjToFbx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5597ECB1D393DE100A38AD5 /* Debug */,
+				B5597ECC1D393DE100A38AD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B5597EBB1D393DE100A38AD5 /* Project object */;
+}
