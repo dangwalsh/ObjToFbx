@@ -15,7 +15,6 @@
 		B5597EEA1D393E1600A38AD5 /* ObjReader.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDA1D393E1600A38AD5 /* ObjReader.cxx */; };
 		B5597EEB1D393E1600A38AD5 /* ObjReaderFacade.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDC1D393E1600A38AD5 /* ObjReaderFacade.cxx */; };
 		B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDE1D393E1600A38AD5 /* main.cxx */; };
-		B5597EED1D393E1600A38AD5 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDF1D393E1600A38AD5 /* README.md */; };
 		B5597EEE1D393E1600A38AD5 /* SdkTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EE11D393E1600A38AD5 /* SdkTools.cxx */; };
 		B5597EEF1D393E1600A38AD5 /* StringTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EE31D393E1600A38AD5 /* StringTools.cxx */; };
 		B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
@@ -54,7 +53,6 @@
 		B5597EDC1D393E1600A38AD5 /* ObjReaderFacade.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjReaderFacade.cxx; sourceTree = "<group>"; };
 		B5597EDD1D393E1600A38AD5 /* ObjReaderFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjReaderFacade.h; sourceTree = "<group>"; };
 		B5597EDE1D393E1600A38AD5 /* main.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cxx; sourceTree = "<group>"; };
-		B5597EDF1D393E1600A38AD5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B5597EE11D393E1600A38AD5 /* SdkTools.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SdkTools.cxx; sourceTree = "<group>"; };
 		B5597EE21D393E1600A38AD5 /* SdkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdkTools.h; sourceTree = "<group>"; };
 		B5597EE31D393E1600A38AD5 /* StringTools.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringTools.cxx; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				B5597ED01D393E1600A38AD5 /* Geometry */,
 				B5597ED91D393E1600A38AD5 /* Io */,
 				B5597EDE1D393E1600A38AD5 /* main.cxx */,
-				B5597EDF1D393E1600A38AD5 /* README.md */,
 				B5597EE01D393E1600A38AD5 /* Utilities */,
 			);
 			path = ObjToFbx;
@@ -227,7 +224,6 @@
 				B5597EEB1D393E1600A38AD5 /* ObjReaderFacade.cxx in Sources */,
 				B5597EE81D393E1600A38AD5 /* ObjMaterial.cxx in Sources */,
 				B5597EEE1D393E1600A38AD5 /* SdkTools.cxx in Sources */,
-				B5597EED1D393E1600A38AD5 /* README.md in Sources */,
 				B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */,
 				B5597EEF1D393E1600A38AD5 /* StringTools.cxx in Sources */,
 				B5597EE51D393E1600A38AD5 /* SdkException.cxx in Sources */,
