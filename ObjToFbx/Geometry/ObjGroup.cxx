@@ -8,6 +8,12 @@ ObjGroup::ObjGroup(ObjScene* pScene)
     mScene = pScene;
 }
 
+ObjGroup::ObjGroup(ObjScene* pScene, std::string* pString)
+{
+    mScene = pScene;
+    mMaterial = new ObjMaterial(pScene, pString);
+}
+
 ObjGroup::~ObjGroup()
 {
     delete mName;
@@ -16,12 +22,12 @@ ObjGroup::~ObjGroup()
     delete mScene;
 }
 
-void ObjGroup::AddFace(ObjFace& pFace)
+void ObjGroup::AddFace(ObjFace &pFace)
 {
     mFaces->push_back(pFace);
 }
 
-void ObjGroup::AddName(string& pString)
+void ObjGroup::AddName(string &pString)
 {
     mName = &pString;
 }

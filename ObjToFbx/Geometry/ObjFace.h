@@ -8,7 +8,6 @@
 class ObjFace
 {
 public:
-    ObjFace();
     ObjFace(std::vector<std::string>& pTokens);
 	ObjFace(FbxString& pString);
 	virtual ~ObjFace();

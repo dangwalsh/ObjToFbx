@@ -2,15 +2,10 @@
 
 using namespace std;
 
-ObjMaterial::ObjMaterial()
+ObjMaterial::ObjMaterial(ObjScene* pScene, string* pString)
 {
-    
-}
-
-ObjMaterial::ObjMaterial(string& pString, ObjScene* pScene)
-{
-	mName = &pString;
 	mScene = pScene;
+    mName = pString;
 }
 
 ObjMaterial::~ObjMaterial()

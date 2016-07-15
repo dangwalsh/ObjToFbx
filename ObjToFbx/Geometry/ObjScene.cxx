@@ -4,11 +4,6 @@
 
 using namespace std;
 
-ObjScene::ObjScene()
-{
-    
-}
-
 ObjScene::ObjScene(string& pString)
 {
 	vector<string> lLines = Tokenize(pString, '\n');
@@ -28,7 +23,7 @@ ObjScene::ObjScene(string& pString)
 		} else if (lType == "vt") {
 			AddTexCoord(lTokens);
 		} else if (lType == "usemtl") {
-			lItor = AddObjGroup(lItor, lEnd);
+			lItor = AddObjGroup(lTokens, lItor, lEnd);
 		} else {
 			FBXSDK_printf("Error: Unrecognized node type\n");
 			exit(1);
@@ -42,15 +37,15 @@ ObjScene::~ObjScene()
     delete mVertices;
     delete mNormals;
     delete mTexCoord;
-    delete mElements;
+    delete mGroups;
 }
 
-void ObjScene::AddMtlLib(vector< string >& pTokens)
+void ObjScene::AddMtlLib(vector<string>& pTokens)
 {
 	mMatLib = &pTokens.at(1);
 }
 
-void ObjScene::AddVertex(vector< string >& pTokens)
+void ObjScene::AddVertex(vector<string>& pTokens)
 {
     string::size_type sz;
 	double v1 = stod(pTokens.at(1), &sz);
@@ -60,7 +55,7 @@ void ObjScene::AddVertex(vector< string >& pTokens)
 	mVertices->push_back(vertex);
 }
 
-void ObjScene::AddNormal(vector< string >& pTokens)
+void ObjScene::AddNormal(vector<string>& pTokens)
 {
     string::size_type sz;
 	double v1 = stod(pTokens.at(1), &sz);
@@ -70,7 +65,7 @@ void ObjScene::AddNormal(vector< string >& pTokens)
 	mNormals->push_back(vertex);
 }
 
-void ObjScene::AddTexCoord(vector< string >& pTokens)
+void ObjScene::AddTexCoord(vector<string>& pTokens)
 {
     string::size_type sz;
 	double v1 = stod(pTokens.at(1), &sz);
@@ -80,21 +75,27 @@ void ObjScene::AddTexCoord(vector< string >& pTokens)
 	mTexCoord->push_back(vertex);
 }
 
-vector<string>::iterator ObjScene::AddObjGroup(vector<string>::iterator pItor, vector<string>::iterator pEnd)
+vector<string>::iterator ObjScene::AddObjGroup(vector<string>& pTokens,
+                                               vector<string>::iterator pItor,
+                                               vector<string>::iterator pEnd)
 {
-	ObjGroup* lGroup = new ObjGroup(*pItor, this);
-	++pItor;
-	for(; pItor < pEnd; ++pItor)
+	ObjGroup lGroup(this, &(pTokens.at(1)));
+    mGroups->push_back(lGroup);
+	for(++pItor; pItor < pEnd; ++pItor)
 	{
 		vector<string> lTokens = Tokenize(*pItor);
 		string lType = lTokens[0];
 		if (lType == "f")
 		{
             ObjFace lFace(lTokens);
-            lGroup->AddFace(lFace);
-		} else if (lType == "g") {
-			// TODO: add a group to the element
-		} else if (lType == "usemtl") {
+            lGroup.AddFace(lFace);
+		}
+        else if (lType == "g")
+        {
+            lGroup.AddName(lTokens.at(1));
+		}
+        else if (lType == "usemtl")
+        {
 			return pItor;
 		}
 	}

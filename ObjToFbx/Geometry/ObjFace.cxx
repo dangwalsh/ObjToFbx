@@ -2,11 +2,6 @@
 #include "../Io/ObjReader.h"
 #include "../Utilities/StringTools.h"
 
-ObjFace::ObjFace()
-{
-    
-}
-
 ObjFace::ObjFace(vector<string>& pTokens)
 {
 	size_t lCount = pTokens.size();

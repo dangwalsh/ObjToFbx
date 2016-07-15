@@ -9,8 +9,7 @@ class ObjScene;
 class ObjMaterial
 {
 public:
-    ObjMaterial();
-    ObjMaterial(std::string& pString, ObjScene* pScene);
+    ObjMaterial(ObjScene* pScene, std::string* pString);
     virtual ~ObjMaterial();
 
 protected:
