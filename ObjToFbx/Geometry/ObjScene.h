@@ -19,11 +19,11 @@ protected:
 	std::vector<FbxVector4>*    mTexCoord;
     std::vector<ObjGroup>*      mGroups;
 
-	void AddMtlLib(std::vector<std::string>& pTokens);
-	void AddVertex(std::vector<std::string>& pTokens);
-	void AddNormal(std::vector<std::string>& pTokens);
-	void AddTexCoord(std::vector<std::string>& pTokens);
-    std::vector<std::string>::iterator AddObjGroup(std::vector<std::string>& pTokens,
+	virtual void AddMtlLib(std::vector<std::string>& pTokens);
+	virtual void AddVertex(std::vector<std::string>& pTokens);
+	virtual void AddNormal(std::vector<std::string>& pTokens);
+	virtual void AddTexCoord(std::vector<std::string>& pTokens);
+    virtual std::vector<std::string>::iterator AddObjGroup(std::vector<std::string>& pTokens,
                                                    std::vector<std::string>::iterator pItor,
                                                    std::vector<std::string>::iterator pEnd);
 

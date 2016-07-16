@@ -3,7 +3,7 @@
 
 FbxReader* CreateObjReader(FbxManager& pManager, FbxImporter& pImporter, int pSubID, int pPluginID)
 {
-	return FbxNew< ObjReader >(pManager, pPluginID);
+	return FbxNew<ObjReader>(pManager, pPluginID);
 }
 
 void* GetObjReaderInfo(FbxReader::EInfoRequest pRequest, int pId)
