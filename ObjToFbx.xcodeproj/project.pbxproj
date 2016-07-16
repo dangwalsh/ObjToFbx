@@ -21,6 +21,7 @@
 		B5597EF31D393E8600A38AD5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
 		B5597EF51D393E9A00A38AD5 /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
+		B5743F391D3A4A91007730AF /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +31,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				B5743F391D3A4A91007730AF /* texture_test.xobj in CopyFiles */,
 				B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +62,7 @@
 		B5597EF01D393E7B00A38AD5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfbxsdk.dylib; path = "/Applications/Autodesk/FBX SDK/2016.1.1/lib/clang/debug/libfbxsdk.dylib"; sourceTree = "<absolute>"; };
+		B5743F381D3A4A91007730AF /* texture_test.xobj */ = {isa = PBXFileReference; lastKnownFileType = text; path = texture_test.xobj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,7 @@
 		B5597EBA1D393DE100A38AD5 = {
 			isa = PBXGroup;
 			children = (
+				B5743F3A1D3A4E32007730AF /* Assets */,
 				B5597EF71D39405300A38AD5 /* Frameworks */,
 				B5597EC51D393DE100A38AD5 /* ObjToFbx */,
 				B5597EC41D393DE100A38AD5 /* Products */,
@@ -159,6 +163,14 @@
 				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5743F3A1D3A4E32007730AF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B5743F381D3A4A91007730AF /* texture_test.xobj */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

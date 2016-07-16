@@ -20,13 +20,13 @@ public:
     ObjGroup(ObjScene* pScene, std::string* pString);
     virtual ~ObjGroup();
     
-    virtual void AddName(std::string& pString);
-    virtual void AddFace(ObjFace& pFace);
-    virtual void AddMaterial(ObjMaterial& pMaterial);
+    virtual void AddName(std::string* pString);
+    virtual void AddFace(ObjFace* pFace);
+    virtual void AddMaterial(ObjMaterial* pMaterial);
 
 protected:
     std::string*            mName;
-    std::vector<ObjFace>*   mFaces;
+    std::vector<ObjFace*>*  mFaces;
 	ObjMaterial*            mMaterial;
     ObjScene*               mScene;
 

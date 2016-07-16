@@ -4,19 +4,21 @@
 #include <fbxsdk.h>
 #include <string>
 #include <vector>
+#include "Objscene.h"
+
+class ObjScene;
 
 class ObjFace
 {
 public:
-    ObjFace(std::vector<std::string>& pTokens);
-	ObjFace(FbxString& pString);
+    ObjFace(ObjScene* pScene, std::vector<std::string>& pTokens);
 	virtual ~ObjFace();
 
 protected:
-	size_t*  mXYZ;
-	size_t*  mNrm;
-    size_t*  mUVW;
-
+    std::vector<size_t>*    mXYZ;
+    std::vector<size_t>*    mNrm;
+    std::vector<size_t>*    mUVW;
+    ObjScene*               mScene;
 };
 
 #endif // OBJFACE_H

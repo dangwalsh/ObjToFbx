@@ -6,33 +6,33 @@ using namespace std;
 ObjGroup::ObjGroup(ObjScene* pScene)
 {
     mScene = pScene;
+    mFaces = new vector<ObjFace*>;
 }
 
 ObjGroup::ObjGroup(ObjScene* pScene, std::string* pString)
 {
     mScene = pScene;
+    mFaces = new vector<ObjFace*>;
     mMaterial = new ObjMaterial(pScene, pString);
 }
 
 ObjGroup::~ObjGroup()
 {
-    delete mName;
-    delete mMaterial;
     delete mFaces;
-    delete mScene;
+    delete mMaterial;
 }
 
-void ObjGroup::AddFace(ObjFace &pFace)
+void ObjGroup::AddFace(ObjFace* pFace)
 {
     mFaces->push_back(pFace);
 }
 
-void ObjGroup::AddName(string &pString)
+void ObjGroup::AddName(string* pString)
 {
-    mName = &pString;
+    mName = pString;
 }
 
-void ObjGroup::AddMaterial(ObjMaterial &pMaterial)
+void ObjGroup::AddMaterial(ObjMaterial* pMaterial)
 {
-    mMaterial = &pMaterial;
+    mMaterial = pMaterial;
 }

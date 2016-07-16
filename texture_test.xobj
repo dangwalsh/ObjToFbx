@@ -1,0 +1,148 @@
+# Created by Gensler's Revit .obj Export Addin
+# For Gensler employee use only
+#
+# Created from Revit File
+# Exported from D:\material junk.rvt
+#
+mtllib texture_test.mtl
+#
+# Begin Cordinate vertices
+#
+v -429 0 -31550
+v -334 0 -31550
+v -429 2438 -31550
+v -334 2438 -31550
+v 333 0 -31550
+v 428 0 -31550
+v 428 2438 -31550
+v 333 2438 -31550
+v -429 2438 -31645
+v 428 2438 -31645
+v 428 0 -31645
+v -429 0 -31645
+v 333 0 -30883
+v 333 2438 -30883
+v 333 2438 -30788
+v 333 0 -30788
+v 428 2438 -30788
+v 428 0 -30788
+v -334 0 -30883
+v -334 2438 -30883
+v -429 2438 -30883
+v -429 0 -30883
+v -429 2438 -30788
+v -429 0 -30788
+#
+# Begin Texture vertices
+#
+vt -0.047 0 0
+vt 0.048 0 0
+vt -0.047 2.438 0
+vt 0.048 2.438 0
+vt 0.714 0 0
+vt 0.8100001 0 0
+vt 0.8100001 2.438 0
+vt 0.714 2.438 0
+vt -0.809 2.438 0
+vt -0.809 0 0
+vt 0 0.8100001 0
+vt 0 0.714 0
+vt 0.09500001 0.8100001 0
+vt 0 0.048 0
+vt 0.09500001 -0.047 0
+vt 0 -0.047 0
+vt -0.7130001 2.438 0
+vt -0.7130001 0 0
+vt 0.09500001 0.048 0
+vt 0.09500001 0.714 0
+#
+# Begin Faces
+#
+
+usemtl 1_*_Material_-_Sheathing_-_Gypsum_Wall_Board 
+g 1_*_Material_-_Sheathing_-_Gypsum_Wall_Board_Layer
+f 1/1 2/2 3/3
+f 4/4 3/3 2/2
+f 2/2 5/5 4/4
+f 5/5 6/6 7/7
+f 7/7 8/8 5/5
+f 5/5 8/8 4/4
+
+usemtl 3_*_Default_-_Wood_1_-_Light 
+g 3_*_Default_-_Wood_1_-_Light_Layer
+f 9/4 10/9 11/10
+f 11/10 12/2 9/4
+f 6/11 5/12 11/13
+f 2/14 12/15 11/13
+f 12/15 2/14 1/16
+f 2/14 11/13 5/12
+f 3/11 4/12 9/13
+f 8/14 10/15 9/13
+f 10/15 8/14 7/16
+f 8/14 9/13 4/12
+f 6/1 11/2 10/4
+f 10/4 7/3 6/1
+f 3/17 9/9 12/10
+f 12/10 1/18 3/17
+
+usemtl 1_*_Material_-_Sheathing_-_Gypsum_Wall_Board
+g 1_*_Material_-_Sheathing_-_Gypsum_Wall_Board_Layer
+f 8/4 5/2 13/5
+f 8/4 13/5 14/8
+f 13/5 15/7 14/8
+f 15/7 13/5 16/6
+ 
+usemtl 3_*_Default_-_Wood_1_-_Light
+g 3_*_Default_-_Wood_1_-_Light_Layer
+f 7/3 17/9 18/10
+f 18/10 6/1 7/3
+f 13/12 6/19 18/13
+f 6/19 13/12 5/14
+f 13/12 18/13 16/11
+f 14/14 17/15 7/20
+f 17/15 14/14 15/16
+f 14/14 7/20 8/12
+f 8/8 7/7 6/6
+f 6/6 5/5 8/8
+f 16/1 18/2 17/4
+f 17/4 15/3 16/1
+ 
+usemtl 1_*_Material_-_Sheathing_-_Gypsum_Wall_Board
+g 1_*_Material_-_Sheathing_-_Gypsum_Wall_Board_Layer
+f 14/4 13/2 19/5
+f 14/4 19/5 20/8
+f 19/5 21/7 20/8
+f 21/7 19/5 22/6
+ 
+usemtl 3_*_Default_-_Wood_1_-_Light
+g 3_*_Default_-_Wood_1_-_Light_Layer
+f 15/3 23/9 24/10
+f 24/10 16/1 15/3
+f 19/12 16/19 24/13
+f 16/19 19/12 13/14
+f 19/12 24/13 22/11
+f 20/14 23/15 15/20
+f 23/15 20/14 21/16
+f 20/14 15/20 14/12
+f 14/8 15/7 16/6
+f 16/6 13/5 14/8
+f 22/1 24/2 23/4
+f 23/4 21/3 22/1
+ 
+usemtl 1_*_Material_-_Sheathing_-_Gypsum_Wall_Board
+g 1_*_Material_-_Sheathing_-_Gypsum_Wall_Board_Layer
+f 2/5 4/8 20/4
+f 20/4 19/2 2/5
+ 
+usemtl 3_*_Default_-_Wood_1_-_Light
+g 3_*_Default_-_Wood_1_-_Light_Layer
+f 21/3 3/17 1/18
+f 1/18 22/1 21/3
+f 19/14 22/19 1/20
+f 1/20 2/12 19/14
+f 4/14 3/19 21/20
+f 21/20 20/12 4/14
+f 2/2 1/1 3/3
+f 3/3 4/4 2/2
+f 20/8 21/7 22/6
+f 22/6 19/5 20/8

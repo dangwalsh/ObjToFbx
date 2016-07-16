@@ -10,6 +10,5 @@ ObjMaterial::ObjMaterial(ObjScene* pScene, string* pString)
 
 ObjMaterial::~ObjMaterial()
 {
-    delete mName;
-    delete mScene;
+
 }

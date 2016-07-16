@@ -13,11 +13,11 @@ public:
 	virtual ~ObjScene();
 
 protected:
-	std::string*                mMatLib;
+	std::string*                mMtlLib;
 	std::vector<FbxVector4>*    mVertices;
 	std::vector<FbxVector4>*    mNormals;
 	std::vector<FbxVector4>*    mTexCoord;
-    std::vector<ObjGroup>*      mGroups;
+    std::vector<ObjGroup*>*     mGroups;
 
 	virtual void AddMtlLib(std::vector<std::string>& pTokens);
 	virtual void AddVertex(std::vector<std::string>& pTokens);

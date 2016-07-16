@@ -90,61 +90,6 @@ bool ObjReader::Read(FbxDocument* pDocument)
 
 			auto lObjScene = ObjScene(lString);
 
-			//Parse the string to get the node types and values. 
-			// FbxNodeAttribute* lNodeAttribute;
-
-			// size_t lEndTokenCount = lString.GetTokenCount("\n");
-
-			// string lMatLib;
-			// vector< FbxVector4 > lVertices;
-			// vector< FbxVector4 > lVertNorms;
-			// vector< FbxVector4 > lTexCoords;
-
-			// for (int i = 0; i < lEndTokenCount; i++)
-			// {
-			// 	string lSubString(lString.GetToken(i,"\n"));
-			// 	vector<string> lTokens = ObjReader::Parse(lSubString);
-			// 	string lTokenType = lTokens.at(0);
-			// 	string::size_type sz;
-
-			// 	if (lTokenType == "v")
-			// 	{
-			// 		double v1 = stod(lTokens.at(1), &sz);
-			// 		double v2 = stod(lTokens.at(2), &sz);
-			// 		double v3 = stod(lTokens.at(3), &sz);
-			// 		FbxVector4 vertex(v1, v2, v3);
-			// 		lVertices.push_back(vertex);
-			// 	}
-			// 	else if (lTokenType == "vt")
-			// 	{
-			// 		double v1 = stod(lTokens.at(1), &sz);
-			// 		double v2 = stod(lTokens.at(2), &sz);
-			// 		double v3 = stod(lTokens.at(3), &sz);
-			// 		FbxVector4 vertex(v1, v2, v3);
-			// 		lTexCoords.push_back(vertex);
-			// 	}
-			// 	else if (lTokenType == "usemtl")
-			// 	{
-			// 		if (lTokenType == "f")
-			// 		{
-
-			// 		}
-			// 		else if (lTokenType == "g")
-			// 		{
-						
-			// 		}
-			// 	}
-			// 	else if (lTokenType == "mtllib")
-			// 	{
-			// 		lMatLib = lTokens.at(1);
-			// 	}
-			// 	else
-			// 	{
-			// 		FBXSDK_printf("Error: Unrecognized node type\n");
-			// 		exit(1);
-			// 	}
-			
-			// }
 			free(lBuffer);
 		}
 		lResult = true;
