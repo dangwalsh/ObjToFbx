@@ -88,7 +88,7 @@ bool ObjReader::Read(FbxDocument* pDocument)
 			lBuffer[lRead]='\0';
 			string lString(lBuffer);
 
-			auto lObjScene = ObjScene(lString);
+			ObjScene lObjScene = ObjScene(lString);
 
 			free(lBuffer);
 		}
