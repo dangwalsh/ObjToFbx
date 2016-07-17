@@ -1,5 +1,4 @@
 #include <fbxsdk.h>
-#include <catch.hpp>
 #include "Io/ObjReaderFacade.h"
 #include "Utilities/SdkTools.h"
 
