@@ -588,7 +588,7 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -601,7 +601,7 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -619,13 +619,12 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"",
 				);
 				INFOPLIST_FILE = "Test Bundle/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/lib/gtest,
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
@@ -643,13 +642,12 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"",
 				);
 				INFOPLIST_FILE = "Test Bundle/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/lib/gtest,
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
