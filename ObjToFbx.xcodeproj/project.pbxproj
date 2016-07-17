@@ -20,7 +20,6 @@
 		B5C229521D3C0E4100CAD34E /* texture_test.xobj in Resources */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
 		B5C229551D3C0EDE00CAD34E /* ObjFaceTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C229531D3C0E6F00CAD34E /* ObjFaceTest.cpp */; };
 		B5C3E4DA1D3C140300BC4579 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5C3E4C91D3C135700BC4579 /* gtest-all.cc */; };
-		B5C3E4DB1D3C153600BC4579 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4CF1D3C13A100BC4579 /* libgtest.a */; };
 		B5C3E4ED1D3C166E00BC4579 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
 		B5C3E4EE1D3C167800BC4579 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
 		B5C3E4EF1D3C16AA00BC4579 /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
@@ -45,16 +44,11 @@
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E50E1D3C1A1500BC4579 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E50D1D3C1A1500BC4579 /* Cocoa.framework */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
+		B5C3E5141D3C227100BC4579 /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C2295B1D3C10D300CAD34E /* libgtest_main.a */; };
+		B5C3E5151D3C227100BC4579 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C229591D3C0F6900CAD34E /* libgtest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B5C3E4DC1D3C157600BC4579 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5597EBB1D393DE100A38AD5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B5C3E4CE1D3C13A100BC4579;
-			remoteInfo = gtest;
-		};
 		B5C3E50F1D3C1A4600BC4579 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5597EBB1D393DE100A38AD5 /* Project object */;
@@ -141,8 +135,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C3E5141D3C227100BC4579 /* libgtest_main.a in Frameworks */,
+				B5C3E5151D3C227100BC4579 /* libgtest.a in Frameworks */,
 				B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */,
-				B5C3E4DB1D3C153600BC4579 /* libgtest.a in Frameworks */,
 				B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,7 +344,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B5C3E4DD1D3C157600BC4579 /* PBXTargetDependency */,
 				B5C3E5101D3C1A4600BC4579 /* PBXTargetDependency */,
 			);
 			name = "Test Bundle";
@@ -492,11 +486,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B5C3E4DD1D3C157600BC4579 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B5C3E4CE1D3C13A100BC4579 /* gtest */;
-			targetProxy = B5C3E4DC1D3C157600BC4579 /* PBXContainerItemProxy */;
-		};
 		B5C3E5101D3C1A4600BC4579 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B5C3E4E11D3C165300BC4579 /* objtofbx */;
