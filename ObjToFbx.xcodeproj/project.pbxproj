@@ -110,10 +110,8 @@
 		B5C229531D3C0E6F00CAD34E /* ObjFaceTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjFaceTest.cpp; path = ../ObjFaceTest.cpp; sourceTree = "<group>"; };
 		B5C229591D3C0F6900CAD34E /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../../../../../../usr/local/lib/gtest/libgtest.a; sourceTree = "<group>"; };
 		B5C2295B1D3C10D300CAD34E /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = ../../../../../../usr/local/lib/gtest/libgtest_main.a; sourceTree = "<group>"; };
-		B5C2295D1D3C10E900CAD34E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5C3E4C91D3C135700BC4579 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-all.cc"; sourceTree = "<group>"; };
 		B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libobjtofbx.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5C3E50D1D3C1A1500BC4579 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,12 +234,10 @@
 		B5597EF71D39405300A38AD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B5C3E50D1D3C1A1500BC4579 /* Cocoa.framework */,
-				B5C2295D1D3C10E900CAD34E /* Foundation.framework */,
 				B5C2295B1D3C10D300CAD34E /* libgtest_main.a */,
 				B5C229591D3C0F6900CAD34E /* libgtest.a */,
-				B5C2294C1D3C050D00CAD34E /* gtest.framework */,
 				B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */,
+				B5C2294C1D3C050D00CAD34E /* gtest.framework */,
 				B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */,
 				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
 			);
