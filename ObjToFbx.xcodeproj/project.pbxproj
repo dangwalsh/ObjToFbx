@@ -14,8 +14,9 @@
 		B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5743F391D3A4A91007730AF /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.m */; };
-		B5A0406A1D3C334600388264 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5C3E4C91D3C135700BC4579 /* gtest-all.cc */; };
 		B5A0406D1D3C339D00388264 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A0405F1D3C331400388264 /* libgtest.a */; };
+		B5A040831D3C37BE00388264 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5A040821D3C37BE00388264 /* gtest-all.cc */; };
+		B5A040841D3C380100388264 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5A040821D3C37BE00388264 /* gtest-all.cc */; };
 		B5C2294B1D3BE03D00CAD34E /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */; };
 		B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5C229511D3C0E3100CAD34E /* libfbxsdk.dylib in Resources */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
@@ -113,9 +114,9 @@
 		B58F31711D3BD3F5003BA001 /* Test_Bundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_Bundle.m; sourceTree = "<group>"; };
 		B58F31731D3BD3F5003BA001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5A0405F1D3C331400388264 /* libgtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5A040821D3C37BE00388264 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "ObjToFbx/gtest-all.cc"; sourceTree = "<group>"; };
 		B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
 		B5C229531D3C0E6F00CAD34E /* ObjFaceTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjFaceTest.cpp; path = ../ObjFaceTest.cpp; sourceTree = "<group>"; };
-		B5C3E4C91D3C135700BC4579 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-all.cc"; sourceTree = "<group>"; };
 		B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libobjtofbx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -274,7 +275,7 @@
 		B5C3E4C61D3C12E200BC4579 /* Google Test */ = {
 			isa = PBXGroup;
 			children = (
-				B5C3E4C91D3C135700BC4579 /* gtest-all.cc */,
+				B5A040821D3C37BE00388264 /* gtest-all.cc */,
 			);
 			name = "Google Test";
 			sourceTree = "<group>";
@@ -440,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */,
+				B5A040831D3C37BE00388264 /* gtest-all.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5A0406A1D3C334600388264 /* gtest-all.cc in Sources */,
+				B5A040841D3C380100388264 /* gtest-all.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,8 +662,8 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				HEADER_SEARCH_PATHS = (
-					"\"$(HOME)/git/github.com/google/googletest/googletest\"",
-					"\"$(HOME)/git/github.com/google/googletest/googletest/include\"",
+					"\"/Users/danielwalsh/git/github.com/google/googletest/googletest\"",
+					"\"/Users/danielwalsh/git/github.com/google/googletest/googletest/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -675,8 +677,8 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				HEADER_SEARCH_PATHS = (
-					"\"$(HOME)/git/github.com/google/googletest/googletest\"",
-					"\"$(HOME)/git/github.com/google/googletest/googletest/include\"",
+					"\"/Users/danielwalsh/git/github.com/google/googletest/googletest\"",
+					"\"/Users/danielwalsh/git/github.com/google/googletest/googletest/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -744,6 +746,7 @@
 				B5A040691D3C331400388264 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5C3E4EA1D3C165300BC4579 /* Build configuration list for PBXNativeTarget "objtofbx" */ = {
 			isa = XCConfigurationList;
