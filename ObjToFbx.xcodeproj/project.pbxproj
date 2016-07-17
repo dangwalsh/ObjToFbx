@@ -14,7 +14,8 @@
 		B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5743F391D3A4A91007730AF /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.m */; };
-		B59003D21D3C3A39006BF1D0 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B59003D11D3C3A39006BF1D0 /* libgtest.a */; };
+		B59003D41D3C3C72006BF1D0 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59003D31D3C3C72006BF1D0 /* gtest.framework */; };
+		B59003D91D3C3F2E006BF1D0 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B59003D81D3C3F2E006BF1D0 /* libgtest.a */; };
 		B5A040841D3C380100388264 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5A040821D3C37BE00388264 /* gtest-all.cc */; };
 		B5C2294B1D3BE03D00CAD34E /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */; };
 		B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
@@ -105,7 +106,8 @@
 		B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test Bundle.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58F31711D3BD3F5003BA001 /* Test_Bundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_Bundle.m; sourceTree = "<group>"; };
 		B58F31731D3BD3F5003BA001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B59003D11D3C3A39006BF1D0 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../../../../../../usr/local/lib/gtest/libgtest.a; sourceTree = "<group>"; };
+		B59003D31D3C3C72006BF1D0 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
+		B59003D81D3C3F2E006BF1D0 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../../../../../../usr/local/lib/gtest/libgtest.a; sourceTree = "<group>"; };
 		B5A0405F1D3C331400388264 /* libgtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A040821D3C37BE00388264 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "ObjToFbx/gtest-all.cc"; sourceTree = "<group>"; };
 		B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
@@ -129,9 +131,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B59003D21D3C3A39006BF1D0 /* libgtest.a in Frameworks */,
+				B59003D41D3C3C72006BF1D0 /* gtest.framework in Frameworks */,
 				B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */,
 				B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */,
+				B59003D91D3C3F2E006BF1D0 /* libgtest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +243,9 @@
 		B5597EF71D39405300A38AD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B59003D11D3C3A39006BF1D0 /* libgtest.a */,
+				B59003D81D3C3F2E006BF1D0 /* libgtest.a */,
 				B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */,
+				B59003D31D3C3C72006BF1D0 /* gtest.framework */,
 				B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */,
 				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
 			);
