@@ -22,6 +22,9 @@
 		B5597EF51D393E9A00A38AD5 /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5743F391D3A4A91007730AF /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
+		B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.m */; };
+		B58F31781D3BD41B003BA001 /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B58F31771D3BD41B003BA001 /* GoogleTests.mm */; };
+		B58F317A1D3BD441003BA001 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58F31791D3BD441003BA001 /* gtest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +66,11 @@
 		B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfbxsdk.dylib; path = "/Applications/Autodesk/FBX SDK/2016.1.1/lib/clang/debug/libfbxsdk.dylib"; sourceTree = "<absolute>"; };
 		B5743F381D3A4A91007730AF /* texture_test.xobj */ = {isa = PBXFileReference; lastKnownFileType = text; path = texture_test.xobj; sourceTree = "<group>"; };
+		B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test Bundle.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B58F31711D3BD3F5003BA001 /* Test_Bundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_Bundle.m; sourceTree = "<group>"; };
+		B58F31731D3BD3F5003BA001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B58F31771D3BD41B003BA001 /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GoogleTests.mm; path = "../../../../../git/github.com/mattstevens/xcode-googletest/Bundle/GoogleTests.mm"; sourceTree = "<group>"; };
+		B58F31791D3BD441003BA001 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B58F316C1D3BD3F5003BA001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58F317A1D3BD441003BA001 /* gtest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				B5743F3A1D3A4E32007730AF /* Assets */,
+				B58F31701D3BD3F5003BA001 /* Test Bundle */,
 				B5597EF71D39405300A38AD5 /* Frameworks */,
 				B5597EC51D393DE100A38AD5 /* ObjToFbx */,
 				B5597EC41D393DE100A38AD5 /* Products */,
@@ -93,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B5597EC31D393DE100A38AD5 /* ObjToFbx */,
+				B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +176,7 @@
 		B5597EF71D39405300A38AD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B58F31791D3BD441003BA001 /* gtest.framework */,
 				B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */,
 				B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */,
 				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
@@ -171,6 +190,16 @@
 				B5743F381D3A4A91007730AF /* texture_test.xobj */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		B58F31701D3BD3F5003BA001 /* Test Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				B58F31771D3BD41B003BA001 /* GoogleTests.mm */,
+				B58F31711D3BD3F5003BA001 /* Test_Bundle.m */,
+				B58F31731D3BD3F5003BA001 /* Info.plist */,
+			);
+			path = "Test Bundle";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +222,23 @@
 			productReference = B5597EC31D393DE100A38AD5 /* ObjToFbx */;
 			productType = "com.apple.product-type.tool";
 		};
+		B58F316E1D3BD3F5003BA001 /* Test Bundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B58F31761D3BD3F5003BA001 /* Build configuration list for PBXNativeTarget "Test Bundle" */;
+			buildPhases = (
+				B58F316B1D3BD3F5003BA001 /* Sources */,
+				B58F316C1D3BD3F5003BA001 /* Frameworks */,
+				B58F316D1D3BD3F5003BA001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Test Bundle";
+			productName = "Test Bundle";
+			productReference = B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -203,6 +249,9 @@
 				ORGANIZATIONNAME = "Daniel Walsh";
 				TargetAttributes = {
 					B5597EC21D393DE100A38AD5 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					B58F316E1D3BD3F5003BA001 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
@@ -220,9 +269,20 @@
 			projectRoot = "";
 			targets = (
 				B5597EC21D393DE100A38AD5 /* ObjToFbx */,
+				B58F316E1D3BD3F5003BA001 /* Test Bundle */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B58F316D1D3BD3F5003BA001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B5597EBF1D393DE100A38AD5 /* Sources */ = {
@@ -239,6 +299,15 @@
 				B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */,
 				B5597EEF1D393E1600A38AD5 /* StringTools.cxx in Sources */,
 				B5597EE51D393E1600A38AD5 /* SdkException.cxx in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58F316B1D3BD3F5003BA001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58F31781D3BD41B003BA001 /* GoogleTests.mm in Sources */,
+				B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +398,10 @@
 		B5597ECB1D393DE100A38AD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
+					/usr/local/include,
+				);
 				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ObjToFbx\"/**";
@@ -339,10 +411,45 @@
 		B5597ECC1D393DE100A38AD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
+					/usr/local/include,
+				);
 				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/ObjToFbx\"/**";
+			};
+			name = Release;
+		};
+		B58F31741D3BD3F5003BA001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "\"/usr/local/include\"";
+				INFOPLIST_FILE = "Test Bundle/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B58F31751D3BD3F5003BA001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "\"/usr/local/include\"";
+				INFOPLIST_FILE = "Test Bundle/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -366,6 +473,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		B58F31761D3BD3F5003BA001 /* Build configuration list for PBXNativeTarget "Test Bundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B58F31741D3BD3F5003BA001 /* Debug */,
+				B58F31751D3BD3F5003BA001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
