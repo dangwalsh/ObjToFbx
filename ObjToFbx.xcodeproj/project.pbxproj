@@ -614,7 +614,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Gtest",
+					/usr/local/lib/gtest,
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -637,7 +638,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Gtest",
+					/usr/local/lib/gtest,
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
