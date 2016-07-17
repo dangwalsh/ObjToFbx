@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B51AB8BD1D3C2CA4002CB813 /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51AB8BB1D3C2CA4002CB813 /* libgtest_main.a */; };
-		B51AB8BE1D3C2CA4002CB813 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51AB8BC1D3C2CA4002CB813 /* libgtest.a */; };
 		B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDE1D393E1600A38AD5 /* main.cxx */; };
 		B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
 		B5597EF31D393E8600A38AD5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
@@ -16,6 +14,8 @@
 		B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5743F391D3A4A91007730AF /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.m */; };
+		B59F548B1D3C30EF0031D98D /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B59F54891D3C30EF0031D98D /* libgtest_main.a */; };
+		B59F548C1D3C30EF0031D98D /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B59F548A1D3C30EF0031D98D /* libgtest.a */; };
 		B5C2294B1D3BE03D00CAD34E /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */; };
 		B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5C229511D3C0E3100CAD34E /* libfbxsdk.dylib in Resources */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
@@ -107,6 +107,8 @@
 		B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test Bundle.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58F31711D3BD3F5003BA001 /* Test_Bundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_Bundle.m; sourceTree = "<group>"; };
 		B58F31731D3BD3F5003BA001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B59F54891D3C30EF0031D98D /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = ../../../../../../usr/local/lib/gtest/libgtest_main.a; sourceTree = "<group>"; };
+		B59F548A1D3C30EF0031D98D /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../../../../../../usr/local/lib/gtest/libgtest.a; sourceTree = "<group>"; };
 		B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
 		B5C229531D3C0E6F00CAD34E /* ObjFaceTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjFaceTest.cpp; path = ../ObjFaceTest.cpp; sourceTree = "<group>"; };
 		B5C3E4C91D3C135700BC4579 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-all.cc"; sourceTree = "<group>"; };
@@ -129,8 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B51AB8BD1D3C2CA4002CB813 /* libgtest_main.a in Frameworks */,
-				B51AB8BE1D3C2CA4002CB813 /* libgtest.a in Frameworks */,
+				B59F548B1D3C30EF0031D98D /* libgtest_main.a in Frameworks */,
+				B59F548C1D3C30EF0031D98D /* libgtest.a in Frameworks */,
 				B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */,
 				B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */,
 			);
@@ -233,6 +235,8 @@
 		B5597EF71D39405300A38AD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B59F54891D3C30EF0031D98D /* libgtest_main.a */,
+				B59F548A1D3C30EF0031D98D /* libgtest.a */,
 				B51AB8BB1D3C2CA4002CB813 /* libgtest_main.a */,
 				B51AB8BC1D3C2CA4002CB813 /* libgtest.a */,
 				B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */,
@@ -568,7 +572,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../../git/github.com/google/googletest/googletest/lib\"",
+					/usr/local/lib/gtest,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -591,7 +595,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../../git/github.com/google/googletest/googletest/lib\"",
+					/usr/local/lib/gtest,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
