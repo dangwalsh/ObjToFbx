@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B51AB8BD1D3C2CA4002CB813 /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51AB8BB1D3C2CA4002CB813 /* libgtest_main.a */; };
+		B51AB8BE1D3C2CA4002CB813 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51AB8BC1D3C2CA4002CB813 /* libgtest.a */; };
 		B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDE1D393E1600A38AD5 /* main.cxx */; };
 		B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
 		B5597EF31D393E8600A38AD5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
@@ -42,8 +44,6 @@
 		B5C3E50B1D3C176A00BC4579 /* StringTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EE41D393E1600A38AD5 /* StringTools.h */; };
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
-		B5C3E5141D3C227100BC4579 /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C2295B1D3C10D300CAD34E /* libgtest_main.a */; };
-		B5C3E5151D3C227100BC4579 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C229591D3C0F6900CAD34E /* libgtest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +78,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B51AB8BB1D3C2CA4002CB813 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = ../../../../git/github.com/google/googletest/googletest/lib/libgtest_main.a; sourceTree = "<group>"; };
+		B51AB8BC1D3C2CA4002CB813 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../../../../git/github.com/google/googletest/googletest/lib/libgtest.a; sourceTree = "<group>"; };
 		B5597EC31D393DE100A38AD5 /* ObjToFbx */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjToFbx; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5597ECE1D393E1600A38AD5 /* SdkException.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SdkException.cxx; sourceTree = "<group>"; };
 		B5597ECF1D393E1600A38AD5 /* SdkException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdkException.h; sourceTree = "<group>"; };
@@ -106,10 +108,7 @@
 		B58F31711D3BD3F5003BA001 /* Test_Bundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_Bundle.m; sourceTree = "<group>"; };
 		B58F31731D3BD3F5003BA001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
-		B5C2294C1D3C050D00CAD34E /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
 		B5C229531D3C0E6F00CAD34E /* ObjFaceTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjFaceTest.cpp; path = ../ObjFaceTest.cpp; sourceTree = "<group>"; };
-		B5C229591D3C0F6900CAD34E /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../../../../../../usr/local/lib/gtest/libgtest.a; sourceTree = "<group>"; };
-		B5C2295B1D3C10D300CAD34E /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = ../../../../../../usr/local/lib/gtest/libgtest_main.a; sourceTree = "<group>"; };
 		B5C3E4C91D3C135700BC4579 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-all.cc"; sourceTree = "<group>"; };
 		B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libobjtofbx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,8 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5C3E5141D3C227100BC4579 /* libgtest_main.a in Frameworks */,
-				B5C3E5151D3C227100BC4579 /* libgtest.a in Frameworks */,
+				B51AB8BD1D3C2CA4002CB813 /* libgtest_main.a in Frameworks */,
+				B51AB8BE1D3C2CA4002CB813 /* libgtest.a in Frameworks */,
 				B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */,
 				B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */,
 			);
@@ -234,10 +233,9 @@
 		B5597EF71D39405300A38AD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B5C2295B1D3C10D300CAD34E /* libgtest_main.a */,
-				B5C229591D3C0F6900CAD34E /* libgtest.a */,
+				B51AB8BB1D3C2CA4002CB813 /* libgtest_main.a */,
+				B51AB8BC1D3C2CA4002CB813 /* libgtest.a */,
 				B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */,
-				B5C2294C1D3C050D00CAD34E /* gtest.framework */,
 				B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */,
 				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
 			);
@@ -558,7 +556,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
@@ -567,7 +568,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/lib/gtest,
+					"\"$(SRCROOT)/../../../../git/github.com/google/googletest/googletest/lib\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -578,7 +579,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
@@ -587,7 +591,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/lib/gtest,
+					"\"$(SRCROOT)/../../../../git/github.com/google/googletest/googletest/lib\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
