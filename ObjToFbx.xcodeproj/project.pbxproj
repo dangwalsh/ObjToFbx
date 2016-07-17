@@ -19,7 +19,6 @@
 		B5C229511D3C0E3100CAD34E /* libfbxsdk.dylib in Resources */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5C229521D3C0E4100CAD34E /* texture_test.xobj in Resources */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
 		B5C229551D3C0EDE00CAD34E /* ObjFaceTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C229531D3C0E6F00CAD34E /* ObjFaceTest.cpp */; };
-		B5C3E4DA1D3C140300BC4579 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5C3E4C91D3C135700BC4579 /* gtest-all.cc */; };
 		B5C3E4ED1D3C166E00BC4579 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
 		B5C3E4EE1D3C167800BC4579 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
 		B5C3E4EF1D3C16AA00BC4579 /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
@@ -42,7 +41,6 @@
 		B5C3E50A1D3C176A00BC4579 /* SdkTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EE21D393E1600A38AD5 /* SdkTools.h */; };
 		B5C3E50B1D3C176A00BC4579 /* StringTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EE41D393E1600A38AD5 /* StringTools.h */; };
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
-		B5C3E50E1D3C1A1500BC4579 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E50D1D3C1A1500BC4579 /* Cocoa.framework */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E5141D3C227100BC4579 /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C2295B1D3C10D300CAD34E /* libgtest_main.a */; };
 		B5C3E5151D3C227100BC4579 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C229591D3C0F6900CAD34E /* libgtest.a */; };
@@ -114,7 +112,6 @@
 		B5C2295B1D3C10D300CAD34E /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = ../../../../../../usr/local/lib/gtest/libgtest_main.a; sourceTree = "<group>"; };
 		B5C2295D1D3C10E900CAD34E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5C3E4C91D3C135700BC4579 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-all.cc"; sourceTree = "<group>"; };
-		B5C3E4CF1D3C13A100BC4579 /* libgtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libobjtofbx.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C3E50D1D3C1A1500BC4579 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -139,14 +136,6 @@
 				B5C3E5151D3C227100BC4579 /* libgtest.a in Frameworks */,
 				B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */,
 				B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5C3E4CC1D3C13A100BC4579 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5C3E50E1D3C1A1500BC4579 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +169,6 @@
 			children = (
 				B5597EC31D393DE100A38AD5 /* ObjToFbx */,
 				B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */,
-				B5C3E4CF1D3C13A100BC4579 /* libgtest.a */,
 				B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */,
 			);
 			name = Products;
@@ -289,13 +277,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		B5C3E4CD1D3C13A100BC4579 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B5C3E4E01D3C165300BC4579 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,23 +332,6 @@
 			productReference = B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B5C3E4CE1D3C13A100BC4579 /* gtest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B5C3E4D71D3C13A100BC4579 /* Build configuration list for PBXNativeTarget "gtest" */;
-			buildPhases = (
-				B5C3E4CB1D3C13A100BC4579 /* Sources */,
-				B5C3E4CC1D3C13A100BC4579 /* Frameworks */,
-				B5C3E4CD1D3C13A100BC4579 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = gtest;
-			productName = gtest;
-			productReference = B5C3E4CF1D3C13A100BC4579 /* libgtest.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		B5C3E4E11D3C165300BC4579 /* objtofbx */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5C3E4EA1D3C165300BC4579 /* Build configuration list for PBXNativeTarget "objtofbx" */;
@@ -400,9 +364,6 @@
 					B58F316E1D3BD3F5003BA001 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
-					B5C3E4CE1D3C13A100BC4579 = {
-						CreatedOnToolsVersion = 7.3.1;
-					};
 					B5C3E4E11D3C165300BC4579 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -422,7 +383,6 @@
 			targets = (
 				B5597EC21D393DE100A38AD5 /* ObjToFbx */,
 				B58F316E1D3BD3F5003BA001 /* Test Bundle */,
-				B5C3E4CE1D3C13A100BC4579 /* gtest */,
 				B5C3E4E11D3C165300BC4579 /* objtofbx */,
 			);
 		};
@@ -456,14 +416,6 @@
 				B5C2294B1D3BE03D00CAD34E /* GoogleTests.mm in Sources */,
 				B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */,
 				B5C229551D3C0EDE00CAD34E /* ObjFaceTest.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5C3E4CB1D3C13A100BC4579 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5C3E4DA1D3C140300BC4579 /* gtest-all.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,34 +606,6 @@
 			};
 			name = Release;
 		};
-		B5C3E4D81D3C13A100BC4579 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EXECUTABLE_PREFIX = lib;
-				GCC_ENABLE_CPP_EXCEPTIONS = YES;
-				GCC_ENABLE_CPP_RTTI = YES;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					"\"$(SRCROOT)/../../../../git/github.com/google/googletest/googletest\"",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		B5C3E4D91D3C13A100BC4579 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EXECUTABLE_PREFIX = lib;
-				GCC_ENABLE_CPP_EXCEPTIONS = YES;
-				GCC_ENABLE_CPP_RTTI = YES;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					"\"$(SRCROOT)/../../../../git/github.com/google/googletest/googletest\"",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		B5C3E4EB1D3C165300BC4579 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -733,14 +657,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		B5C3E4D71D3C13A100BC4579 /* Build configuration list for PBXNativeTarget "gtest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B5C3E4D81D3C13A100BC4579 /* Debug */,
-				B5C3E4D91D3C13A100BC4579 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 		B5C3E4EA1D3C165300BC4579 /* Build configuration list for PBXNativeTarget "objtofbx" */ = {
 			isa = XCConfigurationList;
