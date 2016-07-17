@@ -14,8 +14,7 @@
 		B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5743F391D3A4A91007730AF /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.m */; };
-		B5A0406D1D3C339D00388264 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A0405F1D3C331400388264 /* libgtest.a */; };
-		B5A040831D3C37BE00388264 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5A040821D3C37BE00388264 /* gtest-all.cc */; };
+		B59003D21D3C3A39006BF1D0 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B59003D11D3C3A39006BF1D0 /* libgtest.a */; };
 		B5A040841D3C380100388264 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5A040821D3C37BE00388264 /* gtest-all.cc */; };
 		B5C2294B1D3BE03D00CAD34E /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */; };
 		B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
@@ -48,13 +47,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B5A0406B1D3C339100388264 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5597EBB1D393DE100A38AD5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B5A0405E1D3C331400388264;
-			remoteInfo = gtest;
-		};
 		B5C3E50F1D3C1A4600BC4579 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5597EBB1D393DE100A38AD5 /* Project object */;
@@ -113,6 +105,7 @@
 		B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test Bundle.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58F31711D3BD3F5003BA001 /* Test_Bundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_Bundle.m; sourceTree = "<group>"; };
 		B58F31731D3BD3F5003BA001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B59003D11D3C3A39006BF1D0 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../../../../../../usr/local/lib/gtest/libgtest.a; sourceTree = "<group>"; };
 		B5A0405F1D3C331400388264 /* libgtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A040821D3C37BE00388264 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "ObjToFbx/gtest-all.cc"; sourceTree = "<group>"; };
 		B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
@@ -136,8 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59003D21D3C3A39006BF1D0 /* libgtest.a in Frameworks */,
 				B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */,
-				B5A0406D1D3C339D00388264 /* libgtest.a in Frameworks */,
 				B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +240,7 @@
 		B5597EF71D39405300A38AD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B59003D11D3C3A39006BF1D0 /* libgtest.a */,
 				B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */,
 				B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */,
 				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
@@ -339,7 +333,6 @@
 			);
 			dependencies = (
 				B5C3E5101D3C1A4600BC4579 /* PBXTargetDependency */,
-				B5A0406C1D3C339100388264 /* PBXTargetDependency */,
 			);
 			name = "Test Bundle";
 			productName = "Test Bundle";
@@ -441,7 +434,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */,
-				B5A040831D3C37BE00388264 /* gtest-all.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,11 +474,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B5A0406C1D3C339100388264 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B5A0405E1D3C331400388264 /* gtest */;
-			targetProxy = B5A0406B1D3C339100388264 /* PBXContainerItemProxy */;
-		};
 		B5C3E5101D3C1A4600BC4579 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B5C3E4E11D3C165300BC4579 /* objtofbx */;
