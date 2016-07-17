@@ -23,8 +23,8 @@
 		B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5743F391D3A4A91007730AF /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.m */; };
-		B58F31781D3BD41B003BA001 /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B58F31771D3BD41B003BA001 /* GoogleTests.mm */; };
 		B58F317A1D3BD441003BA001 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58F31791D3BD441003BA001 /* gtest.framework */; };
+		B5C2294B1D3BE03D00CAD34E /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,8 +69,8 @@
 		B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test Bundle.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58F31711D3BD3F5003BA001 /* Test_Bundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_Bundle.m; sourceTree = "<group>"; };
 		B58F31731D3BD3F5003BA001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B58F31771D3BD41B003BA001 /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GoogleTests.mm; path = "../../../../../git/github.com/mattstevens/xcode-googletest/Bundle/GoogleTests.mm"; sourceTree = "<group>"; };
 		B58F31791D3BD441003BA001 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
+		B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +195,7 @@
 		B58F31701D3BD3F5003BA001 /* Test Bundle */ = {
 			isa = PBXGroup;
 			children = (
-				B58F31771D3BD41B003BA001 /* GoogleTests.mm */,
+				B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */,
 				B58F31711D3BD3F5003BA001 /* Test_Bundle.m */,
 				B58F31731D3BD3F5003BA001 /* Info.plist */,
 			);
@@ -306,7 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B58F31781D3BD41B003BA001 /* GoogleTests.mm in Sources */,
+				B5C2294B1D3BE03D00CAD34E /* GoogleTests.mm in Sources */,
 				B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,9 +427,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Frameworks",
+					/Library/Frameworks,
 				);
-				HEADER_SEARCH_PATHS = "\"/usr/local/include\"";
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "Test Bundle/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
@@ -443,9 +443,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Frameworks",
+					/Library/Frameworks,
 				);
-				HEADER_SEARCH_PATHS = "\"/usr/local/include\"";
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "Test Bundle/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walshwalsh.Test-Bundle";
@@ -481,6 +481,7 @@
 				B58F31751D3BD3F5003BA001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
