@@ -14,10 +14,15 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>objtofbx.xcscheme</key>
+		<key>gtest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
+		</dict>
+		<key>objtofbx.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>B58F316E1D3BD3F5003BA001</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B5A0405E1D3C331400388264</key>
 		<dict>
 			<key>primary</key>
 			<true/>
