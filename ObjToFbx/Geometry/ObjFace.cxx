@@ -39,3 +39,8 @@ ObjFace::~ObjFace()
     delete mNrm;
     delete mUVW;
 }
+
+string ObjFace::GetString()
+{
+    return "Hello Test!\n";
+}

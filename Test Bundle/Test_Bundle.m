@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+//#import "../ObjToFbx/Geometry/ObjFace.h"
 
 @interface Test_Bundle : XCTestCase
 
@@ -29,6 +30,12 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     XCTAssert(YES, @"Well this is awkward.");
 }
+
+//- (void)testFace {
+//    NSString *testMessage = [NSString stringWithCString:ObjFace::GetString().c_str()
+//                                                encoding:[NSString defaultCStringEncoding]];
+//    XCTAssertEqualObjects(testMessage, @"Hello Unit Test\n!", @"Test failed.");
+//}
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

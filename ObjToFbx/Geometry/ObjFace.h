@@ -13,6 +13,8 @@ class ObjFace
 public:
     ObjFace(ObjScene* pScene, std::vector<std::string>& pTokens);
 	virtual ~ObjFace();
+    
+    static std::string GetString();
 
 protected:
     std::vector<size_t>*    mXYZ;
