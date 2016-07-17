@@ -532,8 +532,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
 					/usr/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
 				);
 				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,8 +545,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
 					/usr/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
 				);
 				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -558,11 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Library/Frameworks,
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
@@ -582,11 +578,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Library/Frameworks,
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"/**",
@@ -609,6 +601,7 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				HEADER_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"";
+				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -620,6 +613,7 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				HEADER_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"";
+				LIBRARY_SEARCH_PATHS = "\"/Applications/Autodesk/FBX SDK/2016.1.1/lib\"/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -661,6 +655,7 @@
 				B5C3E4EC1D3C165300BC4579 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
