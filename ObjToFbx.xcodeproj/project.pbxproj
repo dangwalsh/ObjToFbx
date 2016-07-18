@@ -10,7 +10,6 @@
 		B51D7F0D1D3D390F00685780 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B51D7F0B1D3D38E000685780 /* gtest-all.cc */; };
 		B51D7F0F1D3D394700685780 /* texture_test.xobj in Resources */ = {isa = PBXBuildFile; fileRef = B51D7F0E1D3D394700685780 /* texture_test.xobj */; };
 		B51D7F121D3D554B00685780 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B51D7F101D3D553700685780 /* libfbxsdk.dylib */; };
-		B51D7F141D3D556600685780 /* libfbxsdk.dylib in Resources */ = {isa = PBXBuildFile; fileRef = B51D7F101D3D553700685780 /* libfbxsdk.dylib */; };
 		B51D7F161D3D561200685780 /* libfbxsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D7EF71D3D2BF500685780 /* libfbxsdk.a */; };
 		B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDE1D393E1600A38AD5 /* main.cxx */; };
 		B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
@@ -1167,7 +1166,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B51D7F0F1D3D394700685780 /* texture_test.xobj in Resources */,
-				B51D7F141D3D556600685780 /* libfbxsdk.dylib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
