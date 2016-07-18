@@ -14,7 +14,6 @@
 		B5597EF61D393EB700A38AD5 /* libfbxsdk.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
 		B5743F391D3A4A91007730AF /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5743F381D3A4A91007730AF /* texture_test.xobj */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.m */; };
-		B59003D41D3C3C72006BF1D0 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59003D31D3C3C72006BF1D0 /* gtest.framework */; };
 		B5A040841D3C380100388264 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B5A040821D3C37BE00388264 /* gtest-all.cc */; };
 		B5C2294B1D3BE03D00CAD34E /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */; };
 		B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */; };
@@ -45,7 +44,6 @@
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5E55CED1D3C47470069FAB7 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E55CEC1D3C47470069FAB7 /* libgtest.a */; };
-		B5E55CEE1D3C5A190069FAB7 /* gtest.framework in Resources */ = {isa = PBXBuildFile; fileRef = B59003D31D3C3C72006BF1D0 /* gtest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,7 +105,6 @@
 		B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test Bundle.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58F31711D3BD3F5003BA001 /* Test_Bundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_Bundle.m; sourceTree = "<group>"; };
 		B58F31731D3BD3F5003BA001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B59003D31D3C3C72006BF1D0 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../../../../../Library/Frameworks/gtest.framework; sourceTree = "<group>"; };
 		B5A0405F1D3C331400388264 /* libgtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A040821D3C37BE00388264 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "ObjToFbx/gtest-all.cc"; sourceTree = "<group>"; };
 		B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
@@ -133,7 +130,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */,
-				B59003D41D3C3C72006BF1D0 /* gtest.framework in Frameworks */,
 				B5C229501D3C0E0B00CAD34E /* libfbxsdk.dylib in Frameworks */,
 				B5E55CED1D3C47470069FAB7 /* libgtest.a in Frameworks */,
 			);
@@ -246,7 +242,6 @@
 			children = (
 				B5E55CEC1D3C47470069FAB7 /* libgtest.a */,
 				B5597EF41D393E9A00A38AD5 /* libfbxsdk.dylib */,
-				B59003D31D3C3C72006BF1D0 /* gtest.framework */,
 				B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */,
 				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
 			);
@@ -428,7 +423,6 @@
 			files = (
 				B5C229521D3C0E4100CAD34E /* texture_test.xobj in Resources */,
 				B5C229511D3C0E3100CAD34E /* libfbxsdk.dylib in Resources */,
-				B5E55CEE1D3C5A190069FAB7 /* gtest.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,10 +598,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"",
@@ -628,10 +619,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"",
