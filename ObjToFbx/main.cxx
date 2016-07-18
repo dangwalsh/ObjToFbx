@@ -17,7 +17,20 @@ int main(int argc, char** argv)
 
 	FbxImporter* lImporter = FbxImporter::Create(lSdkManager, "");
 	lResult = lImporter->Initialize(lFileName, -1, lSdkManager->GetIOSettings() );
+    if(lResult == false)
+    {
+        FBXSDK_printf("Call to FbxExporter::Initialize() failed.\n");
+        FBXSDK_printf("Error returned: %s\n\n", lImporter->GetStatus().GetErrorString());
+        DestroySdkObjects(lSdkManager, false);
+        return 1;
+    }
 	lResult = lImporter->Import(lScene);
+    if(lResult == false)
+    {
+        FBXSDK_printf("Error in write of our custom writer\n");
+        DestroySdkObjects(lSdkManager, lResult);
+        return 1;
+    }
     
 	DestroySdkObjects(lSdkManager, lResult);
 
