@@ -24,7 +24,7 @@ const char*  gFileName = "texture_test.xobj";
 FbxManager*  gSdkManager = NULL;
 FbxScene*    gScene = NULL;
 
-void importerSetup() {
+void sdkInit() {
     InitializeSdkObjects(gSdkManager, gScene);
     gSdkManager->GetIOPluginRegistry()->RegisterReader(CreateObjReader, GetObjReaderInfo, gPluginId, gRegisteredCount, FillObjReaderIOSettings);
 }
@@ -52,13 +52,13 @@ void importerSetup() {
 }
 
 - (void)testImportInit {
-    importerSetup();
+    sdkInit();
     FbxImporter* lImporter = FbxImporter::Create(gSdkManager, "");
     XCTAssertTrue(lImporter->Initialize(gFileName, -1, gSdkManager->GetIOSettings()));
 }
 
 - (void)testImport {
-    importerSetup();
+    sdkInit();
     FbxImporter* lImporter = FbxImporter::Create(gSdkManager, "");
     lImporter->Initialize(gFileName, -1, gSdkManager->GetIOSettings());
     XCTAssertTrue(lImporter->Import(gScene));
