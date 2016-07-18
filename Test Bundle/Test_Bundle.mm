@@ -7,13 +7,27 @@
 //
 
 #import <XCTest/XCTest.h>
+#include <fbxsdk.h>
 #import "../ObjToFbx/Geometry/ObjFace.h"
+#include "../ObjToFbx/Io/ObjReaderFacade.h"
+#include "../ObjToFbx/Utilities/SdkTools.h"
 
 @interface Test_Bundle : XCTestCase
 
 @end
 
 @implementation Test_Bundle
+
+int         gRegisteredCount;
+int         gPluginId;
+const char* gFileName = "texture_test.xobj";
+FbxManager* gSdkManager = NULL;
+FbxScene*   gScene = NULL;
+
+void sceneSetup() {
+    InitializeSdkObjects(gSdkManager, gScene);
+    gSdkManager->GetIOPluginRegistry()->RegisterReader(CreateObjReader, GetObjReaderInfo, gPluginId, gRegisteredCount, FillObjReaderIOSettings);
+}
 
 - (void)setUp {
     [super setUp];
@@ -35,6 +49,12 @@
     NSString *testMessage = [NSString stringWithCString:ObjFace::GetString().c_str()
                                                 encoding:[NSString defaultCStringEncoding]];
     XCTAssertEqualObjects(testMessage, @"Hello Test!\n", @"Test failed.");
+}
+
+- (void)testImportInit {
+    sceneSetup();
+    FbxImporter* lImporter = FbxImporter::Create(gSdkManager, "");
+    XCTAssertTrue(lImporter->Initialize(gFileName, -1, gSdkManager->GetIOSettings()));
 }
 
 - (void)testPerformanceExample {
