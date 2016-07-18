@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B51D7F0D1D3D390F00685780 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B51D7F0B1D3D38E000685780 /* gtest-all.cc */; };
-		B51D7F0F1D3D394700685780 /* texture_test.xobj in Resources */ = {isa = PBXBuildFile; fileRef = B51D7F0E1D3D394700685780 /* texture_test.xobj */; };
 		B51D7F161D3D561200685780 /* libfbxsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D7EF71D3D2BF500685780 /* libfbxsdk.a */; };
 		B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDE1D393E1600A38AD5 /* main.cxx */; };
 		B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
@@ -36,6 +35,7 @@
 		B5C3E50B1D3C176A00BC4579 /* StringTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EE41D393E1600A38AD5 /* StringTools.h */; };
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
+		B5E072F71D3D691500CD5596 /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B51D7F0E1D3D394700685780 /* texture_test.xobj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +125,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				B5E072F71D3D691500CD5596 /* texture_test.xobj in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,7 +1162,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B51D7F0F1D3D394700685780 /* texture_test.xobj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
