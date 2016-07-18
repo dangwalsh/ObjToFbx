@@ -45,6 +45,7 @@
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5E55CED1D3C47470069FAB7 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E55CEC1D3C47470069FAB7 /* libgtest.a */; };
+		B5E55CEE1D3C5A190069FAB7 /* gtest.framework in Resources */ = {isa = PBXBuildFile; fileRef = B59003D31D3C3C72006BF1D0 /* gtest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -427,6 +428,7 @@
 			files = (
 				B5C229521D3C0E4100CAD34E /* texture_test.xobj in Resources */,
 				B5C229511D3C0E3100CAD34E /* libfbxsdk.dylib in Resources */,
+				B5E55CEE1D3C5A190069FAB7 /* gtest.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
