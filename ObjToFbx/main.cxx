@@ -7,7 +7,7 @@ int main(int argc, char** argv)
 	bool lResult;
 	int lRegisteredCount;
 	int lPluginId;
-	const char* lFileName = "texture_test.xobj";
+	const char* lFileName = "/Library/ObjToFbx/texture_test.xobj";
 	FbxManager* lSdkManager = NULL;
 	FbxScene* lScene = NULL;
 

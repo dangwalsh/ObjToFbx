@@ -20,7 +20,7 @@
 
 int          gRegisteredCount;
 int          gPluginId;
-const char*  gFileName = "texture_test.xobj";
+const char*  gFileName = "/Library/ObjToFbx/texture_test.xobj";
 FbxManager*  gSdkManager = NULL;
 FbxScene*    gScene = NULL;
 
