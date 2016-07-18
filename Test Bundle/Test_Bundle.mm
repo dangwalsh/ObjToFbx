@@ -18,13 +18,13 @@
 
 @implementation Test_Bundle
 
-int         gRegisteredCount;
-int         gPluginId;
-const char* gFileName = "texture_test.xobj";
-FbxManager* gSdkManager = NULL;
-FbxScene*   gScene = NULL;
+int          gRegisteredCount;
+int          gPluginId;
+const char*  gFileName = "texture_test.xobj";
+FbxManager*  gSdkManager = NULL;
+FbxScene*    gScene = NULL;
 
-void sceneSetup() {
+void importerSetup() {
     InitializeSdkObjects(gSdkManager, gScene);
     gSdkManager->GetIOPluginRegistry()->RegisterReader(CreateObjReader, GetObjReaderInfo, gPluginId, gRegisteredCount, FillObjReaderIOSettings);
 }
@@ -52,9 +52,16 @@ void sceneSetup() {
 }
 
 - (void)testImportInit {
-    sceneSetup();
+    importerSetup();
     FbxImporter* lImporter = FbxImporter::Create(gSdkManager, "");
     XCTAssertTrue(lImporter->Initialize(gFileName, -1, gSdkManager->GetIOSettings()));
+}
+
+- (void)testImport {
+    importerSetup();
+    FbxImporter* lImporter = FbxImporter::Create(gSdkManager, "");
+    lImporter->Initialize(gFileName, -1, gSdkManager->GetIOSettings());
+    XCTAssertTrue(lImporter->Import(gScene));
 }
 
 - (void)testPerformanceExample {
