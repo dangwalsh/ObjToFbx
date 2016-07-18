@@ -604,7 +604,7 @@
 					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"",
 				);
 				INFOPLIST_FILE = "Test Bundle/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks /Library/Frameworks/gtest.framework";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/lib/gtest,
@@ -625,7 +625,7 @@
 					"\"/Applications/Autodesk/FBX SDK/2016.1.1/include\"",
 				);
 				INFOPLIST_FILE = "Test Bundle/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks /Library/Frameworks/gtest.framework";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/lib/gtest,
