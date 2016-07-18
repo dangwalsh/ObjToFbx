@@ -103,14 +103,14 @@
 			remoteGlobalIDString = 3B07BDEA0E3F3F9E00647869;
 			remoteInfo = WidgetFrameworkTest;
 		};
-		B5C3E50F1D3C1A4600BC4579 /* PBXContainerItemProxy */ = {
+		B5C3E5111D3C1B2600BC4579 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5597EBB1D393DE100A38AD5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B5C3E4E11D3C165300BC4579;
 			remoteInfo = objtofbx;
 		};
-		B5C3E5111D3C1B2600BC4579 /* PBXContainerItemProxy */ = {
+		B5E072F51D3D668300CD5596 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5597EBB1D393DE100A38AD5 /* Project object */;
 			proxyType = 1;
@@ -1000,7 +1000,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B5C3E5101D3C1A4600BC4579 /* PBXTargetDependency */,
+				B5E072F61D3D668300CD5596 /* PBXTargetDependency */,
 			);
 			name = "Test Bundle";
 			productName = "Test Bundle";
@@ -1215,15 +1215,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B5C3E5101D3C1A4600BC4579 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B5C3E4E11D3C165300BC4579 /* objtofbx */;
-			targetProxy = B5C3E50F1D3C1A4600BC4579 /* PBXContainerItemProxy */;
-		};
 		B5C3E5121D3C1B2600BC4579 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B5C3E4E11D3C165300BC4579 /* objtofbx */;
 			targetProxy = B5C3E5111D3C1B2600BC4579 /* PBXContainerItemProxy */;
+		};
+		B5E072F61D3D668300CD5596 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5C3E4E11D3C165300BC4579 /* objtofbx */;
+			targetProxy = B5E072F51D3D668300CD5596 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
