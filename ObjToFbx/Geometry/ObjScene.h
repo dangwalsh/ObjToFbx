@@ -11,12 +11,17 @@ class ObjScene
 public:
 	ObjScene(std::string& pString);
 	virtual ~ObjScene();
+    
+    virtual std::vector<FbxVector4>* GetVertices() const;
+    virtual std::vector<FbxVector4>* GetNormals() const;
+    virtual std::vector<FbxVector4>* GetTexCoords() const;
+    virtual std::vector<ObjGroup*>* GetGroups() const;
 
 protected:
 	std::string*                mMtlLib;
 	std::vector<FbxVector4>*    mVertices;
 	std::vector<FbxVector4>*    mNormals;
-	std::vector<FbxVector4>*    mTexCoord;
+	std::vector<FbxVector4>*    mTexCoords;
     std::vector<ObjGroup*>*     mGroups;
 
 	virtual void AddMtlLib(std::vector<std::string>& pTokens);
@@ -24,8 +29,8 @@ protected:
 	virtual void AddNormal(std::vector<std::string>& pTokens);
 	virtual void AddTexCoord(std::vector<std::string>& pTokens);
     virtual std::vector<std::string>::iterator AddObjGroup(std::vector<std::string>& pTokens,
-                                                   std::vector<std::string>::iterator pItor,
-                                                   std::vector<std::string>::iterator pEnd);
+                                                           std::vector<std::string>::iterator pItor,
+                                                           std::vector<std::string>::iterator pEnd);
 
 };
 

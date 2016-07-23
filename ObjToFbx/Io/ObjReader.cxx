@@ -66,33 +66,78 @@ bool ObjReader::Read(FbxDocument* pDocument)
 	FbxScene*       lScene = FbxCast<FbxScene>(pDocument);
 	bool            lIsAScene = (lScene != NULL);
 	bool            lResult = false;
-
+    ObjScene*       lObjScene = NULL;
+    
 	if(lIsAScene)
 	{
-		FbxNode* lRootNode = lScene->GetRootNode();
-		FbxNodeAttribute * lRootNodeAttribute = FbxNull::Create(lScene,"");
-		lRootNode->SetNodeAttribute(lRootNodeAttribute);
+//		FbxNode* lRootNode = lScene->GetRootNode();
+//		FbxNodeAttribute * lRootNodeAttribute = FbxNull::Create(lScene,"");
+//		lRootNode->SetNodeAttribute(lRootNodeAttribute);
 
 		long lSize;
 		char* lBuffer = NULL;    
 		if(mFilePointer != NULL)
 		{
-			//To obtain file size
 			fseek (mFilePointer , 0 , SEEK_END);
 			lSize = ftell (mFilePointer);
 			rewind (mFilePointer);
 
-			//Read file content to a string.
 			lBuffer = (char*) malloc (sizeof(char)*lSize + 1);
 			size_t lRead = fread(lBuffer, 1, lSize, mFilePointer);
 			lBuffer[lRead]='\0';
 			string lString(lBuffer);
 
-			ObjScene lObjScene = ObjScene(lString);
-
+			lObjScene = new ObjScene(lString);
+            
 			free(lBuffer);
 		}
+        
+        CreateFbxScene(lScene, lObjScene);
+        
 		lResult = true;
 	}
 	return lResult;
+}
+
+void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
+{
+    FbxNode* lRootNode = pScene->GetRootNode();
+    FbxNodeAttribute * lRootNodeAttribute = FbxNull::Create(pScene,"");
+    lRootNode->SetNodeAttribute(lRootNodeAttribute);
+    vector<ObjGroup*>::iterator itor;
+    vector<ObjGroup*>* lGroups = pObjScene->GetGroups();
+    for(itor = lGroups->begin(); itor < lGroups->end(); ++itor) {
+        CreateMesh(pScene, pObjScene, *itor++);
+    }
+    
+}
+
+void ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup)
+{
+    const char* lName = pGroup->GetName()->c_str();
+    FbxMesh* lMesh = FbxMesh::Create(pScene, lName);
+    
+    size_t lNbFaces = pGroup->GetFaces()->size();
+    size_t lNbPoints = pGroup->GetFaces(0)->Size();
+    lMesh->InitControlPoints(lNbPoints * lNbFaces);
+    
+    FbxVector4* lControlPoints = lMesh->GetControlPoints();
+    const vector<FbxVector4>* lVertices = pObjScene->GetVertices();
+    
+    for (size_t i = 0; i < lNbFaces; ++i) {
+        const ObjFace* lFace = pGroup->GetFaces(i);
+        for (size_t j = 0; j < lNbPoints; ++j) {
+            *lControlPoints = lVertices->at(lFace->GetXYZ(j));
+            ++lControlPoints;
+        }
+    }
+    
+    FbxNode* lNode = FbxNode::Create(pScene,lName);
+    lNode->SetNodeAttribute(lMesh);
+    
+//    TODO: incorporate materials
+//    lNode->AddMaterial(fbxsdk::FbxSurfaceMaterial *pMaterial);
+//    lNode->SetShadingMode(FbxNode::eTextureShading);
+    
+    pScene->GetRootNode()->AddChild(lNode);
 }

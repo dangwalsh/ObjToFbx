@@ -3,6 +3,9 @@
 
 using namespace std;
 
+
+/* Public Members - Constructors */
+
 ObjGroup::ObjGroup(ObjScene* pScene)
 {
     mScene = pScene;
@@ -22,6 +25,10 @@ ObjGroup::~ObjGroup()
     delete mMaterial;
 }
 
+
+
+/* Public Members - Mutators */
+
 void ObjGroup::AddFace(ObjFace* pFace)
 {
     mFaces->push_back(pFace);
@@ -35,4 +42,22 @@ void ObjGroup::AddName(string* pString)
 void ObjGroup::AddMaterial(ObjMaterial* pMaterial)
 {
     mMaterial = pMaterial;
+}
+
+
+/* Public Members - Accessors */
+
+const std::string* ObjGroup::GetName()
+{
+    return mName;
+}
+
+const vector<ObjFace*>* ObjGroup::GetFaces()
+{
+    return mFaces;
+}
+
+const ObjFace* ObjGroup::GetFaces(size_t index)
+{
+    return mFaces->at(index);
 }

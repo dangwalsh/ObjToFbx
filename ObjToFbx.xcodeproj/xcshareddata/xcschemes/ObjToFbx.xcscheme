@@ -7,16 +7,16 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5C3E4E11D3C165300BC4579"
-               BuildableName = "libobjtofbx.a"
-               BlueprintName = "objtofbx"
+               BlueprintIdentifier = "B5597EC21D393DE100A38AD5"
+               BuildableName = "ObjToFbx"
+               BlueprintName = "ObjToFbx"
                ReferencedContainer = "container:ObjToFbx.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B5597EC21D393DE100A38AD5"
+            BuildableName = "ObjToFbx"
+            BlueprintName = "ObjToFbx"
+            ReferencedContainer = "container:ObjToFbx.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5C3E4E11D3C165300BC4579"
-            BuildableName = "libobjtofbx.a"
-            BlueprintName = "objtofbx"
+            BlueprintIdentifier = "B5597EC21D393DE100A38AD5"
+            BuildableName = "ObjToFbx"
+            BlueprintName = "ObjToFbx"
             ReferencedContainer = "container:ObjToFbx.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5C3E4E11D3C165300BC4579"
-            BuildableName = "libobjtofbx.a"
-            BlueprintName = "objtofbx"
+            BlueprintIdentifier = "B5597EC21D393DE100A38AD5"
+            BuildableName = "ObjToFbx"
+            BlueprintName = "ObjToFbx"
             ReferencedContainer = "container:ObjToFbx.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

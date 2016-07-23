@@ -4,11 +4,12 @@
 
 using namespace std;
 
+/* Public Memebers - Constructors */
 ObjScene::ObjScene(string& pString)
 {
     mVertices = new vector<FbxVector4>;
     mNormals = new vector<FbxVector4>;
-    mTexCoord = new vector<FbxVector4>;
+    mTexCoords = new vector<FbxVector4>;
     mGroups = new vector<ObjGroup*>;
 	vector<string> lLines = Tokenize(pString, '\n');
 	vector<string>::iterator lItor;
@@ -39,10 +40,36 @@ ObjScene::~ObjScene()
     delete mMtlLib;
     delete mVertices;
     delete mNormals;
-    delete mTexCoord;
+    delete mTexCoords;
     delete mGroups;
 }
 
+
+
+/* Public Members - Accessors */
+std::vector<FbxVector4>* ObjScene::GetVertices() const
+{
+    return mVertices;
+}
+
+std::vector<FbxVector4>* ObjScene::GetNormals() const
+{
+    return mNormals;
+}
+
+std::vector<FbxVector4>* ObjScene::GetTexCoords() const
+{
+    return mTexCoords;
+}
+
+std::vector<ObjGroup*>* ObjScene::GetGroups() const
+{
+    return mGroups;
+}
+
+
+
+/* Protected Members */
 void ObjScene::AddMtlLib(vector<string>& pTokens)
 {
 	mMtlLib = new string(pTokens.at(1));
@@ -75,7 +102,7 @@ void ObjScene::AddTexCoord(vector<string>& pTokens)
 	double v2 = stod(pTokens.at(2), &sz);
 	double v3 = stod(pTokens.at(3), &sz);
 	FbxVector4 vertex(v1, v2, v3);
-	mTexCoord->push_back(vertex);
+	mTexCoords->push_back(vertex);
 }
 
 vector<string>::iterator ObjScene::AddObjGroup(vector<string>& pTokens,

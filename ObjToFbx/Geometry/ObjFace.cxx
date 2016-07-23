@@ -2,6 +2,9 @@
 #include "../Io/ObjReader.h"
 #include "../Utilities/StringTools.h"
 
+
+/* Public Members - Constructors */
+
 ObjFace::ObjFace(ObjScene* pScene, vector<string>& pTokens)
 {
     mScene = pScene;
@@ -40,7 +43,48 @@ ObjFace::~ObjFace()
     delete mUVW;
 }
 
+
+/* Test Function - TODO: Delete */
+
 string ObjFace::GetString()
 {
     return "Hello Test!\n";
+}
+
+
+/* Public Members - Accessors */
+
+size_t ObjFace::Size() const
+{
+    return mXYZ->size();
+}
+
+const vector<size_t>* ObjFace::GetXYZ()
+{
+    return mXYZ;
+}
+
+const vector<size_t>* ObjFace::GetNrm()
+{
+    return mNrm;
+}
+
+const vector<size_t>* ObjFace::GetUVW()
+{
+    return mUVW;
+}
+
+size_t ObjFace::GetXYZ(size_t index) const
+{
+    return mXYZ->at(index);
+}
+
+size_t ObjFace::GetNrm(size_t index) const
+{
+    return mNrm->at(index);
+}
+
+size_t ObjFace::GetUVW(size_t index) const
+{
+    return mUVW->at(index);
 }

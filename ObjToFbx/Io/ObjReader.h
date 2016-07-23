@@ -2,6 +2,9 @@
 #define OBJREADER_H
 
 #include <fbxsdk.h>
+#include "../Geometry/ObjScene.h"
+
+class ObjScene;
 
 class ObjReader : public FbxReader
 {
@@ -16,6 +19,8 @@ public:
 
 	virtual bool GetReadOptions(bool pParseFileAsNeeded = true);
 	virtual bool Read(FbxDocument* pDocument);
+    virtual void CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene);
+    virtual void CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup);
 
 private:
 	FILE*		mFilePointer;
