@@ -46,10 +46,10 @@ ObjFace::~ObjFace()
 
 /* Test Function - TODO: Delete */
 
-string ObjFace::GetString()
-{
-    return "Hello Test!\n";
-}
+//string ObjFace::GetString()
+//{
+//    return "Hello Test!\n";
+//}
 
 
 /* Public Members - Accessors */

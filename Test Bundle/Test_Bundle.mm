@@ -45,11 +45,11 @@ void sdkInit() {
     XCTAssert(YES, @"Well this is awkward.");
 }
 
-- (void)testFace {
-    NSString *testMessage = [NSString stringWithCString:ObjFace::GetString().c_str()
-                                                encoding:[NSString defaultCStringEncoding]];
-    XCTAssertEqualObjects(testMessage, @"Hello Test!\n", @"Test failed.");
-}
+//- (void)testFace {
+//    NSString *testMessage = [NSString stringWithCString:ObjFace::GetString().c_str()
+//                                                encoding:[NSString defaultCStringEncoding]];
+//    XCTAssertEqualObjects(testMessage, @"Hello Test!\n", @"Test failed.");
+//}
 
 - (void)testImportInit {
     sdkInit();
