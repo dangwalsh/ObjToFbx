@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 	lSdkManager->GetIOPluginRegistry()->RegisterReader(CreateObjReader, GetObjReaderInfo, lPluginId, lRegisteredCount, FillObjReaderIOSettings);
 
 	FbxImporter* lImporter = FbxImporter::Create(lSdkManager, "");
-    
+
 	lResult = lImporter->Initialize(lFileName, -1, lSdkManager->GetIOSettings() );
     if(lResult == false)
     {

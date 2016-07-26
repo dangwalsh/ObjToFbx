@@ -88,7 +88,8 @@ bool ObjReader::Read(FbxDocument* pDocument)
 			free(lBuffer);
 		}
         
-        CreateMesh(lScene, lObjScene);
+        CreateFbxScene(lScene, lObjScene);
+        //CreateMesh(lScene, lObjScene);
         
 		lResult = true;
 	}
@@ -97,10 +98,10 @@ bool ObjReader::Read(FbxDocument* pDocument)
 
 void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
 {
-
+    pScene->GetRootNode()->AddChild(CreateMesh(pScene, pObjScene));
 }
 
-void ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
+FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
 {
     FbxMesh* lMesh = FbxMesh::Create(pScene, "");
     vector<FbxVector4>* lVertices = pObjScene->GetVertices();
@@ -108,20 +109,39 @@ void ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
     lMesh->InitControlPoints(static_cast<unsigned int>(lVertices->size()));
     FbxVector4* lControlPoints = lMesh->GetControlPoints();
     
-    for(FbxVector4 & lVertex : *lVertices) {
+    for (FbxVector4 & lVertex : *lVertices) {
         *lControlPoints++ = lVertex;
     }
+    
+    FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV( "DiffuseUV");
+    FBX_ASSERT( lUVDiffuseElement != NULL);
+    lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
+    lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
+    
+    vector<FbxVector2>* lTexCoords = pObjScene->GetTexCoords();
+    
+    for (FbxVector2 & lTexCoord : *lTexCoords) {
+        lUVDiffuseElement->GetDirectArray().Add(lTexCoord);
+    }
+    
+    lUVDiffuseElement->GetIndexArray().SetCount(static_cast<unsigned int>(lTexCoords->size()));
     
     // TODO: normals and UVs
     
     for(ObjGroup* & lGroup : *pObjScene->GetGroups()) {
         for (ObjFace* & lFace : *lGroup->GetFaces()) {
             lMesh->BeginPolygon();
-            for (const size_t & lVertex : *lFace->GetXYZ()) {
-                lMesh->AddPolygon(static_cast<unsigned int>(lVertex));
-                
-                // TODO: update the index array of the UVs
-                
+//            for (const size_t & lVertInd : *lFace->GetXYZ()) {
+//                lMesh->AddPolygon(static_cast<unsigned int>(lVertInd));
+//                
+//                // TODO: update the index array of the UVs
+//                
+//            }
+            const vector<size_t>* lVertInd = lFace->GetXYZ();
+            const vector<size_t>* lTexInd = lFace->GetUVW();
+            for (size_t i = 0; i < lVertInd->size(); ++i) {
+                lMesh->AddPolygon(static_cast<unsigned int>(lVertInd->at(i)));
+                lUVDiffuseElement->GetIndexArray().Add(static_cast<unsigned int>(lTexInd->at(i)));
             }
             lMesh->EndPolygon ();
         }
@@ -129,5 +149,27 @@ void ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
     
     FbxNode* lNode = FbxNode::Create(pScene, "");
     lNode->SetNodeAttribute(lMesh);
-    pScene->GetRootNode()->AddChild(lNode);
+    lNode->SetShadingMode(FbxNode::eTextureShading);
+    
+    FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
+    lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
+    lMaterialElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
+    if( !lMesh->GetElementMaterial( 0))
+        return NULL;
+    
+    FbxString lMaterialName = "material_for_plane";
+    FbxString lShadingName  = "Phong";
+    FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
+    
+    lMaterial->Diffuse.Set(FbxDouble3(1.0, 1.0, 0));
+    lMaterial->DiffuseFactor.Set(1.);
+    
+    lNode->AddMaterial(lMaterial);
+    
+    lMaterialElement->GetIndexArray().SetCount(lMesh->GetPolygonCount());
+    
+    for(int i = 0; i<lMesh->GetPolygonCount(); ++i)
+        lMaterialElement->GetIndexArray().SetAt(i,0);
+    
+    return lNode;
 }

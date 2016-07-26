@@ -9,7 +9,7 @@ ObjScene::ObjScene(string& pString)
 {
     mVertices = new vector<FbxVector4>;
     mNormals = new vector<FbxVector4>;
-    mTexCoords = new vector<FbxVector4>;
+    mTexCoords = new vector<FbxVector2>;
     mGroups = new vector<ObjGroup*>;
 	vector<string> lLines = Tokenize(pString, '\n');
 	vector<string>::iterator lItor;
@@ -57,7 +57,7 @@ std::vector<FbxVector4>* ObjScene::GetNormals() const
     return mNormals;
 }
 
-std::vector<FbxVector4>* ObjScene::GetTexCoords() const
+std::vector<FbxVector2>* ObjScene::GetTexCoords() const
 {
     return mTexCoords;
 }
@@ -104,8 +104,8 @@ void ObjScene::AddTexCoord(vector<string>& pTokens)
     string::size_type sz;
 	double v1 = stod(pTokens.at(1), &sz);
 	double v2 = stod(pTokens.at(2), &sz);
-	double v3 = stod(pTokens.at(3), &sz);
-	FbxVector4 vertex(v1, v2, v3);
+//	double v3 = stod(pTokens.at(3), &sz);
+	FbxVector2 vertex(v1, v2);
 	mTexCoords->push_back(vertex);
 }
 
