@@ -47,7 +47,7 @@ IODIR		= $(PROJDIR)/Io
 UTILDIR		= $(PROJDIR)/Utilities
 
 TARGET      = $(BINDIR)/$(PROJECT)
-OBJS        = $(PROJDIR)/main.o $(IODIR)/ObjReader.o $(IODIR)/ObjReaderFacade.o $(GEOMDIR)/ObjFace.o $(GEOMDIR)/ObjGroup.o $(GEOMDIR)/ObjScene.o $(GEOMDIR)/ObjMaterial.o $(UTILDIR)/SdkTools.o $(UTILDIR)/StringTools.o
+OBJS        = $(PROJDIR)/main.o $(IODIR)/ObjReader.o $(IODIR)/ObjReaderFacade.o $(GEOMDIR)/ObjFace.o $(GEOMDIR)/ObjGroup.o $(GEOMDIR)/ObjScene.o $(GEOMDIR)/ObjMaterial.o $(UTILDIR)/SdkTools.o $(UTILDIR)/StringTools.o $(UTILDIR)/GeometryTools.o
 
 CP          = cp -f
 RM          = /bin/rm -rf

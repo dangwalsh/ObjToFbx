@@ -88,7 +88,7 @@ bool ObjReader::Read(FbxDocument* pDocument)
 			free(lBuffer);
 		}
         
-        CreateFbxScene(lScene, lObjScene);
+        CreateMesh(lScene, lObjScene);
         
 		lResult = true;
 	}
@@ -97,36 +97,31 @@ bool ObjReader::Read(FbxDocument* pDocument)
 
 void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
 {
-    vector<ObjGroup*>::iterator itor;
-    vector<ObjGroup*>* lGroups = pObjScene->GetGroups();
-    for(itor = lGroups->begin(); itor < lGroups->end(); ++itor) {
-        CreateMesh(pScene, pObjScene, *itor++);
-    }
-    
+
 }
 
-void ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup)
-{    
+void ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
+{
     FbxMesh* lMesh = FbxMesh::Create(pScene, "");
     vector<FbxVector4>* lVertices = pObjScene->GetVertices();
-    int lNbPoints = static_cast<unsigned int>(lVertices->size());
-    lMesh->InitControlPoints(lNbPoints);
+
+    lMesh->InitControlPoints(static_cast<unsigned int>(lVertices->size()));
     FbxVector4* lControlPoints = lMesh->GetControlPoints();
     
-    for (vector<FbxVector4>::iterator itor = lVertices->begin(); itor < lVertices->end(); ++itor) {
-        *lControlPoints++ = *itor;
+    for(FbxVector4 & lVertex : *lVertices) {
+        *lControlPoints++ = lVertex;
     }
     
     // TODO: normals and UVs
     
-    for(ObjGroup* & group : *pObjScene->GetGroups()) {
-        for (ObjFace* & face : *group->GetFaces()) {
-            vector<size_t> lVerts = *face->GetXYZ();
+    for(ObjGroup* & lGroup : *pObjScene->GetGroups()) {
+        for (ObjFace* & lFace : *lGroup->GetFaces()) {
             lMesh->BeginPolygon();
-            for (vector<size_t>::iterator itor = lVerts.begin(); itor < lVerts.end(); ++itor) {
-                lMesh->AddPolygon(static_cast<unsigned int>(*itor));
+            for (const size_t & lVertex : *lFace->GetXYZ()) {
+                lMesh->AddPolygon(static_cast<unsigned int>(lVertex));
                 
                 // TODO: update the index array of the UVs
+                
             }
             lMesh->EndPolygon ();
         }
