@@ -89,7 +89,6 @@ bool ObjReader::Read(FbxDocument* pDocument)
 		}
         
         CreateFbxScene(lScene, lObjScene);
-        //CreateMesh(lScene, lObjScene);
         
 		lResult = true;
 	}
@@ -98,7 +97,8 @@ bool ObjReader::Read(FbxDocument* pDocument)
 
 void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
 {
-    pScene->GetRootNode()->AddChild(CreateMesh(pScene, pObjScene));
+    FbxNode* lNode = CreateMesh(pScene, pObjScene);
+    pScene->GetRootNode()->AddChild(lNode);
 }
 
 FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
@@ -109,7 +109,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
     lMesh->InitControlPoints(static_cast<unsigned int>(lVertices->size()));
     FbxVector4* lControlPoints = lMesh->GetControlPoints();
     
-    for (FbxVector4 & lVertex : *lVertices) {
+    for (FbxVector4 &lVertex : *lVertices) {
         *lControlPoints++ = lVertex;
     }
     
@@ -126,20 +126,12 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
     
     lUVDiffuseElement->GetIndexArray().SetCount(static_cast<unsigned int>(lTexCoords->size()));
     
-    // TODO: normals and UVs
-    
-    for(ObjGroup* & lGroup : *pObjScene->GetGroups()) {
-        for (ObjFace* & lFace : *lGroup->GetFaces()) {
+    for(ObjGroup* &lGroup : *pObjScene->GetGroups()) {
+        for (ObjFace* &lFace : *lGroup->GetFaces()) {
             lMesh->BeginPolygon();
-//            for (const size_t & lVertInd : *lFace->GetXYZ()) {
-//                lMesh->AddPolygon(static_cast<unsigned int>(lVertInd));
-//                
-//                // TODO: update the index array of the UVs
-//                
-//            }
             const vector<size_t>* lVertInd = lFace->GetXYZ();
             const vector<size_t>* lTexInd = lFace->GetUVW();
-            for (size_t i = 0; i < lVertInd->size(); ++i) {
+            for (size_t i = 0; i < lFace->Size(); ++i) {
                 lMesh->AddPolygon(static_cast<unsigned int>(lVertInd->at(i)));
                 lUVDiffuseElement->GetIndexArray().Add(static_cast<unsigned int>(lTexInd->at(i)));
             }
