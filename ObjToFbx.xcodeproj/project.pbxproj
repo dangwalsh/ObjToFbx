@@ -36,6 +36,9 @@
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5E072F71D3D691500CD5596 /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B51D7F0E1D3D394700685780 /* texture_test.xobj */; };
+		B5F1EA711D46492D00B2547C /* box.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F1EA631D46492200B2547C /* box.xobj */; };
+		B5F1EA991D46B54F00B2547C /* GeometryTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5F1EA971D46B54F00B2547C /* GeometryTools.cxx */; };
+		B5F1EA9A1D46B54F00B2547C /* GeometryTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5F1EA981D46B54F00B2547C /* GeometryTools.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,10 +125,11 @@
 		B5597EC11D393DE100A38AD5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 16;
+			dstPath = /Library/ObjToFbx;
+			dstSubfolderSpec = 0;
 			files = (
 				B5E072F71D3D691500CD5596 /* texture_test.xobj in CopyFiles */,
+				B5F1EA711D46492D00B2547C /* box.xobj in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +368,9 @@
 		B5A0405F1D3C331400388264 /* libgtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
 		B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libobjtofbx.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5F1EA631D46492200B2547C /* box.xobj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = box.xobj; path = Assets/box.xobj; sourceTree = "<group>"; };
+		B5F1EA971D46B54F00B2547C /* GeometryTools.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryTools.cxx; sourceTree = "<group>"; };
+		B5F1EA981D46B54F00B2547C /* GeometryTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometryTools.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,6 +491,8 @@
 				B5597EE21D393E1600A38AD5 /* SdkTools.h */,
 				B5597EE31D393E1600A38AD5 /* StringTools.cxx */,
 				B5597EE41D393E1600A38AD5 /* StringTools.h */,
+				B5F1EA971D46B54F00B2547C /* GeometryTools.cxx */,
+				B5F1EA981D46B54F00B2547C /* GeometryTools.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -501,6 +510,7 @@
 		B5743F3A1D3A4E32007730AF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				B5F1EA631D46492200B2547C /* box.xobj */,
 				B51D7F0E1D3D394700685780 /* texture_test.xobj */,
 			);
 			name = Assets;
@@ -961,6 +971,7 @@
 				B5C3E5081D3C176A00BC4579 /* ObjReader.h in Headers */,
 				B5C3E5091D3C176A00BC4579 /* ObjReaderFacade.h in Headers */,
 				B5C3E50A1D3C176A00BC4579 /* SdkTools.h in Headers */,
+				B5F1EA9A1D46B54F00B2547C /* GeometryTools.h in Headers */,
 				B5C3E50B1D3C176A00BC4579 /* StringTools.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1205,6 +1216,7 @@
 				B5C3E4FD1D3C16E600BC4579 /* ObjReaderFacade.cxx in Sources */,
 				B5C3E4FF1D3C16E600BC4579 /* SdkTools.cxx in Sources */,
 				B5C3E5011D3C16E600BC4579 /* StringTools.cxx in Sources */,
+				B5F1EA991D46B54F00B2547C /* GeometryTools.cxx in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

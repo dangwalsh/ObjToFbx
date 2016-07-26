@@ -67,6 +67,10 @@ std::vector<ObjGroup*>* ObjScene::GetGroups() const
     return mGroups;
 }
 
+FbxVector4& ObjScene::GetVertex(size_t index) const
+{
+    return mVertices->at(index);
+}
 
 
 /* Protected Members */

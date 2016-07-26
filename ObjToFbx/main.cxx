@@ -42,7 +42,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    lResult = SaveScene(lSdkManager, lScene, "test.fbx");
+    lResult = SaveScene(lSdkManager, lScene, "texture_test.fbx");
     
 	DestroySdkObjects(lSdkManager, lResult);
 

@@ -23,11 +23,13 @@ public:
     virtual size_t GetXYZ(size_t index) const;
     virtual size_t GetNrm(size_t index) const;
     virtual size_t GetUVW(size_t index) const;
+    virtual const FbxVector4* GetNormal();
 
 protected:
-    std::vector<size_t>*    mXYZ;
-    std::vector<size_t>*    mNrm;
-    std::vector<size_t>*    mUVW;
+    std::vector<size_t>*    mVertexIndex;
+    std::vector<size_t>*    mNormalIndex;
+    std::vector<size_t>*    mTextureIndex;
+    FbxVector4*             mNormal;
     ObjScene*               mScene;
 };
 

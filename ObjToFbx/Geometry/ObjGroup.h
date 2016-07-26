@@ -25,7 +25,7 @@ public:
     virtual void AddMaterial(ObjMaterial* pMaterial);
     
     virtual const std::string *GetName();
-    virtual const std::vector<ObjFace*>* GetFaces();
+    virtual std::vector<ObjFace*>* GetFaces();
     virtual const ObjFace* GetFaces(size_t index);
 
 protected:

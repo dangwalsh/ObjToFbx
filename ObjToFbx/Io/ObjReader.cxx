@@ -70,10 +70,6 @@ bool ObjReader::Read(FbxDocument* pDocument)
     
 	if(lIsAScene)
 	{
-//		FbxNode* lRootNode = lScene->GetRootNode();
-//		FbxNodeAttribute * lRootNodeAttribute = FbxNull::Create(lScene,"");
-//		lRootNode->SetNodeAttribute(lRootNodeAttribute);
-
 		long lSize;
 		char* lBuffer = NULL;    
 		if(mFilePointer != NULL)
@@ -101,9 +97,6 @@ bool ObjReader::Read(FbxDocument* pDocument)
 
 void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
 {
-    FbxNode* lRootNode = pScene->GetRootNode();
-    FbxNodeAttribute * lRootNodeAttribute = FbxNull::Create(pScene,"");
-    lRootNode->SetNodeAttribute(lRootNodeAttribute);
     vector<ObjGroup*>::iterator itor;
     vector<ObjGroup*>* lGroups = pObjScene->GetGroups();
     for(itor = lGroups->begin(); itor < lGroups->end(); ++itor) {
@@ -113,31 +106,33 @@ void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
 }
 
 void ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup)
-{
-    const char* lName = pGroup->GetName()->c_str();
-    FbxMesh* lMesh = FbxMesh::Create(pScene, lName);
-    
-    size_t lNbFaces = pGroup->GetFaces()->size();
-    size_t lNbPoints = pGroup->GetFaces(0)->Size();
-    lMesh->InitControlPoints(lNbPoints * lNbFaces);
-    
+{    
+    FbxMesh* lMesh = FbxMesh::Create(pScene, "");
+    vector<FbxVector4>* lVertices = pObjScene->GetVertices();
+    int lNbPoints = static_cast<unsigned int>(lVertices->size());
+    lMesh->InitControlPoints(lNbPoints);
     FbxVector4* lControlPoints = lMesh->GetControlPoints();
-    const vector<FbxVector4>* lVertices = pObjScene->GetVertices();
     
-    for (size_t i = 0; i < lNbFaces; ++i) {
-        const ObjFace* lFace = pGroup->GetFaces(i);
-        for (size_t j = 0; j < lNbPoints; ++j) {
-            *lControlPoints = lVertices->at(lFace->GetXYZ(j));
-            ++lControlPoints;
+    for (vector<FbxVector4>::iterator itor = lVertices->begin(); itor < lVertices->end(); ++itor) {
+        *lControlPoints++ = *itor;
+    }
+    
+    // TODO: normals and UVs
+    
+    for(ObjGroup* & group : *pObjScene->GetGroups()) {
+        for (ObjFace* & face : *group->GetFaces()) {
+            vector<size_t> lVerts = *face->GetXYZ();
+            lMesh->BeginPolygon();
+            for (vector<size_t>::iterator itor = lVerts.begin(); itor < lVerts.end(); ++itor) {
+                lMesh->AddPolygon(static_cast<unsigned int>(*itor));
+                
+                // TODO: update the index array of the UVs
+            }
+            lMesh->EndPolygon ();
         }
     }
     
-    FbxNode* lNode = FbxNode::Create(pScene,lName);
+    FbxNode* lNode = FbxNode::Create(pScene, "");
     lNode->SetNodeAttribute(lMesh);
-    
-//    TODO: incorporate materials
-//    lNode->AddMaterial(fbxsdk::FbxSurfaceMaterial *pMaterial);
-//    lNode->SetShadingMode(FbxNode::eTextureShading);
-    
     pScene->GetRootNode()->AddChild(lNode);
 }

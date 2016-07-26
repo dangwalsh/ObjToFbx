@@ -52,7 +52,7 @@ const std::string* ObjGroup::GetName()
     return mName;
 }
 
-const vector<ObjFace*>* ObjGroup::GetFaces()
+vector<ObjFace*>* ObjGroup::GetFaces()
 {
     return mFaces;
 }
