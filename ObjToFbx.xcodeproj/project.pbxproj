@@ -35,8 +35,6 @@
 		B5C3E50B1D3C176A00BC4579 /* StringTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EE41D393E1600A38AD5 /* StringTools.h */; };
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
-		B5E072F71D3D691500CD5596 /* texture_test.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B51D7F0E1D3D394700685780 /* texture_test.xobj */; };
-		B5F1EA711D46492D00B2547C /* box.xobj in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5F1EA631D46492200B2547C /* box.xobj */; };
 		B5F1EA991D46B54F00B2547C /* GeometryTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5F1EA971D46B54F00B2547C /* GeometryTools.cxx */; };
 		B5F1EA9A1D46B54F00B2547C /* GeometryTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5F1EA981D46B54F00B2547C /* GeometryTools.h */; };
 /* End PBXBuildFile section */
@@ -128,8 +126,6 @@
 			dstPath = /Library/ObjToFbx;
 			dstSubfolderSpec = 0;
 			files = (
-				B5E072F71D3D691500CD5596 /* texture_test.xobj in CopyFiles */,
-				B5F1EA711D46492D00B2547C /* box.xobj in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

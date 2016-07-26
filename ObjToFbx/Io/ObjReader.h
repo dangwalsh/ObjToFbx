@@ -22,7 +22,8 @@ public:
     virtual void CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene);
 //    virtual void CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup);
     virtual FbxNode* CreateMesh(FbxScene* pScene, ObjScene* pObjScene);
-
+    virtual FbxNode* CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup);
+    
 private:
 	FILE*		mFilePointer;
 	FbxManager*	mManager;
