@@ -14,8 +14,6 @@ public:
     ObjFace(ObjScene* pScene, std::vector<std::string>& pTokens);
 	virtual ~ObjFace();
     
-//    static std::string GetString();
-    
     virtual size_t Size() const;
     virtual const std::vector<size_t>* GetXYZ();
     virtual const std::vector<size_t>* GetNrm();

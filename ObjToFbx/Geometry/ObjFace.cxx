@@ -53,14 +53,6 @@ ObjFace::~ObjFace()
 }
 
 
-/* Test Function - TODO: Delete */
-
-//string ObjFace::GetString()
-//{
-//    return "Hello Test!\n";
-//}
-
-
 /* Public Members - Accessors */
 
 size_t ObjFace::Size() const
