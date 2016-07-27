@@ -1,7 +1,6 @@
 #ifndef OBJMATERIAL_H
 #define OBJMATERIAL_H
 
-#include <string>
 #include "ObjScene.h"
 
 class ObjScene;
@@ -9,11 +8,13 @@ class ObjScene;
 class ObjMaterial
 {
 public:
-    ObjMaterial(ObjScene* pScene, std::string* pString);
+    ObjMaterial(ObjScene* pScene, const char* pString);
     virtual ~ObjMaterial();
+    
+    virtual const char* GetName() const;
 
 protected:
-    std::string*    mName;
+    const char*    mName;
 	ObjScene*       mScene;
 	
 };

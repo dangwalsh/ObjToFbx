@@ -113,7 +113,7 @@ vector<string>::iterator ObjScene::AddObjGroup(vector<string>& pTokens,
                                                vector<string>::iterator pItor,
                                                vector<string>::iterator pEnd)
 {
-	ObjGroup* lGroup = new ObjGroup(this, &(pTokens.at(1)));
+	ObjGroup* lGroup = new ObjGroup(this, pTokens.at(1).c_str());
     mGroups->push_back(lGroup);
 	for(++pItor; pItor < pEnd; ++pItor)
 	{

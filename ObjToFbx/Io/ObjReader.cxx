@@ -84,12 +84,10 @@ bool ObjReader::Read(FbxDocument* pDocument)
 			string lString(lBuffer);
 
 			lObjScene = new ObjScene(lString);
+            CreateFbxScene(lScene, lObjScene);
             
 			free(lBuffer);
 		}
-        
-        CreateFbxScene(lScene, lObjScene);
-        
 		lResult = true;
 	}
 	return lResult;
@@ -100,6 +98,9 @@ void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
     for (ObjGroup* &lGroup : *pObjScene->GetGroups())
     {
         FbxNode* lNode = CreateMesh(pScene, pObjScene, lGroup);
+        if(!lNode)
+            continue;
+        ApplyMaterial(pScene, lNode, lGroup);
         pScene->GetRootNode()->AddChild(lNode);
     }
 }
@@ -144,26 +145,6 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
     lNode->SetNodeAttribute(lMesh);
     lNode->SetShadingMode(FbxNode::eTextureShading);
     
-    FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
-    lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
-    lMaterialElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
-    if( !lMesh->GetElementMaterial( 0))
-        return NULL;
-    
-    FbxString lMaterialName = "material_for_plane";
-    FbxString lShadingName  = "Phong";
-    FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
-    
-    lMaterial->Diffuse.Set(FbxDouble3(1.0, 1.0, 0));
-    lMaterial->DiffuseFactor.Set(1.);
-    
-    lNode->AddMaterial(lMaterial);
-    
-    lMaterialElement->GetIndexArray().SetCount(lMesh->GetPolygonCount());
-    
-    for(int i = 0; i<lMesh->GetPolygonCount(); ++i)
-        lMaterialElement->GetIndexArray().SetAt(i,0);
-    
     return lNode;
 }
 
@@ -172,7 +153,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
     FbxMesh* lMesh = FbxMesh::Create(pScene, "");
     vector<FbxVector4>* lVertices = pObjScene->GetVertices();
 
-    lMesh->InitControlPoints(lVertices->size());
+    lMesh->InitControlPoints(static_cast<unsigned int>(lVertices->size()));
     FbxVector4* lControlPoints = lMesh->GetControlPoints();
     
     for (FbxVector4 &lVertex : *lVertices)
@@ -190,7 +171,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
     
     lUVDiffuseElement->GetIndexArray().SetCount(static_cast<unsigned int>(lTexCoords->size()));
     
-    for(ObjGroup* &lGroup : *pObjScene->GetGroups())
+    for (ObjGroup* &lGroup : *pObjScene->GetGroups())
     {
         for (ObjFace* &lFace : *lGroup->GetFaces())
         {
@@ -210,25 +191,32 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
     lNode->SetNodeAttribute(lMesh);
     lNode->SetShadingMode(FbxNode::eTextureShading);
     
+    return lNode;
+}
+
+void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup)
+{
+    const char* lName = pGroup->GetMaterial()->GetName();
+    FbxMesh* lMesh = pNode->GetMesh();
     FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
     lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
     lMaterialElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
-    if( !lMesh->GetElementMaterial( 0))
-        return NULL;
+    if (!lMesh->GetElementMaterial(0))
+        return;
     
-    FbxString lMaterialName = "material_for_plane";
+    FbxString lMaterialName = lName;
     FbxString lShadingName  = "Phong";
     FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
     
     lMaterial->Diffuse.Set(FbxDouble3(1.0, 1.0, 0));
     lMaterial->DiffuseFactor.Set(1.);
     
-    lNode->AddMaterial(lMaterial);
+    pNode->AddMaterial(lMaterial);
     
     lMaterialElement->GetIndexArray().SetCount(lMesh->GetPolygonCount());
     
-    for(int i = 0; i<lMesh->GetPolygonCount(); ++i)
+    for (int i = 0; i<lMesh->GetPolygonCount(); ++i)
         lMaterialElement->GetIndexArray().SetAt(i,0);
     
-    return lNode;
+    return;
 }

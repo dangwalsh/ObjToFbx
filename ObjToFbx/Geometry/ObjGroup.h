@@ -17,9 +17,9 @@ class ObjGroup
 {
 public:
     ObjGroup(ObjScene* pScene);
-    ObjGroup(ObjScene* pScene, std::string* pString);
+    ObjGroup(ObjScene* pScene, const char* pString);
     virtual ~ObjGroup();
-    
+
     virtual void AddName(std::string* pString);
     virtual void AddFace(ObjFace* pFace);
     virtual void AddMaterial(ObjMaterial* pMaterial);
@@ -27,6 +27,7 @@ public:
     virtual const std::string *GetName();
     virtual std::vector<ObjFace*>* GetFaces();
     virtual const ObjFace* GetFaces(size_t index);
+    virtual const ObjMaterial* GetMaterial();
 
 protected:
     std::string*            mName;

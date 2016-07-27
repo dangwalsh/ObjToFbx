@@ -12,7 +12,7 @@ ObjGroup::ObjGroup(ObjScene* pScene)
     mFaces = new vector<ObjFace*>;
 }
 
-ObjGroup::ObjGroup(ObjScene* pScene, std::string* pString)
+ObjGroup::ObjGroup(ObjScene* pScene, const char* pString)
 {
     mScene = pScene;
     mFaces = new vector<ObjFace*>;
@@ -60,4 +60,9 @@ vector<ObjFace*>* ObjGroup::GetFaces()
 const ObjFace* ObjGroup::GetFaces(size_t index)
 {
     return mFaces->at(index);
+}
+
+const ObjMaterial* ObjGroup::GetMaterial()
+{
+    return mMaterial;
 }
