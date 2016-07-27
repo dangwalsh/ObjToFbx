@@ -9,13 +9,13 @@
 ObjFace::ObjFace(ObjScene* pScene, vector<string>& pTokens)
 {
     mScene = pScene;
-    mVertexIndex = new vector<size_t>;
-    mNormalIndex = new vector<size_t>;
-    mTextureIndex = new vector<size_t>;
+    mVertexIndex = new vector<unsigned int>;
+    mNormalIndex = new vector<unsigned int>;
+    mTextureIndex = new vector<unsigned int>;
     
     pTokens.erase(pTokens.begin());
 	size_t lCount = pTokens.size();
-	for (size_t i = 0; i < lCount; i++)
+	for (unsigned int i = 0; i < lCount; i++)
 	{
 		string::size_type sz;
 		vector<string> lIndices = Tokenize(pTokens.at(i), '/');
@@ -35,7 +35,8 @@ ObjFace::ObjFace(ObjScene* pScene, vector<string>& pTokens)
 				break;
 		}
 	}
-    if (mNormalIndex->size()==0) {
+    if (mNormalIndex->size()==0)
+    {
         mNormal = new FbxVector4;
         FbxVector4 &v1 = mScene->GetVertex(this->GetXYZ(0));
         FbxVector4 &v2 = mScene->GetVertex(this->GetXYZ(1));
@@ -60,32 +61,32 @@ size_t ObjFace::Size() const
     return mVertexIndex->size();
 }
 
-const vector<size_t>* ObjFace::GetXYZ()
+const vector<unsigned int>* ObjFace::GetXYZ()
 {
     return mVertexIndex;
 }
 
-const vector<size_t>* ObjFace::GetNrm()
+const vector<unsigned int>* ObjFace::GetNrm()
 {
     return mNormalIndex;
 }
 
-const vector<size_t>* ObjFace::GetUVW()
+const vector<unsigned int>* ObjFace::GetUVW()
 {
     return mTextureIndex;
 }
 
-size_t ObjFace::GetXYZ(size_t index) const
+unsigned int ObjFace::GetXYZ(unsigned int index) const
 {
     return mVertexIndex->at(index);
 }
 
-size_t ObjFace::GetNrm(size_t index) const
+unsigned int ObjFace::GetNrm(unsigned int index) const
 {
     return mNormalIndex->at(index);
 }
 
-size_t ObjFace::GetUVW(size_t index) const
+unsigned int ObjFace::GetUVW(unsigned int index) const
 {
     return mTextureIndex->at(index);
 }

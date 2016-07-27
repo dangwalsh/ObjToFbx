@@ -20,7 +20,6 @@ public:
 	virtual bool GetReadOptions(bool pParseFileAsNeeded = true);
 	virtual bool Read(FbxDocument* pDocument);
     virtual void CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene);
-//    virtual void CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup);
     virtual FbxNode* CreateMesh(FbxScene* pScene, ObjScene* pObjScene);
     virtual FbxNode* CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup);
     

@@ -15,18 +15,18 @@ public:
 	virtual ~ObjFace();
     
     virtual size_t Size() const;
-    virtual const std::vector<size_t>* GetXYZ();
-    virtual const std::vector<size_t>* GetNrm();
-    virtual const std::vector<size_t>* GetUVW();
-    virtual size_t GetXYZ(size_t index) const;
-    virtual size_t GetNrm(size_t index) const;
-    virtual size_t GetUVW(size_t index) const;
+    virtual const std::vector<unsigned int>* GetXYZ();
+    virtual const std::vector<unsigned int>* GetNrm();
+    virtual const std::vector<unsigned int>* GetUVW();
+    virtual unsigned int GetXYZ(unsigned int index) const;
+    virtual unsigned int GetNrm(unsigned int index) const;
+    virtual unsigned int GetUVW(unsigned int index) const;
     virtual const FbxVector4* GetNormal();
 
 protected:
-    std::vector<size_t>*    mVertexIndex;
-    std::vector<size_t>*    mNormalIndex;
-    std::vector<size_t>*    mTextureIndex;
+    std::vector<unsigned int>*    mVertexIndex;
+    std::vector<unsigned int>*    mNormalIndex;
+    std::vector<unsigned int>*    mTextureIndex;
     FbxVector4*             mNormal;
     ObjScene*               mScene;
 };
