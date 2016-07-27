@@ -1,10 +1,6 @@
 #include <sstream>
-#include <algorithm>
-#include <iterator>
 #include <vector>
-#include <string>
 #include "ObjReader.h"
-#include "../Geometry/ObjScene.h"
 
 using namespace std;
 
@@ -159,7 +155,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
     for (FbxVector4 &lVertex : *lVertices)
         *lControlPoints++ = lVertex;
     
-    FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV( "DiffuseUV");
+    FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
     FBX_ASSERT( lUVDiffuseElement != NULL);
     lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
     lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
