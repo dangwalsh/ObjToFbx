@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 	FbxManager* lSdkManager = NULL;
 	FbxScene* lScene = NULL;
 
-	InitializeSdkObjects(lSdkManager, lScene);
+    InitializeSdkObjects(lSdkManager, lScene);
     
 	lSdkManager->GetIOPluginRegistry()->RegisterReader(CreateObjReader, GetObjReaderInfo, lPluginId, lRegisteredCount, FillObjReaderIOSettings);
 

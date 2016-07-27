@@ -34,4 +34,5 @@
 # Editors
 *.vscode
 *.xcuserstate
+.idea
 /Debug/

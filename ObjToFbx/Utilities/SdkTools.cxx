@@ -1,6 +1,6 @@
 #include "SdkTools.h"
 
-void InitializeSdkObjects(FbxManager*& pManager, FbxScene*& pScene)
+void InitializeSdkObjects(FbxManager *&pManager, FbxScene *&pScene)
 {
 	pManager = FbxManager::Create();
 	if( !pManager )
