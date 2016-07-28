@@ -15,6 +15,7 @@ ObjScene::ObjScene(string& pString)
 	vector<string>::iterator lItor;
 	vector<string>::iterator lBegin = lLines.begin();
 	vector<string>::iterator lEnd = lLines.end();
+
 	for (lItor = lBegin; lItor < lEnd; ++lItor)
 	{
 		vector<string> lTokens = Tokenize(*lItor);
@@ -29,7 +30,8 @@ ObjScene::ObjScene(string& pString)
             } else if (lType == "vt") {
                 AddTexCoord(lTokens);
             } else if (lType == "usemtl") {
-                lItor = AddObjGroup(lTokens, lItor, lEnd);
+                lItor = AddObjGroup(lTokens, lItor, lLines.end());
+				if (lItor == lEnd) break;
             }
         }
 	}
