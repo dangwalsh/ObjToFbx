@@ -30,8 +30,10 @@ ObjScene::ObjScene(string& pString)
             } else if (lType == "vt") {
                 AddTexCoord(lTokens);
             } else if (lType == "usemtl") {
-                lItor = AddObjGroup(lTokens, lItor, lLines.end());
+                lItor = AddObjGroup(lTokens, lItor, lEnd);
+#ifdef WIN32
 				if (lItor == lEnd) break;
+#endif
             }
         }
 	}

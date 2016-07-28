@@ -7,7 +7,7 @@ find_library(SYSTEMCONFIGURATION_LIBRARY SystemConfiguration)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(INCLUDES /usr/local/include ObjToFbx ObjToFbx_Tests Vendor/googletest)
-set(LIBRARIES /usr/local/lib/libfbxsdk.a)
+set(LIBRARIES /usr/local/lib/libfbxsdk.dylib)
 set(FRAMEWORKS ${CARBON_LIBRARY} ${SYSTEMCONFIGURATION_LIBRARY})
 
 set(SOURCE_FILES
