@@ -5,9 +5,11 @@ find_library(CARBON_LIBRARY Carbon)
 find_library(SYSTEMCONFIGURATION_LIBRARY SystemConfiguration)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(FBXSDK_H /usr/local/include)
+
+set(INCLUDES /usr/local/include ObjToFbx ObjToFbx_Tests Vendor/googletest)
 set(LIBRARIES /usr/local/lib/libfbxsdk.a)
 set(FRAMEWORKS ${CARBON_LIBRARY} ${SYSTEMCONFIGURATION_LIBRARY})
+
 set(SOURCE_FILES
     ObjToFbx/Exceptions/SdkException.cxx
     ObjToFbx/Exceptions/SdkException.h
@@ -29,8 +31,14 @@ set(SOURCE_FILES
     ObjToFbx/Utilities/SdkTools.h
     ObjToFbx/Utilities/StringTools.cxx
     ObjToFbx/Utilities/StringTools.h
-    ObjToFbx/main.cxx)
+    ObjToFbx/main.cxx
+    Google\ Test/gtest-all.cc
+    ObjToFbx_Tests/BasicTest.cpp)
 
-include_directories(${FBXSDK_H})
 add_executable(ObjToFbx ${SOURCE_FILES})
+include_directories(${INCLUDES})
+
+add_subdirectory(Vendor/googletest)
+add_subdirectory(ObjToFbx_Tests)
+
 target_link_libraries(ObjToFbx ${LIBRARIES} ${FRAMEWORKS})
