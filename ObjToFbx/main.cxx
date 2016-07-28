@@ -16,9 +16,19 @@ int main(int argc, char** argv)
 	bool lResult;
 	int lRegisteredCount;
 	int lPluginId;
-	const char* lFileName = "/Library/ObjToFbx/texture_test.xobj";
+    const char* lFileName;
 	FbxManager* lSdkManager = NULL;
 	FbxScene* lScene = NULL;
+    
+    if (argc > 1)
+    {
+        lFileName = argv[1];
+    }
+    else
+    {
+        FBXSDK_printf("Please enter a source file path.\n");
+        return 1;
+    }
 
     InitializeSdkObjects(lSdkManager, lScene);
     
