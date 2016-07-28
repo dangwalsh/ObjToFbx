@@ -34,5 +34,8 @@
 # Editors
 *.vscode
 *.xcuserstate
+*.sln
+*.VC*
+*.vcxproj*
 .idea
 /Debug/
