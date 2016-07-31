@@ -8,15 +8,16 @@ class ObjScene;
 class ObjMaterial
 {
 public:
-    ObjMaterial(ObjScene* pScene, const char* pString);
+    ObjMaterial(ObjScene* pScene, std::string& pString);
     virtual ~ObjMaterial();
     
     virtual const char* GetName() const;
 
+
 protected:
-    const char*    mName;
+    const char*     mName;
 	ObjScene*       mScene;
-	
+    
 };
 
 

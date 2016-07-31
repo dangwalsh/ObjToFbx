@@ -1,6 +1,7 @@
 #include "ObjScene.h"
 #include <iterator>
 #include "../Utilities/StringTools.h"
+#include "../Io/MtlReader.h"
 
 using namespace std;
 
@@ -41,7 +42,7 @@ ObjScene::ObjScene(string& pString)
 
 ObjScene::~ObjScene()
 {
-    delete mMtlLib;
+    //delete mMtlLib;
     delete mVertices;
     delete mNormals;
     delete mTexCoords;
@@ -76,11 +77,26 @@ FbxVector4& ObjScene::GetVertex(size_t index) const
     return mVertices->at(index);
 }
 
+const string* ObjScene::GetMtlLib() const
+{
+    return mMtlLib;
+}
+
 
 /* Protected Members */
 void ObjScene::AddMtlLib(vector<string>& pTokens)
 {
-	mMtlLib = new string(pTokens.at(1));
+    mMtlLib = &pTokens.at(1);
+    
+    MtlReader lReader;
+    lReader.FileOpen(mMtlLib->c_str());
+    string* lString = lReader.FileRead();
+    
+    // 3. parse text
+    
+    
+
+    lReader.FileClose();
 }
 
 void ObjScene::AddVertex(vector<string>& pTokens)
@@ -117,7 +133,7 @@ vector<string>::iterator ObjScene::AddObjGroup(vector<string>& pTokens,
                                                vector<string>::iterator pItor,
                                                vector<string>::iterator pEnd)
 {
-	ObjGroup* lGroup = new ObjGroup(this, pTokens.at(1).c_str());
+	ObjGroup* lGroup = new ObjGroup(this, pTokens.at(1));
     mGroups->push_back(lGroup);
 	for(++pItor; pItor < pEnd; ++pItor)
 	{
@@ -138,4 +154,39 @@ vector<string>::iterator ObjScene::AddObjGroup(vector<string>& pTokens,
         }
 	}
 	return pItor;
+}
+
+void InitializeMaterial(string &pString)
+{
+    vector<string> lLines = Tokenize(pString, '\n');
+    for (auto & lLine : lLines)
+    {
+        vector<string> lTokens = Tokenize(lLine);
+        if (!lTokens.empty()) {
+            string lType = lTokens[0];
+            if (lType == "newmtl") {
+                
+            } else if (lType == "Ka") {
+                
+            } else if (lType == "Kd") {
+                
+            } else if (lType == "Ks") {
+                
+            } else if (lType == "Ns") {
+                
+            } else if (lType == "map_Ka") {
+                
+            } else if (lType == "map_Kd") {
+                
+            } else if (lType == "map_Ks") {
+                
+            } else if (lType == "map_bump") {
+                
+            } else if (lType == "d") {
+                
+            } else if (lType == "illum") {
+                
+            }
+        }
+    }
 }

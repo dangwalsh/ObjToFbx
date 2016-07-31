@@ -4,9 +4,8 @@
 #include <vector>
 #include <string>
 
-using namespace std;
 
-const vector<string> Tokenize(string& pInput);
-const vector<string> Tokenize(string& pInput, char pChar);
+const std::vector<std::string> Tokenize(std::string& pInput);
+const std::vector<std::string> Tokenize(std::string& pInput, char pChar);
 
 #endif // STRINGHELP_H

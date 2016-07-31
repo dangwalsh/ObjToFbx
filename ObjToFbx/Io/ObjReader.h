@@ -23,6 +23,7 @@ public:
     virtual FbxNode* CreateMesh(FbxScene* pScene, ObjScene* pObjScene);
     virtual FbxNode* CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup);
     virtual void ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup);
+    virtual FbxSurfaceMaterial* CreateMaterial(FbxScene* pScene, FbxNode* pNode, ObjMaterial* pMaterial);
     
 private:
 	FILE*		mFilePointer;

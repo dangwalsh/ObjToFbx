@@ -3,6 +3,7 @@
 #include "../Utilities/StringTools.h"
 #include "../Utilities/GeometryTools.h"
 
+using namespace std;
 
 /* Public Members - Constructors */
 

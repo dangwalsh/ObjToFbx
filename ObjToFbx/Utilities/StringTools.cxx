@@ -3,6 +3,8 @@
 #include <iterator>
 #include "StringTools.h"
 
+using namespace std;
+
 const vector<string> Tokenize(string& pInput)
 {
 	istringstream lStream(pInput);

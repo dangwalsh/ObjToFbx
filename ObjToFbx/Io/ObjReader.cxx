@@ -112,7 +112,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
     for (FbxVector4 &lVertex : *lVertices)
         *lControlPoints++ = lVertex;
     
-    FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV( "DiffuseUV");
+    FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
     FBX_ASSERT( lUVDiffuseElement != NULL);
     lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
     lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
@@ -123,7 +123,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
         lUVDiffuseElement->GetDirectArray().Add(lTexCoord);
     
     lUVDiffuseElement->GetIndexArray().SetCount(static_cast<int>(lTexCoords->size()));
-    
+
     for (ObjFace* &lFace : *pGroup->GetFaces())
     {
         lMesh->BeginPolygon();
@@ -215,4 +215,9 @@ void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup
         lMaterialElement->GetIndexArray().SetAt(i,0);
     
     return;
+}
+
+FbxSurfaceMaterial* ObjReader::CreateMaterial(FbxScene* pScene, FbxNode* pNode, ObjMaterial* pMaterial)
+{
+    return NULL;
 }

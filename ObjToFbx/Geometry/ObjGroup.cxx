@@ -12,7 +12,7 @@ ObjGroup::ObjGroup(ObjScene* pScene)
     mFaces = new vector<ObjFace*>;
 }
 
-ObjGroup::ObjGroup(ObjScene* pScene, const char* pString)
+ObjGroup::ObjGroup(ObjScene* pScene, string& pString)
 {
     mScene = pScene;
     mFaces = new vector<ObjFace*>;

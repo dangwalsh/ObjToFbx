@@ -17,9 +17,10 @@ public:
     virtual std::vector<FbxVector2>* GetTexCoords() const;
     virtual std::vector<ObjGroup*>* GetGroups() const;
     virtual FbxVector4& GetVertex(size_t index) const;
+    virtual const std::string* GetMtlLib() const;
 
 protected:
-	std::string*                mMtlLib;
+    std::string*                mMtlLib;
 	std::vector<FbxVector4>*    mVertices;
 	std::vector<FbxVector4>*    mNormals;
 	std::vector<FbxVector2>*    mTexCoords;
