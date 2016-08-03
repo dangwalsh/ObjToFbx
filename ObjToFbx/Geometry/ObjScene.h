@@ -3,8 +3,10 @@
 
 #include <fbxsdk.h>
 #include "ObjGroup.h"
+#include "ObjMaterial.h"
 
 class ObjGroup;
+class ObjMaterial;
 
 class ObjScene
 {
@@ -17,10 +19,11 @@ public:
     virtual std::vector<FbxVector2>* GetTexCoords() const;
     virtual std::vector<ObjGroup*>* GetGroups() const;
     virtual FbxVector4& GetVertex(size_t index) const;
-    virtual const std::string* GetMtlLib() const;
+    virtual const std::vector<ObjMaterial*>* GetMtlLib() const;
+    virtual const ObjMaterial* GetMaterial(size_t pIndex) const;
 
 protected:
-    std::string*                mMtlLib;
+    std::vector<ObjMaterial*>*  mMtlLib;
 	std::vector<FbxVector4>*    mVertices;
 	std::vector<FbxVector4>*    mNormals;
 	std::vector<FbxVector2>*    mTexCoords;
@@ -33,6 +36,9 @@ protected:
     virtual std::vector<std::string>::iterator AddObjGroup(std::vector<std::string>& pTokens,
                                                            std::vector<std::string>::iterator pItor,
                                                            std::vector<std::string>::iterator pEnd);
+    virtual void CreateMaterials(std::string &pString);
+    virtual double* ConvertValue(std::vector<std::string> &pTokens);
+    virtual double* ConvertVector(std::vector<std::string> &pTokens);
 
 };
 

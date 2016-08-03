@@ -12,6 +12,7 @@ ObjScene::ObjScene(string& pString)
     mNormals = new vector<FbxVector4>;
     mTexCoords = new vector<FbxVector2>;
     mGroups = new vector<ObjGroup*>;
+    mMtlLib = new vector<ObjMaterial*>;
 	vector<string> lLines = Tokenize(pString, '\n');
 	vector<string>::iterator lItor;
 	vector<string>::iterator lBegin = lLines.begin();
@@ -42,7 +43,7 @@ ObjScene::ObjScene(string& pString)
 
 ObjScene::~ObjScene()
 {
-    //delete mMtlLib;
+    delete mMtlLib;
     delete mVertices;
     delete mNormals;
     delete mTexCoords;
@@ -77,7 +78,7 @@ FbxVector4& ObjScene::GetVertex(size_t index) const
     return mVertices->at(index);
 }
 
-const string* ObjScene::GetMtlLib() const
+const vector<ObjMaterial*>* ObjScene::GetMtlLib() const
 {
     return mMtlLib;
 }
@@ -86,16 +87,10 @@ const string* ObjScene::GetMtlLib() const
 /* Protected Members */
 void ObjScene::AddMtlLib(vector<string>& pTokens)
 {
-    mMtlLib = &pTokens.at(1);
-    
     MtlReader lReader;
-    lReader.FileOpen(mMtlLib->c_str());
+    lReader.FileOpen(pTokens.at(1).c_str());
     string* lString = lReader.FileRead();
-    
-    // 3. parse text
-    
-    
-
+    CreateMaterials(*lString);
     lReader.FileClose();
 }
 
@@ -156,37 +151,72 @@ vector<string>::iterator ObjScene::AddObjGroup(vector<string>& pTokens,
 	return pItor;
 }
 
-void InitializeMaterial(string &pString)
+const ObjMaterial* ObjScene::GetMaterial(size_t pIndex) const
+{
+    return NULL;
+}
+
+void ObjScene::CreateMaterials(string &pString)
 {
     vector<string> lLines = Tokenize(pString, '\n');
-    for (auto & lLine : lLines)
+    for (vector<string>::iterator itor = lLines.begin(); itor < lLines.end(); ++itor)
     {
-        vector<string> lTokens = Tokenize(lLine);
-        if (!lTokens.empty()) {
+        vector<string> lTokens = Tokenize(*itor);
+        if(!lTokens.empty()) {
             string lType = lTokens[0];
             if (lType == "newmtl") {
-                
-            } else if (lType == "Ka") {
-                
-            } else if (lType == "Kd") {
-                
-            } else if (lType == "Ks") {
-                
-            } else if (lType == "Ns") {
-                
-            } else if (lType == "map_Ka") {
-                
-            } else if (lType == "map_Kd") {
-                
-            } else if (lType == "map_Ks") {
-                
-            } else if (lType == "map_bump") {
-                
-            } else if (lType == "d") {
-                
-            } else if (lType == "illum") {
-                
+                ObjMaterial* lMaterial = new ObjMaterial(this, lTokens.at(1));
+                mMtlLib->push_back(lMaterial);
+                for (++itor; itor != lLines.end(); ++itor)
+                {
+                    lTokens = Tokenize(*itor);
+                    if (!lTokens.empty()) {
+                        lType = lTokens[0];
+                        if (lType == "Ka") {
+                            lMaterial->SetKa(ConvertVector(lTokens));
+                        } else if (lType == "Kd") {
+                            lMaterial->SetKd(ConvertVector(lTokens));
+                        } else if (lType == "Ks") {
+                            lMaterial->SetKs(ConvertVector(lTokens));
+                        } else if (lType == "Ns") {
+                            lMaterial->SetNs(ConvertValue(lTokens));
+                        } else if (lType == "map_Ka") {
+                            lMaterial->SetMap_Ka(lTokens.at(1));
+                        } else if (lType == "map_Kd") {
+                            lMaterial->SetMap_Kd(lTokens.at(1));
+                        } else if (lType == "map_Ks") {
+                            lMaterial->SetMap_Ks(lTokens.at(1));
+                        } else if (lType == "map_bump") {
+                            lMaterial->SetMap_Bump(lTokens.at(1));
+                        } else if (lType == "d") {
+                            lMaterial->SetD(ConvertValue(lTokens));
+                        } else if (lType == "illum") {
+                            lMaterial->SetIllum(ConvertValue(lTokens));
+                        } else if (lType == "newmtl") {
+                            --itor;
+                            break;
+                        }
+                    }
+                }
             }
         }
     }
+}
+
+double* ObjScene::ConvertValue(vector<string> &pTokens)
+{
+    string::size_type sz;
+    double* lValue = new double;
+    *lValue = stod(pTokens.at(1), &sz);
+    return lValue;
+}
+
+double* ObjScene::ConvertVector(vector<string> &pTokens)
+{
+    string::size_type sz;
+    double* lValues = new double[3];
+    lValues[0] = stod(pTokens.at(1), &sz);
+    lValues[1] = stod(pTokens.at(2), &sz);
+    lValues[2] = stod(pTokens.at(3), &sz);
+    return lValues;
 }

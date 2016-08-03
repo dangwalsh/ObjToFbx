@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B516AF751D4BD523001EC5EC /* MtlReader.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B516AF731D4BD523001EC5EC /* MtlReader.cxx */; };
 		B516AF861D4BEDA3001EC5EC /* MtlReader.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B516AF731D4BD523001EC5EC /* MtlReader.cxx */; };
 		B516AF871D4BEDB6001EC5EC /* MtlReader.h in Headers */ = {isa = PBXBuildFile; fileRef = B516AF741D4BD523001EC5EC /* MtlReader.h */; };
 		B51D7F0D1D3D390F00685780 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B51D7F0B1D3D38E000685780 /* gtest-all.cc */; };
 		B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDE1D393E1600A38AD5 /* main.cxx */; };
 		B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
 		B5597EF31D393E8600A38AD5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
+		B55D728F1D4EB76B00482EE5 /* ObjScene.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED71D393E1600A38AD5 /* ObjScene.cxx */; };
+		B55D72901D4EB76F00482EE5 /* ObjScene.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597ED81D393E1600A38AD5 /* ObjScene.h */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.mm in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.mm */; };
 		B595B4331D4AE68100839201 /* libfbxsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D7EF71D3D2BF500685780 /* libfbxsdk.a */; };
 		B5C3E4ED1D3C166E00BC4579 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
@@ -22,7 +23,6 @@
 		B5C3E4F31D3C16E600BC4579 /* ObjGroup.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED11D393E1600A38AD5 /* ObjGroup.cxx */; };
 		B5C3E4F51D3C16E600BC4579 /* ObjFace.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED31D393E1600A38AD5 /* ObjFace.cxx */; };
 		B5C3E4F71D3C16E600BC4579 /* ObjMaterial.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED51D393E1600A38AD5 /* ObjMaterial.cxx */; };
-		B5C3E4F91D3C16E600BC4579 /* ObjScene.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED71D393E1600A38AD5 /* ObjScene.cxx */; };
 		B5C3E4FB1D3C16E600BC4579 /* ObjReader.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDA1D393E1600A38AD5 /* ObjReader.cxx */; };
 		B5C3E4FD1D3C16E600BC4579 /* ObjReaderFacade.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDC1D393E1600A38AD5 /* ObjReaderFacade.cxx */; };
 		B5C3E4FF1D3C16E600BC4579 /* SdkTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EE11D393E1600A38AD5 /* SdkTools.cxx */; };
@@ -31,7 +31,6 @@
 		B5C3E5041D3C176A00BC4579 /* ObjGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597ED21D393E1600A38AD5 /* ObjGroup.h */; };
 		B5C3E5051D3C176A00BC4579 /* ObjFace.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597ED41D393E1600A38AD5 /* ObjFace.h */; };
 		B5C3E5061D3C176A00BC4579 /* ObjMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597ED61D393E1600A38AD5 /* ObjMaterial.h */; };
-		B5C3E5071D3C176A00BC4579 /* ObjScene.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597ED81D393E1600A38AD5 /* ObjScene.h */; };
 		B5C3E5081D3C176A00BC4579 /* ObjReader.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EDB1D393E1600A38AD5 /* ObjReader.h */; };
 		B5C3E5091D3C176A00BC4579 /* ObjReaderFacade.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EDD1D393E1600A38AD5 /* ObjReaderFacade.h */; };
 		B5C3E50A1D3C176A00BC4579 /* SdkTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EE21D393E1600A38AD5 /* SdkTools.h */; };
@@ -976,13 +975,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B516AF871D4BEDB6001EC5EC /* MtlReader.h in Headers */,
+				B55D72901D4EB76F00482EE5 /* ObjScene.h in Headers */,
 				B5C3E5031D3C176A00BC4579 /* SdkException.h in Headers */,
 				B5C3E5041D3C176A00BC4579 /* ObjGroup.h in Headers */,
 				B5C3E5051D3C176A00BC4579 /* ObjFace.h in Headers */,
 				B5C3E5061D3C176A00BC4579 /* ObjMaterial.h in Headers */,
-				B5C3E5071D3C176A00BC4579 /* ObjScene.h in Headers */,
 				B5C3E5081D3C176A00BC4579 /* ObjReader.h in Headers */,
-				B516AF871D4BEDB6001EC5EC /* MtlReader.h in Headers */,
 				B5C3E5091D3C176A00BC4579 /* ObjReaderFacade.h in Headers */,
 				B5C3E50A1D3C176A00BC4579 /* SdkTools.h in Headers */,
 				B5F1EA9A1D46B54F00B2547C /* GeometryTools.h in Headers */,
@@ -1197,7 +1196,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B516AF751D4BD523001EC5EC /* MtlReader.cxx in Sources */,
 				B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1226,13 +1224,13 @@
 				B5C3E4F31D3C16E600BC4579 /* ObjGroup.cxx in Sources */,
 				B5C3E4F51D3C16E600BC4579 /* ObjFace.cxx in Sources */,
 				B5C3E4F71D3C16E600BC4579 /* ObjMaterial.cxx in Sources */,
-				B5C3E4F91D3C16E600BC4579 /* ObjScene.cxx in Sources */,
 				B5C3E4FB1D3C16E600BC4579 /* ObjReader.cxx in Sources */,
-				B516AF861D4BEDA3001EC5EC /* MtlReader.cxx in Sources */,
 				B5C3E4FD1D3C16E600BC4579 /* ObjReaderFacade.cxx in Sources */,
 				B5C3E4FF1D3C16E600BC4579 /* SdkTools.cxx in Sources */,
 				B5C3E5011D3C16E600BC4579 /* StringTools.cxx in Sources */,
 				B5F1EA991D46B54F00B2547C /* GeometryTools.cxx in Sources */,
+				B55D728F1D4EB76B00482EE5 /* ObjScene.cxx in Sources */,
+				B516AF861D4BEDA3001EC5EC /* MtlReader.cxx in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
