@@ -31,7 +31,7 @@ int main(int argc, char** argv)
     }
 
     InitializeSdkObjects(lSdkManager, lScene);
-    
+
 	lSdkManager->GetIOPluginRegistry()->RegisterReader(CreateObjReader, GetObjReaderInfo, lPluginId, lRegisteredCount, FillObjReaderIOSettings);
 
 	FbxImporter* lImporter = FbxImporter::Create(lSdkManager, "");

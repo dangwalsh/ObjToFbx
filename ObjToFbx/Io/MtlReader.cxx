@@ -31,7 +31,7 @@ string* MtlReader::FileRead()
 {
     long lSize;
     char* lBuffer = NULL;
-    string* lString;
+    string* lString = NULL;
     
     if(mFilePointer != NULL)
     {

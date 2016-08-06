@@ -192,7 +192,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
 
 void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup)
 {
-    const char* lName = pGroup->GetMaterial()->GetName();
+    string lName = pGroup->GetMaterial()->GetName();
     FbxMesh* lMesh = pNode->GetMesh();
     FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
     lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
@@ -200,7 +200,7 @@ void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup
     if (!lMesh->GetElementMaterial(0))
         return;
     
-    FbxString lMaterialName = lName;
+    FbxString lMaterialName = lName.c_str();
     FbxString lShadingName  = "Phong";
     FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
     

@@ -39,7 +39,6 @@ protected:
     virtual void CreateMaterials(std::string &pString);
     virtual double* ConvertValue(std::vector<std::string> &pTokens);
     virtual double* ConvertVector(std::vector<std::string> &pTokens);
-
 };
 
 #endif // OBJSCENE_H

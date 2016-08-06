@@ -23,10 +23,10 @@ public:
     virtual void SetMap_Ks(std::string &pString);
     virtual void SetMap_Bump(std::string &pString);
     
-    virtual const char* GetName() const;
+    virtual std::string GetName() const;
 
 protected:
-    const char*     mName;
+    std::string     mName;
     double*         mKa;
     double*         mKd;
     double*         mKs;

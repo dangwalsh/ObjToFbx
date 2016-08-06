@@ -6,7 +6,7 @@ using namespace std;
 ObjMaterial::ObjMaterial(ObjScene* pScene, string& pString)
 {
 	mScene = pScene;
-    mName = pString.c_str();
+    mName = pString;
 }
 
 ObjMaterial::~ObjMaterial()
@@ -77,7 +77,7 @@ void ObjMaterial::SetMap_Ks(string &pString)
 
 /* Public Members - Accessors */
 
-const char* ObjMaterial::GetName() const
+string ObjMaterial::GetName() const
 {
     return mName;
 }

@@ -33,7 +33,9 @@ set(SOURCE_FILES
     ObjToFbx/Utilities/StringTools.h
     ObjToFbx/main.cxx
     Google\ Test/gtest-all.cc
-    ObjToFbx_Tests/BasicTest.cpp ObjToFbx/Io/MtlReader.cpp ObjToFbx/Io/MtlReader.h)
+    ObjToFbx_Tests/BasicTest.cpp
+    ObjToFbx/Io/MtlReader.cxx
+    ObjToFbx/Io/MtlReader.h)
 
 add_executable(ObjToFbx ${SOURCE_FILES})
 include_directories(${INCLUDES})
