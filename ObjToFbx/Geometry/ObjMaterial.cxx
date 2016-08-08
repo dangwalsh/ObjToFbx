@@ -25,17 +25,20 @@ ObjMaterial::~ObjMaterial()
 
 void ObjMaterial::SetKa(double pValues[3])
 {
-    mKa = pValues;
+    FbxDouble3 *lArray = new FbxDouble3(pValues[0], pValues[1], pValues[2]);
+    mKa = lArray;
 }
 
 void ObjMaterial::SetKd(double pValues[3])
 {
-    mKd = pValues;
+    FbxDouble3 *lArray = new FbxDouble3(pValues[0], pValues[1], pValues[2]);
+    mKd = lArray;
 }
 
 void ObjMaterial::SetKs(double pValues[3])
 {
-    mKs = pValues;
+    FbxDouble3 *lArray = new FbxDouble3(pValues[0], pValues[1], pValues[2]);
+    mKs = lArray;
 }
 
 void ObjMaterial::SetD(double* pValue)
@@ -48,7 +51,7 @@ void ObjMaterial::SetNs(double* pValue)
     mNs = pValue;
 }
 
-void ObjMaterial::SetIllum(double* pValue)
+void ObjMaterial::SetIllum(int* pValue)
 {
     mIllum = pValue;
 }
@@ -77,20 +80,39 @@ void ObjMaterial::SetMap_Ks(string &pString)
 
 /* Public Members - Accessors */
 
-string ObjMaterial::GetName() const
+const string ObjMaterial::GetName() const
 {
     return mName;
 }
 
+FbxDouble3& ObjMaterial::GetAmbient()
+{
+    return *mKa;
+}
 
+FbxDouble3& ObjMaterial::GetDiffuse()
+{
+    return *mKd;
+}
+
+FbxDouble3& ObjMaterial::GetSpecular()
+{
+    return *mKs;
+}
+
+FbxDouble& ObjMaterial::GetDissolve()
+{
+    return *mD;
+}
+
+FbxDouble& ObjMaterial::GetHilight()
+{
+    return *mNs;
+}
+
+FbxInt& ObjMaterial::GetIllumModel()
+{
+    return *mIllum;
+}
 
 /* Protected Members */
-
-
-
-
-
-
-
-
-

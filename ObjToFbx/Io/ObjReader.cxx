@@ -11,19 +11,19 @@ mManager(&pManager)
 {
 }
 
-ObjReader::~ObjReader() 
+ObjReader::~ObjReader()
 {
 	FileClose();
 }
 
-void ObjReader::GetVersion(int& pMajor, int& pMinor, int& pRevision) 
+void ObjReader::GetVersion(int& pMajor, int& pMinor, int& pRevision)
 {
 	pMajor = 1;
 	pMinor = 0;
 	pRevision = 0;
 }
 
-bool ObjReader::FileOpen(char* pFileName) 
+bool ObjReader::FileOpen(char* pFileName)
 {
 	if (mFilePointer != NULL)
 		FileClose();
@@ -33,26 +33,26 @@ bool ObjReader::FileOpen(char* pFileName)
 	return true;
 }
 
-bool ObjReader::FileClose() 
+bool ObjReader::FileClose()
 {
 	if (mFilePointer != NULL)
 		fclose(mFilePointer);
 	return true;
 }
 
-bool ObjReader::IsFileOpen() 
+bool ObjReader::IsFileOpen()
 {
 	if (mFilePointer != NULL)
 		return true;
 	return false;
 }
 
-bool ObjReader::GetReadOptions(bool /*pParseFileAsNeeded*/) 
+bool ObjReader::GetReadOptions(bool /*pParseFileAsNeeded*/)
 {
 	return true;
 }
 
-bool ObjReader::Read(FbxDocument* pDocument) 
+bool ObjReader::Read(FbxDocument* pDocument)
 {
 	if (!pDocument)
 	{
@@ -63,11 +63,11 @@ bool ObjReader::Read(FbxDocument* pDocument)
 	bool            lIsAScene = (lScene != NULL);
 	bool            lResult = false;
     ObjScene*       lObjScene = NULL;
-    
+
 	if(lIsAScene)
 	{
 		long lSize;
-		char* lBuffer = NULL;    
+        char* lBuffer = NULL;
 		if(mFilePointer != NULL)
 		{
 			fseek (mFilePointer , 0 , SEEK_END);
@@ -81,7 +81,7 @@ bool ObjReader::Read(FbxDocument* pDocument)
 
 			lObjScene = new ObjScene(lString);
             CreateFbxScene(lScene, lObjScene);
-            
+
 			free(lBuffer);
 		}
 		lResult = true;
@@ -105,23 +105,23 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
 {
     FbxMesh* lMesh = FbxMesh::Create(pScene, pGroup->GetName()->c_str());
     vector<FbxVector4>* lVertices = pObjScene->GetVertices();
-    
+
     lMesh->InitControlPoints(static_cast<unsigned int>(lVertices->size()));
     FbxVector4* lControlPoints = lMesh->GetControlPoints();
-    
+
     for (FbxVector4 &lVertex : *lVertices)
         *lControlPoints++ = lVertex;
-    
+
     FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
     FBX_ASSERT( lUVDiffuseElement != NULL);
     lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
     lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
-    
+
     vector<FbxVector2>* lTexCoords = pObjScene->GetTexCoords();
-    
+
     for (FbxVector2 & lTexCoord : *lTexCoords)
         lUVDiffuseElement->GetDirectArray().Add(lTexCoord);
-    
+
     lUVDiffuseElement->GetIndexArray().SetCount(static_cast<int>(lTexCoords->size()));
 
     for (ObjFace* &lFace : *pGroup->GetFaces())
@@ -136,11 +136,11 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
         }
         lMesh->EndPolygon ();
     }
-    
+
     FbxNode* lNode = FbxNode::Create(pScene, "");
     lNode->SetNodeAttribute(lMesh);
     lNode->SetShadingMode(FbxNode::eTextureShading);
-    
+
     return lNode;
 }
 
@@ -151,22 +151,22 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
 
     lMesh->InitControlPoints(static_cast<unsigned int>(lVertices->size()));
     FbxVector4* lControlPoints = lMesh->GetControlPoints();
-    
+
     for (FbxVector4 &lVertex : *lVertices)
         *lControlPoints++ = lVertex;
-    
+
     FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
     FBX_ASSERT( lUVDiffuseElement != NULL);
     lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
     lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
-    
+
     vector<FbxVector2>* lTexCoords = pObjScene->GetTexCoords();
-    
+
     for (FbxVector2 & lTexCoord : *lTexCoords)
         lUVDiffuseElement->GetDirectArray().Add(lTexCoord);
-    
+
     lUVDiffuseElement->GetIndexArray().SetCount(static_cast<unsigned int>(lTexCoords->size()));
-    
+
     for (ObjGroup* &lGroup : *pObjScene->GetGroups())
     {
         for (ObjFace* &lFace : *lGroup->GetFaces())
@@ -182,42 +182,47 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
             lMesh->EndPolygon ();
         }
     }
-    
+
     FbxNode* lNode = FbxNode::Create(pScene, "");
     lNode->SetNodeAttribute(lMesh);
     lNode->SetShadingMode(FbxNode::eTextureShading);
-    
+
     return lNode;
 }
 
 void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup)
 {
-    string lName = pGroup->GetMaterial()->GetName();
+//    string lName = pGroup->GetMaterial()->GetName();
     FbxMesh* lMesh = pNode->GetMesh();
     FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
     lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
     lMaterialElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
     if (!lMesh->GetElementMaterial(0))
         return;
-    
-    FbxString lMaterialName = lName.c_str();
-    FbxString lShadingName  = "Phong";
-    FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
-    
-    lMaterial->Diffuse.Set(FbxDouble3(1.0, 1.0, 0));
-    lMaterial->DiffuseFactor.Set(1.);
-    
+
+    FbxSurfaceMaterial* lMaterial = CreateMaterial(pScene, pGroup->GetMaterial());
     pNode->AddMaterial(lMaterial);
-    
+
     lMaterialElement->GetIndexArray().SetCount(lMesh->GetPolygonCount());
-    
+
     for (int i = 0; i<lMesh->GetPolygonCount(); ++i)
         lMaterialElement->GetIndexArray().SetAt(i,0);
-    
+
     return;
 }
 
-FbxSurfaceMaterial* ObjReader::CreateMaterial(FbxScene* pScene, FbxNode* pNode, ObjMaterial* pMaterial)
+FbxSurfaceMaterial* ObjReader::CreateMaterial(FbxScene* pScene, ObjMaterial* pMaterial)
 {
-    return NULL;
+    FbxString lShadingName = "Phong";
+    FbxString lMaterialName = pMaterial->GetName().c_str();
+    FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
+
+    lMaterial->ShadingModel.Set(lShadingName);
+    lMaterial->Ambient.Set(pMaterial->GetAmbient());
+    lMaterial->Diffuse.Set(pMaterial->GetDiffuse());
+    lMaterial->Specular.Set(pMaterial->GetSpecular());
+    lMaterial->TransparencyFactor.Set(1.0 - pMaterial->GetDissolve());
+//    lMaterial->Shininess.Set(pMaterial->GetHilight());
+
+    return lMaterial;
 }

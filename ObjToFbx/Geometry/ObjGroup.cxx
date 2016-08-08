@@ -16,7 +16,7 @@ ObjGroup::ObjGroup(ObjScene* pScene, string& pString)
 {
     mScene = pScene;
     mFaces = new vector<ObjFace*>;
-    mMaterial = new ObjMaterial(pScene, pString);
+    mMaterial = pScene->GetMaterial(pString);
 }
 
 ObjGroup::~ObjGroup()
@@ -62,7 +62,7 @@ const ObjFace* ObjGroup::GetFaces(size_t index)
     return mFaces->at(index);
 }
 
-const ObjMaterial* ObjGroup::GetMaterial()
+ObjMaterial* ObjGroup::GetMaterial()
 {
     return mMaterial;
 }

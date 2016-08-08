@@ -2,6 +2,7 @@
 #define OBJSCENE_H
 
 #include <fbxsdk.h>
+#include <string>
 #include "ObjGroup.h"
 #include "ObjMaterial.h"
 
@@ -21,6 +22,7 @@ public:
     virtual FbxVector4& GetVertex(size_t index) const;
     virtual const std::vector<ObjMaterial*>* GetMtlLib() const;
     virtual const ObjMaterial* GetMaterial(size_t pIndex) const;
+	virtual ObjMaterial* GetMaterial(std::string) const;
 
 protected:
     std::vector<ObjMaterial*>*  mMtlLib;
@@ -37,6 +39,7 @@ protected:
                                                            std::vector<std::string>::iterator pItor,
                                                            std::vector<std::string>::iterator pEnd);
     virtual void CreateMaterials(std::string &pString);
+    virtual int* ConvertInt(std::vector<std::string> &pTokens);
     virtual double* ConvertValue(std::vector<std::string> &pTokens);
     virtual double* ConvertVector(std::vector<std::string> &pTokens);
 };

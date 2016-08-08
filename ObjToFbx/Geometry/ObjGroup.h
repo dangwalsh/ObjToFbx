@@ -23,11 +23,11 @@ public:
     virtual void AddName(std::string* pString);
     virtual void AddFace(ObjFace* pFace);
     virtual void AddMaterial(ObjMaterial* pMaterial);
-    
+
     virtual const std::string *GetName();
     virtual std::vector<ObjFace*>* GetFaces();
     virtual const ObjFace* GetFaces(size_t index);
-    virtual const ObjMaterial* GetMaterial();
+    virtual ObjMaterial* GetMaterial();
 
 protected:
     std::string*            mName;

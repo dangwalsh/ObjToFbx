@@ -11,7 +11,7 @@
 bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename, int pFileFormat=-1, bool pEmbedMedia=false);
 
 
-int main(int argc, char** argv) 
+int main(int argc, char** argv)
 {
 	bool lResult;
 	int lRegisteredCount;
@@ -19,7 +19,7 @@ int main(int argc, char** argv)
     const char* lFileName;
 	FbxManager* lSdkManager = NULL;
 	FbxScene* lScene = NULL;
-    
+
     if (argc > 1)
     {
         lFileName = argv[1];
@@ -44,7 +44,7 @@ int main(int argc, char** argv)
         DestroySdkObjects(lSdkManager, false);
         return 1;
     }
-    
+
 	lResult = lImporter->Import(lScene);
     if(lResult == false)
     {
@@ -54,7 +54,7 @@ int main(int argc, char** argv)
     }
 
     lResult = SaveScene(lSdkManager, lScene, "texture_test.fbx");
-    
+
 	DestroySdkObjects(lSdkManager, lResult);
 
 	return 0;
@@ -65,14 +65,14 @@ bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename,
 {
     int lMajor, lMinor, lRevision;
     bool lStatus = true;
-    
+
     FbxExporter* lExporter = FbxExporter::Create(pManager, "");
-    
+
     if( pFileFormat < 0 || pFileFormat >= pManager->GetIOPluginRegistry()->GetWriterFormatCount() )
     {
         pFileFormat = pManager->GetIOPluginRegistry()->GetNativeWriterFormat();
         int lFormatIndex, lFormatCount = pManager->GetIOPluginRegistry()->GetWriterFormatCount();
-        
+
         for (lFormatIndex=0; lFormatIndex<lFormatCount; lFormatIndex++)
         {
             if (pManager->GetIOPluginRegistry()->WriterIsFBX(lFormatIndex))
@@ -87,7 +87,7 @@ bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename,
             }
         }
     }
-    
+
     IOS_REF.SetBoolProp(EXP_FBX_MATERIAL,        true);
     IOS_REF.SetBoolProp(EXP_FBX_TEXTURE,         true);
     IOS_REF.SetBoolProp(EXP_FBX_EMBEDDED,        pEmbedMedia);
@@ -95,19 +95,19 @@ bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename,
     IOS_REF.SetBoolProp(EXP_FBX_GOBO,            true);
     IOS_REF.SetBoolProp(EXP_FBX_ANIMATION,       true);
     IOS_REF.SetBoolProp(EXP_FBX_GLOBAL_SETTINGS, true);
-    
+
     if(lExporter->Initialize(pFilename, pFileFormat, pManager->GetIOSettings()) == false)
     {
         FBXSDK_printf("Call to FbxExporter::Initialize() failed.\n");
         FBXSDK_printf("Error returned: %s\n\n", lExporter->GetStatus().GetErrorString());
         return false;
     }
-    
+
     FbxManager::GetFileFormatVersion(lMajor, lMinor, lRevision);
     FBXSDK_printf("FBX file format version %d.%d.%d\n\n", lMajor, lMinor, lRevision);
-    
+
     lStatus = lExporter->Export(pScene);
-    
+
     lExporter->Destroy();
     return lStatus;
 }

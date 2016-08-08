@@ -83,6 +83,15 @@ const vector<ObjMaterial*>* ObjScene::GetMtlLib() const
     return mMtlLib;
 }
 
+ObjMaterial* ObjScene::GetMaterial(string pString) const
+{
+    for(ObjMaterial* lMaterial : *mMtlLib)
+    {
+        if(lMaterial->GetName() == pString) return lMaterial;
+    }
+    return NULL;
+}
+
 
 /* Protected Members */
 void ObjScene::AddMtlLib(vector<string>& pTokens)
@@ -191,7 +200,7 @@ void ObjScene::CreateMaterials(string &pString)
                         } else if (lType == "d") {
                             lMaterial->SetD(ConvertValue(lTokens));
                         } else if (lType == "illum") {
-                            lMaterial->SetIllum(ConvertValue(lTokens));
+                            lMaterial->SetIllum(ConvertInt(lTokens));
                         } else if (lType == "newmtl") {
                             --itor;
                             break;
@@ -201,6 +210,14 @@ void ObjScene::CreateMaterials(string &pString)
             }
         }
     }
+}
+
+int* ObjScene::ConvertInt(vector<string> &pTokens)
+{
+    string::size_type sz;
+    int* lValue = new int;
+    *lValue = stoi(pTokens.at(1), &sz);
+    return lValue;
 }
 
 double* ObjScene::ConvertValue(vector<string> &pTokens)
