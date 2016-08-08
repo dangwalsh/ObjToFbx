@@ -20,10 +20,10 @@ public:
 	virtual bool GetReadOptions(bool pParseFileAsNeeded = true);
 	virtual bool Read(FbxDocument* pDocument);
     virtual void CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene);
-    virtual FbxNode* CreateMesh(FbxScene* pScene, ObjScene* pObjScene);
     virtual FbxNode* CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup);
     virtual void ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup);
     virtual FbxSurfaceMaterial* CreateMaterial(FbxScene* pScene, ObjMaterial* pMaterial);
+    virtual void AttachTexture(FbxScene* pScene, FbxSurfacePhong* pMaterial);
 
 private:
 	FILE*		mFilePointer;

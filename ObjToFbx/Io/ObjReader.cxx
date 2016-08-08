@@ -119,10 +119,20 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
 
     vector<FbxVector2>* lTexCoords = pObjScene->GetTexCoords();
 
+//    FbxLayer* lLayer = lMesh->GetLayer(0);
+//    if(lLayer == NULL){
+//        lMesh->CreateLayer();
+//        lLayer = lMesh->GetLayer(0);
+//    }
+//
+    FbxLayerElementNormal* lLayerElementNormal= FbxLayerElementNormal::Create(lMesh, "");
+    lLayerElementNormal->SetMappingMode(FbxLayerElement::eByPolygon);
+    lLayerElementNormal->SetReferenceMode(FbxLayerElement::eDirect);
+
     for (FbxVector2 & lTexCoord : *lTexCoords)
         lUVDiffuseElement->GetDirectArray().Add(lTexCoord);
-
-    lUVDiffuseElement->GetIndexArray().SetCount(static_cast<int>(lTexCoords->size()));
+//    int count =static_cast<int>(lTexCoords->size());
+//    lUVDiffuseElement->GetIndexArray().SetCount(count);
 
     for (ObjFace* &lFace : *pGroup->GetFaces())
     {
@@ -135,8 +145,10 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
             lUVDiffuseElement->GetIndexArray().Add(lTexInd->at(i));
         }
         lMesh->EndPolygon ();
+        lLayerElementNormal->GetDirectArray().Add(*lFace->GetNormal());
     }
 
+//    lLayer->SetNormals(lLayerElementNormal);
     FbxNode* lNode = FbxNode::Create(pScene, "");
     lNode->SetNodeAttribute(lMesh);
     lNode->SetShadingMode(FbxNode::eTextureShading);
@@ -144,55 +156,10 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
     return lNode;
 }
 
-FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene)
-{
-    FbxMesh* lMesh = FbxMesh::Create(pScene, "");
-    vector<FbxVector4>* lVertices = pObjScene->GetVertices();
 
-    lMesh->InitControlPoints(static_cast<unsigned int>(lVertices->size()));
-    FbxVector4* lControlPoints = lMesh->GetControlPoints();
-
-    for (FbxVector4 &lVertex : *lVertices)
-        *lControlPoints++ = lVertex;
-
-    FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
-    FBX_ASSERT( lUVDiffuseElement != NULL);
-    lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
-    lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
-
-    vector<FbxVector2>* lTexCoords = pObjScene->GetTexCoords();
-
-    for (FbxVector2 & lTexCoord : *lTexCoords)
-        lUVDiffuseElement->GetDirectArray().Add(lTexCoord);
-
-    lUVDiffuseElement->GetIndexArray().SetCount(static_cast<unsigned int>(lTexCoords->size()));
-
-    for (ObjGroup* &lGroup : *pObjScene->GetGroups())
-    {
-        for (ObjFace* &lFace : *lGroup->GetFaces())
-        {
-            lMesh->BeginPolygon();
-            const vector<unsigned int>* lVertInd = lFace->GetXYZ();
-            const vector<unsigned int>* lTexInd = lFace->GetUVW();
-            for (size_t i = 0; i < lFace->Size(); ++i)
-            {
-                lMesh->AddPolygon(lVertInd->at(i));
-                lUVDiffuseElement->GetIndexArray().Add(lTexInd->at(i));
-            }
-            lMesh->EndPolygon ();
-        }
-    }
-
-    FbxNode* lNode = FbxNode::Create(pScene, "");
-    lNode->SetNodeAttribute(lMesh);
-    lNode->SetShadingMode(FbxNode::eTextureShading);
-
-    return lNode;
-}
 
 void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup)
 {
-//    string lName = pGroup->GetMaterial()->GetName();
     FbxMesh* lMesh = pNode->GetMesh();
     FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
     lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
@@ -213,16 +180,38 @@ void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup
 
 FbxSurfaceMaterial* ObjReader::CreateMaterial(FbxScene* pScene, ObjMaterial* pMaterial)
 {
+    // TODO: check illum value to determine which shading model
+    
     FbxString lShadingName = "Phong";
     FbxString lMaterialName = pMaterial->GetName().c_str();
     FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
 
     lMaterial->ShadingModel.Set(lShadingName);
-    lMaterial->Ambient.Set(pMaterial->GetAmbient());
+    //lMaterial->Ambient.Set(pMaterial->GetAmbient());
     lMaterial->Diffuse.Set(pMaterial->GetDiffuse());
-    lMaterial->Specular.Set(pMaterial->GetSpecular());
-    lMaterial->TransparencyFactor.Set(1.0 - pMaterial->GetDissolve());
-//    lMaterial->Shininess.Set(pMaterial->GetHilight());
+    //lMaterial->Specular.Set(pMaterial->GetSpecular());
+    //lMaterial->TransparencyFactor.Set(1.0 - pMaterial->GetDissolve());
+    //lMaterial->Shininess.Set(pMaterial->GetHilight());
+
+    AttachTexture(pScene, lMaterial);
 
     return lMaterial;
+}
+
+void ObjReader::AttachTexture(FbxScene *pScene, FbxSurfacePhong *pMaterial)
+{
+    FbxFileTexture* lTexture = FbxFileTexture::Create(pScene,"Diffuse Texture");
+
+    lTexture->SetFileName("/Library/ObjToFbx/10074_Canyon_Romatic_Oak_001_06.jpg");
+    lTexture->SetTextureUse(FbxTexture::eStandard);
+    lTexture->SetMappingType(FbxTexture::eUV);
+    lTexture->SetMaterialUse(FbxFileTexture::eModelMaterial);
+    lTexture->SetSwapUV(false);
+    lTexture->SetTranslation(0.0, 0.0);
+    lTexture->SetScale(0.10, 0.10);
+    lTexture->SetRotation(0.0, 0.0);
+
+    if (pMaterial)
+        pMaterial->Diffuse.ConnectSrcObject(lTexture);
+
 }
