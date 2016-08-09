@@ -37,9 +37,6 @@
 		B5C3E50B1D3C176A00BC4579 /* StringTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EE41D393E1600A38AD5 /* StringTools.h */; };
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
-		B5DEED381D58FE050000DCA5 /* 10074_Canyon_Romatic_Oak_001_06.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5234C7E1D4BB73D00878821 /* 10074_Canyon_Romatic_Oak_001_06.jpg */; };
-		B5DEED391D58FE090000DCA5 /* 10074_Canyon_Romatic_Oak_001_061.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5234C7F1D4BB73D00878821 /* 10074_Canyon_Romatic_Oak_001_061.jpg */; };
-		B5DEED3A1D58FE100000DCA5 /* 10074_Canyon_Romatic_Oak_001_062.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5234C801D4BB73D00878821 /* 10074_Canyon_Romatic_Oak_001_062.jpg */; };
 		B5F1EA991D46B54F00B2547C /* GeometryTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5F1EA971D46B54F00B2547C /* GeometryTools.cxx */; };
 		B5F1EA9A1D46B54F00B2547C /* GeometryTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5F1EA981D46B54F00B2547C /* GeometryTools.h */; };
 /* End PBXBuildFile section */
@@ -131,9 +128,6 @@
 			dstPath = /Library/ObjToFbx;
 			dstSubfolderSpec = 0;
 			files = (
-				B5DEED381D58FE050000DCA5 /* 10074_Canyon_Romatic_Oak_001_06.jpg in CopyFiles */,
-				B5DEED391D58FE090000DCA5 /* 10074_Canyon_Romatic_Oak_001_061.jpg in CopyFiles */,
-				B5DEED3A1D58FE100000DCA5 /* 10074_Canyon_Romatic_Oak_001_062.jpg in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
