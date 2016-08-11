@@ -188,7 +188,7 @@ void ObjScene::CreateMaterials(string &pString)
                         } else if (lType == "Ks") {
                             lMaterial->SetKs(ConvertVector(lTokens));
                         } else if (lType == "Ns") {
-                            lMaterial->SetNs(ConvertValue(lTokens));
+                            lMaterial->SetNs(ConvertDouble(lTokens));
                         } else if (lType == "map_Ka") {
                             lMaterial->SetMap_Ka(lTokens.at(1));
                         } else if (lType == "map_Kd") {
@@ -198,7 +198,7 @@ void ObjScene::CreateMaterials(string &pString)
                         } else if (lType == "map_bump") {
                             lMaterial->SetMap_Bump(lTokens.at(1));
                         } else if (lType == "d") {
-                            lMaterial->SetD(ConvertValue(lTokens));
+                            lMaterial->SetD(ConvertDouble(lTokens));
                         } else if (lType == "illum") {
                             lMaterial->SetIllum(ConvertInt(lTokens));
                         } else if (lType == "newmtl") {
@@ -220,7 +220,7 @@ int* ObjScene::ConvertInt(vector<string> &pTokens)
     return lValue;
 }
 
-double* ObjScene::ConvertValue(vector<string> &pTokens)
+double* ObjScene::ConvertDouble(vector<string> &pTokens)
 {
     string::size_type sz;
     double* lValue = new double;

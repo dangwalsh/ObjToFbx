@@ -40,7 +40,7 @@ protected:
                                                            std::vector<std::string>::iterator pEnd);
     virtual void CreateMaterials(std::string &pString);
     virtual int* ConvertInt(std::vector<std::string> &pTokens);
-    virtual double* ConvertValue(std::vector<std::string> &pTokens);
+    virtual double* ConvertDouble(std::vector<std::string> &pTokens);
     virtual double* ConvertVector(std::vector<std::string> &pTokens);
 };
 
