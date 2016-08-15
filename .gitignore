@@ -39,3 +39,6 @@
 *.vcxproj*
 .idea
 /Debug/
+/Release/
+/Assets/
+

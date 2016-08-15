@@ -10,14 +10,14 @@
 
 
 bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename, int pFileFormat=-1, bool pEmbedMedia=false);
-void ChangeExtension(const char* pPath);
+void ChangeExtension(char* pPath);
 
 int main(int argc, char** argv)
 {
 	bool lResult;
 	int lRegisteredCount;
 	int lPluginId;
-    const char* lFileName;
+    char* lFileName;
 	FbxManager* lSdkManager = NULL;
 	FbxScene* lScene = NULL;
 
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 	return 0;
 }
 
-void ChangeExtension(const char* pPath)
+void ChangeExtension(char* pPath)
 {
     char* lExt = new char[5] {'.','f','b','x','\0'};
     char* lPtr;
