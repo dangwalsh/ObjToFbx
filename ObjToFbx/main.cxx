@@ -1,4 +1,5 @@
 #include <fbxsdk.h>
+#include <string>
 #include "Io/ObjReaderFacade.h"
 #include "Utilities/SdkTools.h"
 
@@ -9,7 +10,7 @@
 
 
 bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename, int pFileFormat=-1, bool pEmbedMedia=false);
-
+void ChangeExtension(const char* pPath);
 
 int main(int argc, char** argv)
 {
@@ -53,11 +54,27 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    lResult = SaveScene(lSdkManager, lScene, "texture_test.fbx");
+    ChangeExtension(lFileName);
+    lResult = SaveScene(lSdkManager, lScene, lFileName);
 
 	DestroySdkObjects(lSdkManager, lResult);
 
 	return 0;
+}
+
+void ChangeExtension(const char* pPath)
+{
+    char* lExt = new char[5] {'.','f','b','x','\0'};
+    char* lPtr;
+
+    lPtr = strchr(pPath, '.');
+    
+    while(*lExt != '\0')
+    {
+        ++lPtr;
+        ++lExt;
+        *lPtr = *lExt;
+    }
 }
 
 
