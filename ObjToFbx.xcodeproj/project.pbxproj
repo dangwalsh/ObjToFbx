@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B50D62791D5FAB60007D3458 /* ObjTex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B50D62771D5FAB60007D3458 /* ObjTex.cpp */; };
+		B50D627A1D5FAB60007D3458 /* ObjTex.h in Headers */ = {isa = PBXBuildFile; fileRef = B50D62781D5FAB60007D3458 /* ObjTex.h */; };
 		B516AF861D4BEDA3001EC5EC /* MtlReader.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B516AF731D4BD523001EC5EC /* MtlReader.cxx */; };
 		B516AF871D4BEDB6001EC5EC /* MtlReader.h in Headers */ = {isa = PBXBuildFile; fileRef = B516AF741D4BD523001EC5EC /* MtlReader.h */; };
 		B51D7F0D1D3D390F00685780 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B51D7F0B1D3D38E000685780 /* gtest-all.cc */; };
@@ -134,6 +136,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B50D62771D5FAB60007D3458 /* ObjTex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjTex.cpp; sourceTree = "<group>"; };
+		B50D62781D5FAB60007D3458 /* ObjTex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjTex.h; sourceTree = "<group>"; };
 		B516AF731D4BD523001EC5EC /* MtlReader.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MtlReader.cxx; sourceTree = "<group>"; };
 		B516AF741D4BD523001EC5EC /* MtlReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtlReader.h; sourceTree = "<group>"; };
 		B51D7EF71D3D2BF500685780 /* libfbxsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfbxsdk.a; path = "../../../../../../Applications/Autodesk/FBX SDK/2016.1.1/lib/clang/debug/libfbxsdk.a"; sourceTree = "<group>"; };
@@ -474,6 +478,8 @@
 				B5597ED61D393E1600A38AD5 /* ObjMaterial.h */,
 				B5597ED71D393E1600A38AD5 /* ObjScene.cxx */,
 				B5597ED81D393E1600A38AD5 /* ObjScene.h */,
+				B50D62771D5FAB60007D3458 /* ObjTex.cpp */,
+				B50D62781D5FAB60007D3458 /* ObjTex.h */,
 			);
 			path = Geometry;
 			sourceTree = "<group>";
@@ -976,6 +982,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B516AF871D4BEDB6001EC5EC /* MtlReader.h in Headers */,
+				B50D627A1D5FAB60007D3458 /* ObjTex.h in Headers */,
 				B55D72901D4EB76F00482EE5 /* ObjScene.h in Headers */,
 				B5C3E5031D3C176A00BC4579 /* SdkException.h in Headers */,
 				B5C3E5041D3C176A00BC4579 /* ObjGroup.h in Headers */,
@@ -1220,6 +1227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50D62791D5FAB60007D3458 /* ObjTex.cpp in Sources */,
 				B5C3E4F11D3C16E600BC4579 /* SdkException.cxx in Sources */,
 				B5C3E4F31D3C16E600BC4579 /* ObjGroup.cxx in Sources */,
 				B5C3E4F51D3C16E600BC4579 /* ObjFace.cxx in Sources */,

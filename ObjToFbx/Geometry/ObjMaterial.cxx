@@ -7,6 +7,10 @@ ObjMaterial::ObjMaterial(ObjScene* pScene, string& pString)
 {
 	mScene = pScene;
     mName = pString;
+    mTex_Ka = NULL;
+    mTex_Kd = NULL;
+    mTex_Ks = NULL;
+    mTex_Bump = NULL;
 }
 
 ObjMaterial::~ObjMaterial()
@@ -17,6 +21,10 @@ ObjMaterial::~ObjMaterial()
     delete mKd;
     delete mKa;
     delete mIllum;
+    delete mTex_Ka;
+    delete mTex_Kd;
+    delete mTex_Ks;
+    delete mTex_Bump;
 }
 
 
@@ -43,37 +51,37 @@ void ObjMaterial::SetKs(double pValues[3])
 
 void ObjMaterial::SetD(double* pValue)
 {
-    mD = pValue;
+    mD = new FbxDouble(*pValue);
 }
 
 void ObjMaterial::SetNs(double* pValue)
 {
-    mNs = pValue;
+    mNs = new FbxDouble(*pValue);
 }
 
 void ObjMaterial::SetIllum(int* pValue)
 {
-    mIllum = pValue;
+    mIllum = new FbxInt(*pValue);
 }
 
-void ObjMaterial::SetMap_Bump(string &pString)
+void ObjMaterial::SetTex_Ka(ObjTex* pTexture)
 {
-    mMap_Bump = pString;
+    mTex_Ka = pTexture;
 }
 
-void ObjMaterial::SetMap_Ka(string &pString)
+void ObjMaterial::SetTex_Kd(ObjTex* pTexture)
 {
-    mMap_Ka = pString;
+    mTex_Kd = pTexture;
 }
 
-void ObjMaterial::SetMap_Kd(string &pString)
+void ObjMaterial::SetTex_Ks(ObjTex* pTexture)
 {
-    mMap_Kd = pString;
+    mTex_Ks = pTexture;
 }
 
-void ObjMaterial::SetMap_Ks(string &pString)
+void ObjMaterial::SetTex_Bump(ObjTex* pTexture)
 {
-    mMap_Ks = pString;
+    mTex_Bump = pTexture;
 }
 
 
@@ -113,6 +121,26 @@ FbxDouble& ObjMaterial::GetHilight()
 FbxInt& ObjMaterial::GetIllumModel()
 {
     return *mIllum;
+}
+
+ObjTex* ObjMaterial::GetAmbientTex()
+{
+    return mTex_Ka;
+}
+
+ObjTex* ObjMaterial::GetDiffuseTex()
+{
+    return mTex_Kd;
+}
+
+ObjTex* ObjMaterial::GetSpecularTex()
+{
+    return mTex_Ks;
+}
+
+ObjTex* ObjMaterial::GetBumpTex()
+{
+    return mTex_Bump;
 }
 
 /* Protected Members */

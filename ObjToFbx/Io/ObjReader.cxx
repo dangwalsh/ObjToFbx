@@ -178,42 +178,43 @@ void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup
     return;
 }
 
-FbxSurfaceMaterial* ObjReader::CreateMaterial(FbxScene* pScene, ObjMaterial* pMaterial)
+FbxSurfaceMaterial* ObjReader::CreateMaterial(FbxScene* pScene, ObjMaterial* pObjMaterial)
 {
     // TODO: check illum value to determine which shading model
     
     FbxString lShadingName = "Phong";
-    FbxString lMaterialName = pMaterial->GetName().c_str();
+    FbxString lMaterialName = pObjMaterial->GetName().c_str();
     FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
 
     lMaterial->ShadingModel.Set(lShadingName);
-    lMaterial->Ambient.Set(pMaterial->GetAmbient());
-    lMaterial->Diffuse.Set(pMaterial->GetDiffuse());
-    lMaterial->Specular.Set(pMaterial->GetSpecular());
-    lMaterial->TransparencyFactor.Set(1.0 - pMaterial->GetDissolve());
-    lMaterial->Shininess.Set(pMaterial->GetHilight());
-
-    AttachTexture(pScene, lMaterial);
+    lMaterial->Ambient.Set(pObjMaterial->GetAmbient());
+    lMaterial->Ambient.ConnectSrcObject(CreateTexture(pScene, lMaterial, pObjMaterial->GetAmbientTex()));
+    lMaterial->Diffuse.Set(pObjMaterial->GetDiffuse());
+    lMaterial->Diffuse.ConnectSrcObject(CreateTexture(pScene, lMaterial, pObjMaterial->GetDiffuseTex()));
+    lMaterial->Specular.Set(pObjMaterial->GetSpecular());
+    lMaterial->Specular.ConnectSrcObject(CreateTexture(pScene, lMaterial, pObjMaterial->GetSpecularTex()));
+    lMaterial->TransparencyFactor.Set(1.0 - pObjMaterial->GetDissolve());
+    lMaterial->Shininess.Set(pObjMaterial->GetHilight());
 
     return lMaterial;
 }
 
-void ObjReader::AttachTexture(FbxScene *pScene, FbxSurfacePhong *pMaterial)
+FbxFileTexture* ObjReader::CreateTexture(FbxScene *pScene, FbxSurfacePhong *pFbxMaterial, ObjTex* pObjTex)
 {
-    FbxFileTexture* lTexture = FbxFileTexture::Create(pScene,"Diffuse Texture");
+    if(pObjTex == NULL)
+        return NULL;
 
-    // TODO: add path to file name when reading in
+    FbxFileTexture* lTexture = FbxFileTexture::Create(pScene, "Diffuse Texture");
 
-    lTexture->SetFileName("/Library/ObjToFbx/10074_Canyon_Romatic_Oak_001_06.jpg");
+    lTexture->SetFileName(pObjTex->GetPath().c_str());
     lTexture->SetTextureUse(FbxTexture::eStandard);
     lTexture->SetMappingType(FbxTexture::eUV);
     lTexture->SetMaterialUse(FbxFileTexture::eModelMaterial);
     lTexture->SetSwapUV(false);
-    lTexture->SetTranslation(0.0, 0.0);
-    lTexture->SetScale(3.0, 3.0);
-    lTexture->SetRotation(0.0, 0.0);
+    lTexture->SetTranslation(pObjTex->GetOrigin()[0], pObjTex->GetOrigin()[1]);
+    lTexture->SetScale(pObjTex->GetScale()[0], pObjTex->GetScale()[1]);
+    lTexture->SetRotation(pObjTex->GetRotation()[0], pObjTex->GetOrigin()[1]);
 
-    if (pMaterial)
-        pMaterial->Diffuse.ConnectSrcObject(lTexture);
+    return lTexture;
 
 }

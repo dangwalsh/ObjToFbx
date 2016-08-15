@@ -18,10 +18,10 @@ illum 2
 newmtl 3_*_Default_-_Wood_1_-_Light
 Ka 0.69999998807907 0.69999998807907 0.69999998807907
 Kd 0.69999998807907 0.69999998807907 0.69999998807907
-map_Ka 10074_Canyon_Romatic_Oak_001_06.jpg
-map_Kd 10074_Canyon_Romatic_Oak_001_06.jpg
+map_Ka -s 3 3 3 10074_Canyon_Romatic_Oak_001_06.jpg
+map_Kd -s 3 3 3 10074_Canyon_Romatic_Oak_001_06.jpg
 Ks 1 1 1
-map_Ks 10074_Canyon_Romatic_Oak_001_061.jpg
+map_Ks -s 3 3 3 10074_Canyon_Romatic_Oak_001_061.jpg
 d 1
 map_bump 10074_Canyon_Romatic_Oak_001_062.jpg
 Ns 20.0

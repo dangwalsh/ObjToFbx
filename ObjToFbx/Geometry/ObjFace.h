@@ -24,11 +24,11 @@ public:
     virtual const FbxVector4* GetNormal();
 
 protected:
-    std::vector<unsigned int>*    mVertexIndex;
-    std::vector<unsigned int>*    mNormalIndex;
-    std::vector<unsigned int>*    mTextureIndex;
-    FbxVector4*             mNormal;
-    ObjScene*               mScene;
+    std::vector<unsigned int>*  mVertexIndex;
+    std::vector<unsigned int>*  mNormalIndex;
+    std::vector<unsigned int>*  mTextureIndex;
+    FbxVector4*                 mNormal;
+    ObjScene*                   mScene;
 };
 
 #endif // OBJFACE_H

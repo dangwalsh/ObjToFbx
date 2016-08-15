@@ -23,6 +23,8 @@ ObjGroup::~ObjGroup()
 {
     delete mFaces;
     delete mMaterial;
+    delete mName;
+    delete mScene;
 }
 
 

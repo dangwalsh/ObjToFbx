@@ -52,6 +52,7 @@ ObjFace::~ObjFace()
     delete mVertexIndex;
     delete mNormalIndex;
     delete mTextureIndex;
+    delete mNormal;
 }
 
 

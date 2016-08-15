@@ -1,7 +1,9 @@
 #include "ObjScene.h"
-#include <iterator>
+#include "ObjTex.h"
 #include "../Utilities/StringTools.h"
 #include "../Io/MtlReader.h"
+#include <iterator>
+
 
 using namespace std;
 
@@ -190,13 +192,17 @@ void ObjScene::CreateMaterials(string &pString)
                         } else if (lType == "Ns") {
                             lMaterial->SetNs(ConvertDouble(lTokens));
                         } else if (lType == "map_Ka") {
-                            lMaterial->SetMap_Ka(lTokens.at(1));
+                            ObjTex *lTexture = new ObjTex(lTokens);
+                            lMaterial->SetTex_Ka(lTexture);
                         } else if (lType == "map_Kd") {
-                            lMaterial->SetMap_Kd(lTokens.at(1));
+                            ObjTex *lTexture2 = new ObjTex(lTokens);
+                            lMaterial->SetTex_Kd(lTexture2);
                         } else if (lType == "map_Ks") {
-                            lMaterial->SetMap_Ks(lTokens.at(1));
+                            ObjTex *lTexture3 = new ObjTex(lTokens);
+                            lMaterial->SetTex_Ks(lTexture3);
                         } else if (lType == "map_bump") {
-                            lMaterial->SetMap_Bump(lTokens.at(1));
+                            ObjTex *lTexture4 = new ObjTex(lTokens);
+                            lMaterial->SetTex_Bump(lTexture4);
                         } else if (lType == "d") {
                             lMaterial->SetD(ConvertDouble(lTokens));
                         } else if (lType == "illum") {

@@ -3,8 +3,14 @@
 
 #include <fbxsdk.h>
 #include "../Geometry/ObjScene.h"
+#include "../Geometry/ObjGroup.h"
+#include "../Geometry/ObjMaterial.h"
+#include "../Geometry/ObjTex.h"
 
 class ObjScene;
+class ObjGroup;
+class ObjMaterial;
+class ObjTexture;
 
 class ObjReader : public FbxReader
 {
@@ -23,7 +29,7 @@ public:
     virtual FbxNode* CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup);
     virtual void ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup);
     virtual FbxSurfaceMaterial* CreateMaterial(FbxScene* pScene, ObjMaterial* pMaterial);
-    virtual void AttachTexture(FbxScene* pScene, FbxSurfacePhong* pMaterial);
+    virtual FbxFileTexture* CreateTexture(FbxScene* pScene, FbxSurfacePhong* pFbxMaterial, ObjTex* pObjMaterial);
 
 private:
 	FILE*		mFilePointer;
