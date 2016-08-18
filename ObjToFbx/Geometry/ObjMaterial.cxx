@@ -7,6 +7,12 @@ ObjMaterial::ObjMaterial(ObjScene* pScene, string& pString)
 {
 	mScene = pScene;
     mName = pString;
+	mKa = new FbxDouble3;
+	mKd = new FbxDouble3;
+	mKs = new FbxDouble3;
+	mD = new FbxDouble;
+	mNs = new FbxDouble;
+	mIllum = new FbxInt;
     mTex_Ka = NULL;
     mTex_Kd = NULL;
     mTex_Ks = NULL;

@@ -87,22 +87,22 @@ bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename,
 
     if( pFileFormat < 0 || pFileFormat >= pManager->GetIOPluginRegistry()->GetWriterFormatCount() )
     {
-        pFileFormat = pManager->GetIOPluginRegistry()->GetNativeWriterFormat();
+        //pFileFormat = pManager->GetIOPluginRegistry()->GetNativeWriterFormat();
+		pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX binary (*.fbx)");
         int lFormatIndex, lFormatCount = pManager->GetIOPluginRegistry()->GetWriterFormatCount();
-
-        for (lFormatIndex=0; lFormatIndex<lFormatCount; lFormatIndex++)
-        {
-            if (pManager->GetIOPluginRegistry()->WriterIsFBX(lFormatIndex))
-            {
-                FbxString lDesc =pManager->GetIOPluginRegistry()->GetWriterFormatDescription(lFormatIndex);
-                const char *lASCII = "ascii";
-                if (lDesc.Find(lASCII)>=0)
-                {
-                    pFileFormat = lFormatIndex;
-                    break;
-                }
-            }
-        }
+        //for (lFormatIndex=0; lFormatIndex<lFormatCount; lFormatIndex++)
+        //{
+        //    if (pManager->GetIOPluginRegistry()->WriterIsFBX(lFormatIndex))
+        //    {
+        //        FbxString lDesc =pManager->GetIOPluginRegistry()->GetWriterFormatDescription(lFormatIndex);
+        //        const char *lASCII = "ascii";
+        //        if (lDesc.Find(lASCII)>=0)
+        //        {
+        //            pFileFormat = lFormatIndex;
+        //            break;
+        //        }
+        //    }
+        //}
     }
 
     IOS_REF.SetBoolProp(EXP_FBX_MATERIAL,        true);

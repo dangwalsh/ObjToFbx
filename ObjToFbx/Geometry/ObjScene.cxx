@@ -170,7 +170,7 @@ const ObjMaterial* ObjScene::GetMaterial(size_t pIndex) const
 void ObjScene::CreateMaterials(string &pString)
 {
     vector<string> lLines = Tokenize(pString, '\n');
-    for (vector<string>::iterator itor = lLines.begin(); itor < lLines.end(); ++itor)
+    for (vector<string>::iterator itor = lLines.begin(); itor < lLines.end(); itor++)
     {
         vector<string> lTokens = Tokenize(*itor);
         if(!lTokens.empty()) {
@@ -178,41 +178,52 @@ void ObjScene::CreateMaterials(string &pString)
             if (lType == "newmtl") {
                 ObjMaterial* lMaterial = new ObjMaterial(this, lTokens.at(1));
                 mMtlLib->push_back(lMaterial);
-                for (++itor; itor != lLines.end(); ++itor)
+                for (++itor; itor != lLines.end(); itor++)
                 {
-                    lTokens = Tokenize(*itor);
-                    if (!lTokens.empty()) {
-                        lType = lTokens[0];
-                        if (lType == "Ka") {
-                            lMaterial->SetKa(ConvertVector(lTokens));
-                        } else if (lType == "Kd") {
-                            lMaterial->SetKd(ConvertVector(lTokens));
-                        } else if (lType == "Ks") {
-                            lMaterial->SetKs(ConvertVector(lTokens));
-                        } else if (lType == "Ns") {
-                            lMaterial->SetNs(ConvertDouble(lTokens));
-                        } else if (lType == "map_Ka") {
-                            ObjTex *lTexture = new ObjTex(lTokens);
-                            lMaterial->SetTex_Ka(lTexture);
-                        } else if (lType == "map_Kd") {
-                            ObjTex *lTexture2 = new ObjTex(lTokens);
-                            lMaterial->SetTex_Kd(lTexture2);
-                        } else if (lType == "map_Ks") {
-                            ObjTex *lTexture3 = new ObjTex(lTokens);
-                            lMaterial->SetTex_Ks(lTexture3);
-                        } else if (lType == "map_bump") {
-                            ObjTex *lTexture4 = new ObjTex(lTokens);
-                            lMaterial->SetTex_Bump(lTexture4);
-                        } else if (lType == "d") {
-                            lMaterial->SetD(ConvertDouble(lTokens));
-                        } else if (lType == "illum") {
-                            lMaterial->SetIllum(ConvertInt(lTokens));
-                        } else if (lType == "newmtl") {
-                            --itor;
-                            break;
-                        }
-                    }
+						lTokens = Tokenize(*itor);
+						if (!lTokens.empty()) {
+							lType = lTokens[0];
+							if (lType == "Ka") {
+								lMaterial->SetKa(ConvertVector(lTokens));
+							}
+							else if (lType == "Kd") {
+								lMaterial->SetKd(ConvertVector(lTokens));
+							}
+							else if (lType == "Ks") {
+								lMaterial->SetKs(ConvertVector(lTokens));
+							}
+							else if (lType == "Ns") {
+								lMaterial->SetNs(ConvertDouble(lTokens));
+							}
+							else if (lType == "map_Ka") {
+								ObjTex *lTexture = new ObjTex(lTokens);
+								lMaterial->SetTex_Ka(lTexture);
+							}
+							else if (lType == "map_Kd") {
+								ObjTex *lTexture2 = new ObjTex(lTokens);
+								lMaterial->SetTex_Kd(lTexture2);
+							}
+							else if (lType == "map_Ks") {
+								ObjTex *lTexture3 = new ObjTex(lTokens);
+								lMaterial->SetTex_Ks(lTexture3);
+							}
+							else if (lType == "map_bump") {
+								ObjTex *lTexture4 = new ObjTex(lTokens);
+								lMaterial->SetTex_Bump(lTexture4);
+							}
+							else if (lType == "d") {
+								lMaterial->SetD(ConvertDouble(lTokens));
+							}
+							else if (lType == "illum") {
+								lMaterial->SetIllum(ConvertInt(lTokens));
+							}
+							else if (lType == "newmtl") {
+								--itor;
+								break;
+							}
+					}   
                 }
+				if (itor == lLines.end()) break;
             }
         }
     }

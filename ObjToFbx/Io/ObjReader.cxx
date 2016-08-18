@@ -188,6 +188,7 @@ FbxSurfaceMaterial* ObjReader::CreateMaterial(FbxScene* pScene, ObjMaterial* pOb
 
     lMaterial->ShadingModel.Set(lShadingName);
     lMaterial->Ambient.Set(pObjMaterial->GetAmbient());
+
     lMaterial->Ambient.ConnectSrcObject(CreateTexture(pScene, lMaterial, pObjMaterial->GetAmbientTex()));
     lMaterial->Diffuse.Set(pObjMaterial->GetDiffuse());
     lMaterial->Diffuse.ConnectSrcObject(CreateTexture(pScene, lMaterial, pObjMaterial->GetDiffuseTex()));
