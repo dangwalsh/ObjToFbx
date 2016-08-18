@@ -109,9 +109,11 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
     lMesh->InitControlPoints(static_cast<unsigned int>(lVertices->size()));
     FbxVector4* lControlPoints = lMesh->GetControlPoints();
 
-    for (FbxVector4 &lVertex : *lVertices)
-        *lControlPoints++ = lVertex;
-
+	if (lControlPoints == NULL)
+		return NULL;
+	for (FbxVector4 &lVertex : *lVertices)
+		*lControlPoints++ = lVertex;
+        
     FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
     FBX_ASSERT( lUVDiffuseElement != NULL);
     lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
