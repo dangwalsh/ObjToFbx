@@ -11,13 +11,15 @@
 
 bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename, int pFileFormat=-1, bool pEmbedMedia=false);
 void ChangeExtension(char* pPath);
+void SetPath(char* pDir);
 
 int main(int argc, char** argv)
 {
 	bool lResult;
 	int lRegisteredCount;
 	int lPluginId;
-    char* lFileName;
+    char* lFileName = NULL;
+	char* lFilePath = NULL;
 	FbxManager* lSdkManager = NULL;
 	FbxScene* lScene = NULL;
 
@@ -30,6 +32,10 @@ int main(int argc, char** argv)
         FBXSDK_printf("Please enter a source file path.\n");
         return 1;
     }
+
+	lFilePath = (char *)malloc(strlen(lFileName) + 1);
+	strncpy(lFilePath, lFileName, strlen(lFileName) + 1);
+	SetPath(lFilePath);
 
     InitializeSdkObjects(lSdkManager, lScene);
 
@@ -58,6 +64,8 @@ int main(int argc, char** argv)
     lResult = SaveScene(lSdkManager, lScene, lFileName);
 
 	DestroySdkObjects(lSdkManager, lResult);
+	free(lFilePath);
+	lFilePath = NULL;
 
 	return 0;
 }
@@ -75,6 +83,21 @@ void ChangeExtension(char* pPath)
         ++lExt;
         *lPtr = *lExt;
     }
+}
+
+void SetPath(char* pDir)
+{
+	char* lPtr;
+	char lSep;
+
+#ifdef WIN32
+	lSep = '\\';
+#else
+	lSep = '/';
+#endif
+	lPtr = strrchr(pDir, lSep);
+	++lPtr;
+	*lPtr = '\0';
 }
 
 

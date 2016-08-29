@@ -73,7 +73,7 @@ bool ObjReader::Read(FbxDocument* pDocument)
 			fseek (mFilePointer , 0 , SEEK_END);
 			lSize = ftell (mFilePointer);
 			rewind (mFilePointer);
-
+			
 			lBuffer = (char*) malloc (sizeof(char)*lSize + 1);
 			size_t lRead = fread(lBuffer, 1, lSize, mFilePointer);
 			lBuffer[lRead]='\0';

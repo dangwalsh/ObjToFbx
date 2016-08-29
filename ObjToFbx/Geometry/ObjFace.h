@@ -2,7 +2,6 @@
 #define OBJFACE_H
 
 #include <fbxsdk.h>
-#include <string>
 #include <vector>
 #include "Objscene.h"
 
