@@ -34,11 +34,11 @@
 # Editors
 *.vscode
 *.xcuserstate
-*.sln
 *.VC*
 *.vcxproj*
 .idea
-/Debug/
-/Release/
-/Assets/
+.vs/
+Debug/
+Release/
+Assets/
 
