@@ -48,7 +48,7 @@
             startingLineNumber = "33"
             endingLineNumber = "33"
             landmarkName = "ObjTex::ObjTex(vector&lt;string&gt;&amp; pTokens)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,7 +64,7 @@
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "ObjTex::SetTransforms(vector&lt;string&gt;&amp; pTokens)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,7 +96,7 @@
             startingLineNumber = "57"
             endingLineNumber = "57"
             landmarkName = "main(int argc, char** argv)"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -112,7 +112,7 @@
             startingLineNumber = "36"
             endingLineNumber = "36"
             landmarkName = "main(int argc, char** argv)"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
