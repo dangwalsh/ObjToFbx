@@ -31,7 +31,7 @@ bool ObjReader::FileOpen(char* pFileName)
 	FBXSDK_fopen(mFilePointer, pFileName, "r");
 	if (mFilePointer == NULL)
 		return false;
-	mPath = GetDirectory(pFileName);
+	mDirectory = GetDirectory(pFileName);
 	return true;
 }
 
