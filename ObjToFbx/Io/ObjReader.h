@@ -34,6 +34,7 @@ public:
 private:
 	FILE*		mFilePointer;
 	FbxManager*	mManager;
+	char*		mDirectory;
 };
 
 

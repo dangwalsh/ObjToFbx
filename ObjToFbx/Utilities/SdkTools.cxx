@@ -26,3 +26,29 @@ void DestroySdkObjects(FbxManager* pManager, bool pExitStatus)
 	if( pManager ) pManager->Destroy();
 	if( pExitStatus ) FBXSDK_printf("Program Success!\n");
 }
+
+void ChangeExtension(char* pPath)
+{
+	char* lExt = new char[5]{ '.','f','b','x','\0' };
+	char* lPtr;
+
+	lPtr = strchr(pPath, '.');
+
+	while (*lExt != '\0')
+	{
+		++lPtr;
+		++lExt;
+		*lPtr = *lExt;
+	}
+}
+
+char * GetDirectory(char* pPath)
+{
+	int lSize = strlen(pPath);
+	char *lBuffer = new char[lSize];
+	strcpy(lBuffer, pPath);
+	char *lPtr; 
+	for (lPtr = lBuffer + lSize; *lPtr != '\\'; --lPtr) { }
+	*lPtr = '\0';
+	return lBuffer;
+}

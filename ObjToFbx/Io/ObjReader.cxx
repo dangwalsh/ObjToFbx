@@ -1,6 +1,7 @@
 #include <sstream>
 #include <vector>
 #include "ObjReader.h"
+#include "../Utilities/SdkTools.h"
 
 using namespace std;
 
@@ -30,6 +31,7 @@ bool ObjReader::FileOpen(char* pFileName)
 	FBXSDK_fopen(mFilePointer, pFileName, "r");
 	if (mFilePointer == NULL)
 		return false;
+	mPath = GetDirectory(pFileName);
 	return true;
 }
 

@@ -99,7 +99,8 @@ ObjMaterial* ObjScene::GetMaterial(string pString) const
 void ObjScene::AddMtlLib(vector<string>& pTokens)
 {
     MtlReader lReader;
-    lReader.FileOpen(pTokens.at(1).c_str());
+	const char* lChar = pTokens.at(1).c_str();
+    lReader.FileOpen(lChar);
     string* lString = lReader.FileRead();
     CreateMaterials(*lString);
     lReader.FileClose();

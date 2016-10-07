@@ -62,22 +62,6 @@ int main(int argc, char** argv)
 	return 0;
 }
 
-void ChangeExtension(char* pPath)
-{
-    char* lExt = new char[5] {'.','f','b','x','\0'};
-    char* lPtr;
-
-    lPtr = strchr(pPath, '.');
-    
-    while(*lExt != '\0')
-    {
-        ++lPtr;
-        ++lExt;
-        *lPtr = *lExt;
-    }
-}
-
-
 bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename, int pFileFormat, bool pEmbedMedia)
 {
     int lMajor, lMinor, lRevision;
