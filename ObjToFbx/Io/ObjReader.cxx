@@ -81,9 +81,22 @@ bool ObjReader::Read(FbxDocument* pDocument)
 			lBuffer[lRead]='\0';
 			string lString(lBuffer);
 
-			lObjScene = new ObjScene(lString);
-            CreateFbxScene(lScene, lObjScene);
+			try { lObjScene = new ObjScene(lString); }
+			catch (exception e)
+			{
+				FBXSDK_printf(e.what());
+				free(lBuffer);
+				return lResult;
+			}
 
+			try { CreateFbxScene(lScene, lObjScene); }
+			catch (exception e)
+			{
+				FBXSDK_printf(e.what());
+				free(lBuffer);
+				return lResult;
+			}
+            
 			free(lBuffer);
 		}
 		lResult = true;

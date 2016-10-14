@@ -94,6 +94,11 @@ ObjMaterial* ObjScene::GetMaterial(string pString) const
     return NULL;
 }
 
+FbxVector4& ObjScene::GetNormal(size_t pIndex) const
+{
+	return mNormals->at(pIndex);
+}
+
 
 /* Protected Members */
 void ObjScene::AddMtlLib(vector<string>& pTokens)

@@ -19,10 +19,11 @@ public:
     virtual std::vector<FbxVector4>* GetNormals() const;
     virtual std::vector<FbxVector2>* GetTexCoords() const;
     virtual std::vector<ObjGroup*>* GetGroups() const;
-    virtual FbxVector4& GetVertex(size_t index) const;
+    virtual FbxVector4& GetVertex(size_t pIndex) const;
     virtual const std::vector<ObjMaterial*>* GetMtlLib() const;
     virtual const ObjMaterial* GetMaterial(size_t pIndex) const;
 	virtual ObjMaterial* GetMaterial(std::string) const;
+	virtual FbxVector4& GetNormal(size_t pIndex) const;
 
 protected:
     std::vector<ObjMaterial*>*  mMtlLib;

@@ -2,6 +2,7 @@
 #include "../Io/ObjReader.h"
 #include "../Utilities/StringTools.h"
 #include "../Utilities/GeometryTools.h"
+#include "../Exceptions/VectorException.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ ObjFace::ObjFace(ObjScene* pScene, vector<string>& pTokens)
     mVertexIndex = new vector<unsigned int>;
     mNormalIndex = new vector<unsigned int>;
     mTextureIndex = new vector<unsigned int>;
+	mNormal = new FbxVector4();
     
     pTokens.erase(pTokens.begin());
 	size_t lCount = pTokens.size();
@@ -34,16 +36,34 @@ ObjFace::ObjFace(ObjScene* pScene, vector<string>& pTokens)
 				mNormalIndex->push_back((stoi(lIndices[1], &sz)) - 1);
 				mTextureIndex->push_back((stoi(lIndices[2], &sz)) - 1);
 				break;
+			default:
+				throw new VectorException("The file contains malformed Face data");
 		}
 	}
-    if (mNormalIndex->size()==0)
-    {
-        mNormal = new FbxVector4;
-        FbxVector4 &v1 = mScene->GetVertex(this->GetXYZ(0));
-        FbxVector4 &v2 = mScene->GetVertex(this->GetXYZ(1));
-        FbxVector4 &v3 = mScene->GetVertex(this->GetXYZ(2));
-        *mNormal = CalculateNormal(v1, v2, v3);
-    }
+	switch(mNormalIndex->size())
+	{
+		case 0:
+		{
+			// removed & from v1, v2, v3
+			FbxVector4 v1 = mScene->GetVertex(this->GetXYZ(0));
+			FbxVector4 v2 = mScene->GetVertex(this->GetXYZ(1));
+			FbxVector4 v3 = mScene->GetVertex(this->GetXYZ(2));
+			*mNormal = CalculateNormal(v1, v2, v3);
+			break;
+		}
+		case 3:
+		{
+			FbxVector4 v1 = mScene->GetNormal(mNormalIndex->at(0));
+			FbxVector4 v2 = mScene->GetNormal(mNormalIndex->at(1));
+			FbxVector4 v3 = mScene->GetNormal(mNormalIndex->at(2));
+			*mNormal = (v1 + v2 + v3) / 3;
+			break;
+		}
+		default:
+		{
+			throw new VectorException("The file contains malformed Normal data");
+		}
+	}
 }
 
 ObjFace::~ObjFace()
@@ -96,4 +116,9 @@ unsigned int ObjFace::GetUVW(unsigned int index) const
 const FbxVector4* ObjFace::GetNormal()
 {
     return mNormal;
+}
+
+const FbxVector4& ObjFace::GetVertexNormal(unsigned int pIndex) const
+{
+	return mScene->GetNormal(mNormalIndex->at(pIndex));
 }

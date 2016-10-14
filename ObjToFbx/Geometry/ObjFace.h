@@ -21,7 +21,8 @@ public:
     virtual unsigned int GetXYZ(unsigned int index) const;
     virtual unsigned int GetNrm(unsigned int index) const;
     virtual unsigned int GetUVW(unsigned int index) const;
-    virtual const FbxVector4* GetNormal();
+    virtual const FbxVector4* GetNormal(); 
+	virtual const FbxVector4& GetVertexNormal(unsigned int pIndex) const;
 
 protected:
     std::vector<unsigned int>*  mVertexIndex;
