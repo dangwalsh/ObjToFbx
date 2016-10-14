@@ -17,19 +17,35 @@ int main(int argc, char** argv)
 	bool lResult;
 	int lRegisteredCount;
 	int lPluginId;
-    char* lFileName;
+    char* lInputFile;
+	char* lOutputFile;
 	FbxManager* lSdkManager = NULL;
 	FbxScene* lScene = NULL;
 
-    if (argc > 1)
-    {
-        lFileName = argv[1];
-    }
-    else
-    {
-        FBXSDK_printf("Please enter a source file path.\n");
-        return 1;
-    }
+	switch(argc)
+	{
+	case 2:
+		lInputFile = argv[1];
+		lOutputFile = CreatFileName(lInputFile);
+		break;
+	case 3:
+		lInputFile = argv[1];
+		lOutputFile = argv[2];
+		break;
+	default:
+		FBXSDK_printf("Please enter an input file path followed by an output file path.\n");
+		return 1;
+	}
+
+    //if (argc > 1)
+    //{
+    //    lInputFile = argv[1];
+    //}
+    //else
+    //{
+    //    FBXSDK_printf("Please enter an input file path followed by an output file path.\n");
+    //    return 1;
+    //}
 
     InitializeSdkObjects(lSdkManager, lScene);
 
@@ -37,7 +53,7 @@ int main(int argc, char** argv)
 
 	FbxImporter* lImporter = FbxImporter::Create(lSdkManager, "");
 
-	lResult = lImporter->Initialize(lFileName, -1, lSdkManager->GetIOSettings() );
+	lResult = lImporter->Initialize(lInputFile, -1, lSdkManager->GetIOSettings() );
     if(lResult == false)
     {
         FBXSDK_printf("Call to FbxExporter::Initialize() failed.\n");
@@ -54,8 +70,8 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    ChangeExtension(lFileName);
-    lResult = SaveScene(lSdkManager, lScene, lFileName);
+    //ChangeExtension(lInputFile);
+    lResult = SaveScene(lSdkManager, lScene, lOutputFile);
 
 	DestroySdkObjects(lSdkManager, lResult);
 
