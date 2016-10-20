@@ -7,7 +7,11 @@ class SdkException: public std::exception
 {
 public:
 	SdkException(const char* pMessage);
-	virtual const char* Message() const throw();
+    SdkException(const char* pMessage, const char* pData);
+	virtual const char* what() const throw();
+private:
+    const char* mMessage;
+    const char* mData;
 };
 
 

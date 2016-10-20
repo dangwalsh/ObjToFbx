@@ -1,12 +1,19 @@
 #include "SdkException.h"
+#include "../Utilities/StringTools.h"
 
 SdkException::SdkException(const char* pMessage)
-	: exception(pMessage)
+	: mMessage(pMessage)
 {
 
 }
 
-const char* SdkException::Message() const throw()
+SdkException::SdkException(const char* pMessage, const char* pData)
+    : mMessage(pMessage), mData(pData)
 {
-	return what();
+    
+}
+
+const char* SdkException::what() const throw()
+{
+	return StringConcat(mMessage, mData);
 }

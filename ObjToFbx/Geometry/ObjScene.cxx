@@ -1,8 +1,10 @@
 #include "ObjScene.h"
 #include "ObjTex.h"
 #include "../Utilities/StringTools.h"
+#include "../Utilities/SdkTools.h"
 #include "../Io/MtlReader.h"
 #include <iterator>
+#include "../Exceptions/SdkException.h"
 
 
 using namespace std;
@@ -43,6 +45,44 @@ ObjScene::ObjScene(string& pString)
 	}
 }
 
+ObjScene::ObjScene(const char* pDirectory, std::string& pContent)
+{
+    mVertices = new vector<FbxVector4>;
+    mNormals = new vector<FbxVector4>;
+    mTexCoords = new vector<FbxVector2>;
+    mGroups = new vector<ObjGroup*>;
+    mMtlLib = new vector<ObjMaterial*>;
+    //mDirectory = new string();
+    mDirectory = pDirectory;
+
+    vector<string> lLines = Tokenize(pContent, '\n');
+    vector<string>::iterator lItor;
+    vector<string>::iterator lBegin = lLines.begin();
+    vector<string>::iterator lEnd = lLines.end();
+
+    for (lItor = lBegin; lItor < lEnd; ++lItor)
+    {
+        vector<string> lTokens = Tokenize(*lItor);
+        if (!lTokens.empty()) {
+            string lType = lTokens[0];
+            if (lType == "mtllib") {
+                AddMtlLib(lTokens);
+            } else if (lType == "v") {
+                AddVertex(lTokens);
+            } else if (lType == "vn") {
+                AddNormal(lTokens);
+            } else if (lType == "vt") {
+                AddTexCoord(lTokens);
+            } else if (lType == "usemtl") {
+                lItor = AddObjGroup(lTokens, lItor, lEnd);
+#ifdef WIN32
+                if (lItor == lEnd) break;
+#endif
+            }
+        }
+    }
+}
+
 ObjScene::~ObjScene()
 {
     delete mMtlLib;
@@ -50,6 +90,7 @@ ObjScene::~ObjScene()
     delete mNormals;
     delete mTexCoords;
     delete mGroups;
+    delete mDirectory;
 }
 
 
@@ -103,9 +144,17 @@ FbxVector4& ObjScene::GetNormal(size_t pIndex) const
 /* Protected Members */
 void ObjScene::AddMtlLib(vector<string>& pTokens)
 {
-    MtlReader lReader;
+    MtlReader lReader(mDirectory);
 	const char* lChar = pTokens.at(1).c_str();
-    lReader.FileOpen(lChar);
+
+    if (lReader.FileOpen(lChar) == false)
+    {
+        if(lReader.FileOpenRelative(lChar) == false)
+        {
+            throw new SdkException("ObjToFbx failed to open MTL file at path: ", lChar);
+        }
+    }
+
     string* lString = lReader.FileRead();
     CreateMaterials(*lString);
     lReader.FileClose();

@@ -17,6 +17,7 @@
 		B5597EF31D393E8600A38AD5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
 		B55D728F1D4EB76B00482EE5 /* ObjScene.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED71D393E1600A38AD5 /* ObjScene.cxx */; };
 		B55D72901D4EB76F00482EE5 /* ObjScene.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597ED81D393E1600A38AD5 /* ObjScene.h */; };
+		B57AC9F91DB6AE19002C5937 /* VectorException.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B57AC9F71DB6AE19002C5937 /* VectorException.cxx */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.mm in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.mm */; };
 		B595B4331D4AE68100839201 /* libfbxsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D7EF71D3D2BF500685780 /* libfbxsdk.a */; };
 		B5C3E4ED1D3C166E00BC4579 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
@@ -371,6 +372,8 @@
 		B5798AE81D3D06E80093190E /* WidgetFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = WidgetFramework.xcodeproj; sourceTree = "<group>"; };
 		B5798AEC1D3D06E80093190E /* runtests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = runtests.sh; sourceTree = "<group>"; };
 		B5798AED1D3D06E80093190E /* versiongenerate.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = versiongenerate.py; sourceTree = "<group>"; };
+		B57AC9F71DB6AE19002C5937 /* VectorException.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VectorException.cxx; sourceTree = "<group>"; };
+		B57AC9F81DB6AE19002C5937 /* VectorException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorException.h; sourceTree = "<group>"; };
 		B58F316F1D3BD3F5003BA001 /* Test Bundle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test Bundle.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58F31711D3BD3F5003BA001 /* Test_Bundle.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Test_Bundle.mm; sourceTree = "<group>"; };
 		B58F31731D3BD3F5003BA001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -461,6 +464,8 @@
 		B5597ECD1D393E1600A38AD5 /* Exceptions */ = {
 			isa = PBXGroup;
 			children = (
+				B57AC9F71DB6AE19002C5937 /* VectorException.cxx */,
+				B57AC9F81DB6AE19002C5937 /* VectorException.h */,
 				B5597ECE1D393E1600A38AD5 /* SdkException.cxx */,
 				B5597ECF1D393E1600A38AD5 /* SdkException.h */,
 			);
@@ -1203,6 +1208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57AC9F91DB6AE19002C5937 /* VectorException.cxx in Sources */,
 				B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

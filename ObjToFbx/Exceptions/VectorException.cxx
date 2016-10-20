@@ -1,12 +1,12 @@
 #include "VectorException.h"
 
 VectorException::VectorException(const char* pMessage)
-	: exception(pMessage)
+    : mMessage(pMessage)
 {
-	
+    
 }
 
-const char* VectorException::Message() const throw()
+const char* VectorException::what() const throw()
 {
-	return what();
+    return mMessage;
 }

@@ -37,16 +37,6 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
-    //if (argc > 1)
-    //{
-    //    lInputFile = argv[1];
-    //}
-    //else
-    //{
-    //    FBXSDK_printf("Please enter an input file path followed by an output file path.\n");
-    //    return 1;
-    //}
-
     InitializeSdkObjects(lSdkManager, lScene);
 
 	lSdkManager->GetIOPluginRegistry()->RegisterReader(CreateObjReader, GetObjReaderInfo, lPluginId, lRegisteredCount, FillObjReaderIOSettings);
@@ -91,19 +81,6 @@ bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename,
 		//pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX binary (*.fbx)");
 		pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX ascii (*.fbx)");
         int lFormatIndex, lFormatCount = pManager->GetIOPluginRegistry()->GetWriterFormatCount();
-        //for (lFormatIndex=0; lFormatIndex<lFormatCount; lFormatIndex++)
-        //{
-        //    if (pManager->GetIOPluginRegistry()->WriterIsFBX(lFormatIndex))
-        //    {
-        //        FbxString lDesc =pManager->GetIOPluginRegistry()->GetWriterFormatDescription(lFormatIndex);
-        //        const char *lASCII = "ascii";
-        //        if (lDesc.Find(lASCII)>=0)
-        //        {
-        //            pFileFormat = lFormatIndex;
-        //            break;
-        //        }
-        //    }
-        //}
     }
 
     IOS_REF.SetBoolProp(EXP_FBX_MATERIAL,        true);

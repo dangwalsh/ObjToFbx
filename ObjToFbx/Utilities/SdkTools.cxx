@@ -1,4 +1,5 @@
 #include "SdkTools.h"
+#include "StringTools.h"
 
 void InitializeSdkObjects(FbxManager *&pManager, FbxScene *&pScene)
 {
@@ -58,15 +59,28 @@ char* CreatFileName(char* pPath)
 	return lBuffer;
 }
 
-char * GetDirectory(char* pPath)
+char* GetDirectory(char* pPath)
 {
 	int lSize = strlen(pPath);
 	char *lBuffer = new char[lSize];
 	strcpy(lBuffer, pPath);
-	char *lPtr; 
+    char *lPtr;
+#ifdef WIN32
+    char lSeparator = '\\';
+#else
+    char lSeparator = '/';
+#endif
 
-	for (lPtr = lBuffer + lSize; *lPtr != '\\'; --lPtr) { }
+	for (lPtr = (lBuffer + lSize - 1); *lPtr != lSeparator; --lPtr) { }
 
 	*lPtr = '\0';
 	return lBuffer;
 }
+
+const char* CreateRelativePath(const char* pAbsolute, const char* pRelative)
+{
+    return StringConcat(pAbsolute, pRelative);
+}
+
+
+

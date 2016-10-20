@@ -13,6 +13,7 @@ class ObjScene
 {
 public:
 	ObjScene(std::string& pString);
+    ObjScene(const char* pDirectory, std::string& pContent);
 	virtual ~ObjScene();
     
     virtual std::vector<FbxVector4>* GetVertices() const;
@@ -31,6 +32,7 @@ protected:
 	std::vector<FbxVector4>*    mNormals;
 	std::vector<FbxVector2>*    mTexCoords;
     std::vector<ObjGroup*>*     mGroups;
+    const char*                 mDirectory;
 
 	virtual void AddMtlLib(std::vector<std::string>& pTokens);
 	virtual void AddVertex(std::vector<std::string>& pTokens);
@@ -43,6 +45,7 @@ protected:
     virtual int* ConvertInt(std::vector<std::string> &pTokens);
     virtual double* ConvertDouble(std::vector<std::string> &pTokens);
     virtual double* ConvertVector(std::vector<std::string> &pTokens);
+
 };
 
 #endif // OBJSCENE_H

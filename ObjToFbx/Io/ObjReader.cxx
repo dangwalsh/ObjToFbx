@@ -136,12 +136,12 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
 
     vector<FbxVector2>* lTexCoords = pObjScene->GetTexCoords();
 
-//    FbxLayer* lLayer = lMesh->GetLayer(0);
-//    if(lLayer == NULL){
-//        lMesh->CreateLayer();
-//        lLayer = lMesh->GetLayer(0);
-//    }
-//
+    FbxLayer* lLayer = lMesh->GetLayer(0);
+    if(lLayer == NULL){
+        lMesh->CreateLayer();
+        lLayer = lMesh->GetLayer(0);
+    }
+
     FbxLayerElementNormal* lLayerElementNormal= FbxLayerElementNormal::Create(lMesh, "");
     lLayerElementNormal->SetMappingMode(FbxLayerElement::eByPolygon);
     lLayerElementNormal->SetReferenceMode(FbxLayerElement::eDirect);
@@ -165,7 +165,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
         lLayerElementNormal->GetDirectArray().Add(*lFace->GetNormal());
     }
 
-//    lLayer->SetNormals(lLayerElementNormal);
+    lLayer->SetNormals(lLayerElementNormal);
     FbxNode* lNode = FbxNode::Create(pScene, "");
     lNode->SetNodeAttribute(lMesh);
     lNode->SetShadingMode(FbxNode::eTextureShading);

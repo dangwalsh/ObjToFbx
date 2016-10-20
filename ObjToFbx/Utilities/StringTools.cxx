@@ -24,3 +24,17 @@ const vector<string> Tokenize(string& pInput, char pChar)
 	}
 	return lTokens;
 }
+
+const char* StringConcat(const char* pOne, const char* pTwo)
+{
+    size_t lLengthOne = strlen(pOne);
+    size_t lLengthTwo = strlen(pTwo);
+    
+    char* lCombined = new char[lLengthOne + lLengthTwo + 1]();
+    if (!lCombined) abort();
+
+    memcpy(lCombined, pOne, lLengthOne);
+    memcpy(lCombined + lLengthOne, pTwo, lLengthTwo);
+    lCombined[lLengthOne + lLengthTwo] = '\0';
+    return lCombined;
+}

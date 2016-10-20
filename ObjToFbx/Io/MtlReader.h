@@ -11,15 +11,17 @@
 class MtlReader
 {
 public:
-    MtlReader();
+    MtlReader(const char* pDirectory);
     virtual ~MtlReader();
     
     virtual bool FileOpen(const char* pFileName);
+    virtual bool FileOpenRelative(const char* pFileName);
     virtual std::string* FileRead();
     virtual bool FileClose();
 
 protected:
     FILE*           mFilePointer;
+    const char*     mDirectory;
 };
 
 

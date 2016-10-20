@@ -10,29 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjToFbx/Geometry/ObjScene.cxx"
-            timestampString = "492808430.511549"
+            timestampString = "498615462.077275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "ObjScene::CreateMaterials(string &amp;pString)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ObjToFbx/Io/ObjReader.cxx"
-            timestampString = "492965661.128279"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,7 +32,7 @@
             startingLineNumber = "33"
             endingLineNumber = "33"
             landmarkName = "ObjTex::ObjTex(vector&lt;string&gt;&amp; pTokens)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,7 +48,7 @@
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "ObjTex::SetTransforms(vector&lt;string&gt;&amp; pTokens)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,7 +64,7 @@
             startingLineNumber = "199"
             endingLineNumber = "199"
             landmarkName = "ObjReader::CreateMaterial(FbxScene* pScene, ObjMaterial* pObjMaterial)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -89,13 +73,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ObjToFbx/main.cxx"
-            timestampString = "492975706.88389"
+            filePath = "ObjToFbx/Geometry/ObjScene.cxx"
+            timestampString = "498615462.077275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "main(int argc, char** argv)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "ObjScene::ObjScene(string&amp; pString)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjToFbx/Geometry/ObjScene.cxx"
+            timestampString = "498615462.077275"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "ObjScene::AddMtlLib(vector&lt;string&gt;&amp; pTokens)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +106,108 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjToFbx/main.cxx"
-            timestampString = "492977006.768163"
+            timestampString = "498615725.538045"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "main(int argc, char** argv)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjToFbx/Io/ObjReader.cxx"
+            timestampString = "498615805.618259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "ObjReader::Read(FbxDocument* pDocument)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjToFbx/Io/ObjReader.cxx"
+            timestampString = "498662179.986248"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjToFbx/Io/ObjReader.cxx"
+            timestampString = "498665058.564062"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ObjReader::CreateMesh(fbxsdk::FbxScene*, ObjScene*, ObjGroup*)"
+                  moduleName = "ObjToFbx"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielwalsh/git/github.com/dangwalsh/ObjToFbx/ObjToFbx/Io/ObjReader.cxx"
+                  timestampString = "498665838.904211"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "1819">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ObjReader::CreateMesh(fbxsdk::FbxScene*, ObjScene*, ObjGroup*)"
+                  moduleName = "ObjToFbx"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielwalsh/git/github.com/dangwalsh/ObjToFbx/ObjToFbx/Io/ObjReader.cxx"
+                  timestampString = "498665838.90871"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "2179">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjToFbx/Io/ObjReader.cxx"
+            timestampString = "498665846.564437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -3,13 +3,14 @@
 //
 
 #include "MtlReader.h"
+#include "../Utilities/SdkTools.h"
 
 using namespace std;
 
-MtlReader::MtlReader():
-mFilePointer(NULL)
+MtlReader::MtlReader(const char* pDirectory)
+    : mFilePointer(NULL)
 {
-    
+    mDirectory = pDirectory;
 }
 
 MtlReader::~MtlReader()
@@ -21,6 +22,17 @@ bool MtlReader::FileOpen(const char* pFileName)
 {
     if (mFilePointer != NULL)
         FileClose();
+    FBXSDK_fopen(mFilePointer, pFileName, "r");
+    if (mFilePointer == NULL)
+        return false;
+    return true;
+}
+
+bool MtlReader::FileOpenRelative(const char* pFileName)
+{
+    if (mFilePointer != NULL)
+        FileClose();
+    pFileName = CreateRelativePath(mDirectory, pFileName);
     FBXSDK_fopen(mFilePointer, pFileName, "r");
     if (mFilePointer == NULL)
         return false;
