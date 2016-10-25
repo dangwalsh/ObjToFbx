@@ -12,12 +12,13 @@
 		B516AF861D4BEDA3001EC5EC /* MtlReader.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B516AF731D4BD523001EC5EC /* MtlReader.cxx */; };
 		B516AF871D4BEDB6001EC5EC /* MtlReader.h in Headers */ = {isa = PBXBuildFile; fileRef = B516AF741D4BD523001EC5EC /* MtlReader.h */; };
 		B51D7F0D1D3D390F00685780 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B51D7F0B1D3D38E000685780 /* gtest-all.cc */; };
+		B53659761DBFBA66004490FD /* VectorException.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B57AC9F71DB6AE19002C5937 /* VectorException.cxx */; };
+		B53659771DBFBA80004490FD /* VectorException.h in Headers */ = {isa = PBXBuildFile; fileRef = B57AC9F81DB6AE19002C5937 /* VectorException.h */; };
 		B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDE1D393E1600A38AD5 /* main.cxx */; };
 		B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
 		B5597EF31D393E8600A38AD5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
 		B55D728F1D4EB76B00482EE5 /* ObjScene.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ED71D393E1600A38AD5 /* ObjScene.cxx */; };
 		B55D72901D4EB76F00482EE5 /* ObjScene.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597ED81D393E1600A38AD5 /* ObjScene.h */; };
-		B57AC9F91DB6AE19002C5937 /* VectorException.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B57AC9F71DB6AE19002C5937 /* VectorException.cxx */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.mm in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.mm */; };
 		B595B4331D4AE68100839201 /* libfbxsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D7EF71D3D2BF500685780 /* libfbxsdk.a */; };
 		B5C3E4ED1D3C166E00BC4579 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
@@ -990,6 +991,7 @@
 				B50D627A1D5FAB60007D3458 /* ObjTex.h in Headers */,
 				B55D72901D4EB76F00482EE5 /* ObjScene.h in Headers */,
 				B5C3E5031D3C176A00BC4579 /* SdkException.h in Headers */,
+				B53659771DBFBA80004490FD /* VectorException.h in Headers */,
 				B5C3E5041D3C176A00BC4579 /* ObjGroup.h in Headers */,
 				B5C3E5051D3C176A00BC4579 /* ObjFace.h in Headers */,
 				B5C3E5061D3C176A00BC4579 /* ObjMaterial.h in Headers */,
@@ -1208,7 +1210,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B57AC9F91DB6AE19002C5937 /* VectorException.cxx in Sources */,
 				B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1234,6 +1235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B50D62791D5FAB60007D3458 /* ObjTex.cpp in Sources */,
+				B53659761DBFBA66004490FD /* VectorException.cxx in Sources */,
 				B5C3E4F11D3C16E600BC4579 /* SdkException.cxx in Sources */,
 				B5C3E4F31D3C16E600BC4579 /* ObjGroup.cxx in Sources */,
 				B5C3E4F51D3C16E600BC4579 /* ObjFace.cxx in Sources */,

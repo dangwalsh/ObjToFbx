@@ -14,7 +14,7 @@ SHELL       = /bin/sh
 #
 
 DS			= dsymutil
-CC          = cc 
+CC          = cc
 LD          = cc 
 STDC        = c++
 COMPILER 	= clang
@@ -50,20 +50,23 @@ UTILDIR		= $(PROJDIR)/Utilities
 TARGET      = $(BINDIR)/$(PROJECT)
 OBJS        = $(PROJDIR)/main.o \
 			  $(IODIR)/ObjReader.o \
+              $(IODIR)/MtlReader.o \
 			  $(IODIR)/ObjReaderFacade.o \
 			  $(GEOMDIR)/ObjFace.o \
 			  $(GEOMDIR)/ObjGroup.o \
 			  $(GEOMDIR)/ObjScene.o \
 			  $(GEOMDIR)/ObjMaterial.o \
+              $(GEOMDIR)/ObjTex.o \
 			  $(UTILDIR)/SdkTools.o \
 			  $(UTILDIR)/StringTools.o \
 			  $(UTILDIR)/GeometryTools.o \
-			  $(IODIR)/MtlReader.o
+              $(EXCEPTDIR)/SdkException.o \
+              $(EXCEPTDIR)/VectorException.o
 
 CP          = cp -f
 RM          = /bin/rm -rf
 
-CXXFLAGS    = -pipe $(M64) $(GCC_DEBUG_FLAGS)
+CXXFLAGS    = -pipe $(M64) $(GCC_DEBUG_FLAGS) 
 LDFLAGS     = $(M64)
 DBFLAGS		= -o
 

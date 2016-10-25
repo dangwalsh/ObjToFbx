@@ -64,11 +64,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/danielwalsh/Desktop/boxes.xobj"
+            argument = "/Users/danielwalsh/Desktop/texture_test.xobj"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/danielwalsh/Desktop/output_xobj.fbx"
+            argument = "/Users/danielwalsh/Desktop/texture_test.fbx"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

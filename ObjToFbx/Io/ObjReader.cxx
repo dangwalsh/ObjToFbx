@@ -1,5 +1,6 @@
 #include <sstream>
 #include <vector>
+#include <algorithm>
 #include "ObjReader.h"
 #include "../Utilities/SdkTools.h"
 
@@ -177,6 +178,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
 
 void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup)
 {
+    
     FbxMesh* lMesh = pNode->GetMesh();
     FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
     lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
@@ -184,7 +186,22 @@ void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup
     if (!lMesh->GetElementMaterial(0))
         return;
 
-    FbxSurfaceMaterial* lMaterial = CreateMaterial(pScene, pGroup->GetMaterial());
+    FbxSurfaceMaterial* lMaterial = NULL;
+    ObjMaterial* lObjMaterial = pGroup->GetMaterial();
+
+    vector<FbxSurfaceMaterial*>::iterator lItor;
+    for (lItor = mMaterials.begin(); lItor < mMaterials.end(); ++lItor)
+    {
+        if ((*lItor)->GetName() == lObjMaterial->GetName())
+            lMaterial = *lItor;
+    }
+    if (lMaterial == NULL)
+    {
+        lMaterial = CreateMaterial(pScene, lObjMaterial);
+        mMaterials.push_back(lMaterial);
+    }
+
+//    lMaterial = CreateMaterial(pScene, lObjMaterial);
     pNode->AddMaterial(lMaterial);
 
     lMaterialElement->GetIndexArray().SetCount(lMesh->GetPolygonCount());

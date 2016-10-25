@@ -2,6 +2,7 @@
 #define OBJREADER_H
 
 #include <fbxsdk.h>
+#include <vector>
 #include "../Geometry/ObjScene.h"
 #include "../Geometry/ObjGroup.h"
 #include "../Geometry/ObjMaterial.h"
@@ -35,6 +36,7 @@ private:
 	FILE*		mFilePointer;
 	FbxManager*	mManager;
 	char*		mDirectory;
+    std::vector<FbxSurfaceMaterial*> mMaterials;
 };
 
 
