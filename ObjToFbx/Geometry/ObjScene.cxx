@@ -10,40 +10,40 @@
 using namespace std;
 
 /* Public Memebers - Constructors */
-ObjScene::ObjScene(string& pString)
-{
-    mVertices = new vector<FbxVector4>;
-    mNormals = new vector<FbxVector4>;
-    mTexCoords = new vector<FbxVector2>;
-    mGroups = new vector<ObjGroup*>;
-    mMtlLib = new vector<ObjMaterial*>;
-	vector<string> lLines = Tokenize(pString, '\n');
-	vector<string>::iterator lItor;
-	vector<string>::iterator lBegin = lLines.begin();
-	vector<string>::iterator lEnd = lLines.end();
-
-	for (lItor = lBegin; lItor < lEnd; ++lItor)
-	{
-		vector<string> lTokens = Tokenize(*lItor);
-        if (!lTokens.empty()) {
-            string lType = lTokens[0];
-            if (lType == "mtllib") {
-                AddMtlLib(lTokens);
-            } else if (lType == "v") {
-                AddVertex(lTokens);
-            } else if (lType == "vn") {
-                AddNormal(lTokens);
-            } else if (lType == "vt") {
-                AddTexCoord(lTokens);
-            } else if (lType == "usemtl") {
-                lItor = AddObjGroup(lTokens, lItor, lEnd);
-#ifdef WIN32
-				if (lItor == lEnd) break;
-#endif
-            }
-        }
-	}
-}
+//ObjScene::ObjScene(string& pString)
+//{
+//    mVertices = new vector<FbxVector4>;
+//    mNormals = new vector<FbxVector4>;
+//    mTexCoords = new vector<FbxVector2>;
+//    mGroups = new vector<ObjGroup*>;
+//    mMtlLib = new vector<ObjMaterial*>;
+//	vector<string> lLines = Tokenize(pString, '\n');
+//	vector<string>::iterator lItor;
+//	vector<string>::iterator lBegin = lLines.begin();
+//	vector<string>::iterator lEnd = lLines.end();
+//
+//	for (lItor = lBegin; lItor < lEnd; ++lItor)
+//	{
+//		vector<string> lTokens = Tokenize(*lItor);
+//        if (!lTokens.empty()) {
+//            string lType = lTokens[0];
+//            if (lType == "mtllib") {
+//                AddMtlLib(lTokens);
+//            } else if (lType == "v") {
+//                AddVertex(lTokens);
+//            } else if (lType == "vn") {
+//                AddNormal(lTokens);
+//            } else if (lType == "vt") {
+//                AddTexCoord(lTokens);
+//            } else if (lType == "usemtl") {
+//                lItor = AddObjGroup(lTokens, lItor, lEnd);
+//#ifdef WIN32
+//				if (lItor == lEnd) break;
+//#endif
+//            }
+//        }
+//	}
+//}
 
 ObjScene::ObjScene(const char* pDirectory, std::string& pContent)
 {
@@ -194,8 +194,28 @@ vector<string>::iterator ObjScene::AddObjGroup(vector<string>& pTokens,
                                                vector<string>::iterator pItor,
                                                vector<string>::iterator pEnd)
 {
-	ObjGroup* lGroup = new ObjGroup(this, pTokens.at(1));
-    mGroups->push_back(lGroup);
+	ObjGroup* lGroup;
+	string lName = pTokens.at(1);
+	bool lExists = false;
+
+	for (vector<ObjGroup*>::iterator lItor = mGroups->begin(); lItor != mGroups->end(); ++lItor)
+	{
+		ObjGroup* lTemp = *lItor;
+		if (*(*lTemp).GetName() == lName)
+		{
+			lGroup = lTemp;
+			lExists = true;
+			break;
+		}
+	}
+
+	if (!lExists)
+	{
+		lGroup = new ObjGroup(this, lName);
+		mGroups->push_back(lGroup);
+	}
+
+	// TODO: determine if this loop will safely add to an existing group (hopefully it will)
 	for(++pItor; pItor < pEnd; ++pItor)
 	{
 		vector<string> lTokens = Tokenize(*pItor);

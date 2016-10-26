@@ -82,7 +82,7 @@ bool ObjReader::Read(FbxDocument* pDocument)
 			lBuffer[lRead]='\0';
 			string lString(lBuffer);
 
-			try { lObjScene = new ObjScene(lString); }
+			try { lObjScene = new ObjScene(mDirectory, lString); }
 			catch (exception e)
 			{
 				FBXSDK_printf(e.what());
@@ -247,7 +247,7 @@ FbxFileTexture* ObjReader::CreateTexture(FbxScene *pScene, FbxSurfacePhong *pFbx
     lTexture->SetMaterialUse(FbxFileTexture::eModelMaterial);
     lTexture->SetSwapUV(false);
     lTexture->SetTranslation(pObjTex->GetOrigin()[0], pObjTex->GetOrigin()[1]);
-    lTexture->SetScale(pObjTex->GetScale()[0], pObjTex->GetScale()[1]);
+    lTexture->SetScale(1/pObjTex->GetScale()[0], 1/pObjTex->GetScale()[1]);
     lTexture->SetRotation(pObjTex->GetRotation()[0], pObjTex->GetOrigin()[1]);
 
     return lTexture;

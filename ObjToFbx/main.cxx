@@ -1,41 +1,24 @@
 #include <fbxsdk.h>
-#include <string>
+#include <boost/filesystem.hpp>
 #include "Io/ObjReaderFacade.h"
 #include "Utilities/SdkTools.h"
+#include "Utilities/ClTools.h"
 
-#ifdef IOS_REF
-    #undef  IOS_REF
-    #define IOS_REF (*(pManager->GetIOSettings()))
-#endif
-
-
-bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename, int pFileFormat=-1, bool pEmbedMedia=false);
-void ChangeExtension(char* pPath);
+using namespace std;
 
 int main(int argc, char** argv)
 {
 	bool lResult;
 	int lRegisteredCount;
 	int lPluginId;
-    char* lInputFile;
-	char* lOutputFile;
+
 	FbxManager* lSdkManager = NULL;
 	FbxScene* lScene = NULL;
+	ClParser lParser(argc, argv);
 
-	switch(argc)
-	{
-	case 2:
-		lInputFile = argv[1];
-		lOutputFile = CreatFileName(lInputFile);
-		break;
-	case 3:
-		lInputFile = argv[1];
-		lOutputFile = argv[2];
-		break;
-	default:
-		FBXSDK_printf("Please enter an input file path followed by an output file path.\n");
-		return 1;
-	}
+	string lInput = lParser.InPath();
+	string lOutput = lParser.OutPath();
+	int8_t lOptions = lParser.FileFormat();
 
     InitializeSdkObjects(lSdkManager, lScene);
 
@@ -43,7 +26,7 @@ int main(int argc, char** argv)
 
 	FbxImporter* lImporter = FbxImporter::Create(lSdkManager, "");
 
-	lResult = lImporter->Initialize(lInputFile, -1, lSdkManager->GetIOSettings() );
+	lResult = lImporter->Initialize(lInput.c_str(), -1, lSdkManager->GetIOSettings() );
     if(lResult == false)
     {
         FBXSDK_printf("Call to FbxExporter::Initialize() failed.\n");
@@ -60,49 +43,8 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    //ChangeExtension(lInputFile);
-    lResult = SaveScene(lSdkManager, lScene, lOutputFile);
-
+    lResult = SaveScene(lSdkManager, lScene, lOutput.c_str(), lOptions);
 	DestroySdkObjects(lSdkManager, lResult);
 
 	return 0;
-}
-
-bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename, int pFileFormat, bool pEmbedMedia)
-{
-    int lMajor, lMinor, lRevision;
-    bool lStatus = true;
-
-    FbxExporter* lExporter = FbxExporter::Create(pManager, "");
-
-    if( pFileFormat < 0 || pFileFormat >= pManager->GetIOPluginRegistry()->GetWriterFormatCount() )
-    {
-        //pFileFormat = pManager->GetIOPluginRegistry()->GetNativeWriterFormat();
-		//pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX binary (*.fbx)");
-		pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX ascii (*.fbx)");
-        int lFormatIndex, lFormatCount = pManager->GetIOPluginRegistry()->GetWriterFormatCount();
-    }
-
-    IOS_REF.SetBoolProp(EXP_FBX_MATERIAL,        true);
-    IOS_REF.SetBoolProp(EXP_FBX_TEXTURE,         true);
-    IOS_REF.SetBoolProp(EXP_FBX_EMBEDDED,        pEmbedMedia);
-    IOS_REF.SetBoolProp(EXP_FBX_SHAPE,           true);
-    IOS_REF.SetBoolProp(EXP_FBX_GOBO,            true);
-    IOS_REF.SetBoolProp(EXP_FBX_ANIMATION,       true);
-    IOS_REF.SetBoolProp(EXP_FBX_GLOBAL_SETTINGS, true);
-
-    if(lExporter->Initialize(pFilename, pFileFormat, pManager->GetIOSettings()) == false)
-    {
-        FBXSDK_printf("Call to FbxExporter::Initialize() failed.\n");
-        FBXSDK_printf("Error returned: %s\n\n", lExporter->GetStatus().GetErrorString());
-        return false;
-    }
-
-    FbxManager::GetFileFormatVersion(lMajor, lMinor, lRevision);
-    FBXSDK_printf("FBX file format version %d.%d.%d\n\n", lMajor, lMinor, lRevision);
-
-    lStatus = lExporter->Export(pScene);
-
-    lExporter->Destroy();
-    return lStatus;
 }
