@@ -17,7 +17,7 @@ class ObjGroup
 {
 public:
     ObjGroup(ObjScene* pScene);
-    ObjGroup(ObjScene* pScene, std::string& pString);
+    ObjGroup(ObjScene* pScene, std::string* pString);
     virtual ~ObjGroup();
 
     virtual void AddName(std::string* pString);

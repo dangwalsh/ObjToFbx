@@ -5,6 +5,9 @@
 
 using namespace boost::filesystem;
 
+
+/* Public Members */
+
 ClParser::ClParser(int pNumArgs, char** pInput)
 	: mInput(pInput)
 {
@@ -58,6 +61,10 @@ std::string ClParser::OutPath() const
 {
 	return mOutPath->string();
 }
+
+
+
+/* Protected Members */
 
 void ClParser::SetPath(path** pPath, char* lPtr)
 {

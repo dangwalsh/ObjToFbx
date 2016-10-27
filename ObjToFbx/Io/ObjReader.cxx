@@ -110,6 +110,7 @@ void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
     for (ObjGroup* &lGroup : *pObjScene->GetGroups())
     {
         FbxNode* lNode = CreateMesh(pScene, pObjScene, lGroup);
+
         if(!lNode)
             continue;
         ApplyMaterial(pScene, lNode, lGroup);
@@ -119,7 +120,7 @@ void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
 
 FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* pGroup)
 {
-    FbxMesh* lMesh = FbxMesh::Create(pScene, pGroup->GetName()->c_str());
+	FbxMesh* lMesh = FbxMesh::Create(pScene, "");
     vector<FbxVector4>* lVertices = pObjScene->GetVertices();
 
     lMesh->InitControlPoints(static_cast<unsigned int>(lVertices->size()));
@@ -167,7 +168,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
     }
 
     lLayer->SetNormals(lLayerElementNormal);
-    FbxNode* lNode = FbxNode::Create(pScene, "");
+    FbxNode* lNode = FbxNode::Create(pScene, pGroup->GetName()->c_str());
     lNode->SetNodeAttribute(lMesh);
     lNode->SetShadingMode(FbxNode::eTextureShading);
 

@@ -12,11 +12,12 @@ ObjGroup::ObjGroup(ObjScene* pScene)
     mFaces = new vector<ObjFace*>;
 }
 
-ObjGroup::ObjGroup(ObjScene* pScene, string& pString)
+ObjGroup::ObjGroup(ObjScene* pScene, string* pString)
 {
     mScene = pScene;
     mFaces = new vector<ObjFace*>;
-    mMaterial = pScene->GetMaterial(pString);
+	mName = pString;
+    mMaterial = pScene->GetMaterial(*pString);
 }
 
 ObjGroup::~ObjGroup()
