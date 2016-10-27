@@ -10,6 +10,7 @@ ObjMaterial::ObjMaterial(ObjScene* pScene, string& pString)
 	mKa = new FbxDouble3;
 	mKd = new FbxDouble3;
 	mKs = new FbxDouble3;
+	mTr = new FbxDouble3;
 	mD = new FbxDouble;
 	mNs = new FbxDouble;
 	mIllum = new FbxInt;
@@ -26,6 +27,7 @@ ObjMaterial::~ObjMaterial()
     delete mKs;
     delete mKd;
     delete mKa;
+	delete mTr;
     delete mIllum;
     delete mTex_Ka;
     delete mTex_Kd;
@@ -57,7 +59,14 @@ void ObjMaterial::SetKs(double pValues[3])
 
 void ObjMaterial::SetD(double* pValue)
 {
-    mD = new FbxDouble(*pValue);
+	double trans = *pValue;
+	FbxDouble3 color = *mKs;
+    mD = new FbxDouble(trans);
+	mTr = new FbxDouble3(
+		(1-trans)*(color[0]),
+		(1-trans)*(color[1]), 
+		(1-trans)*(color[2])
+		);
 }
 
 void ObjMaterial::SetNs(double* pValue)
@@ -112,6 +121,11 @@ FbxDouble3& ObjMaterial::GetDiffuse()
 FbxDouble3& ObjMaterial::GetSpecular()
 {
     return *mKs;
+}
+
+FbxDouble3& ObjMaterial::GetTransparency()
+{
+	return *mTr;
 }
 
 FbxDouble& ObjMaterial::GetDissolve()

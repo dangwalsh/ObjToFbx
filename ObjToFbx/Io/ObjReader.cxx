@@ -175,8 +175,6 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
     return lNode;
 }
 
-
-
 void ObjReader::ApplyMaterial(FbxScene* pScene, FbxNode* pNode, ObjGroup* pGroup)
 {
     
@@ -223,13 +221,13 @@ FbxSurfaceMaterial* ObjReader::CreateMaterial(FbxScene* pScene, ObjMaterial* pOb
 
     lMaterial->ShadingModel.Set(lShadingName);
     lMaterial->Ambient.Set(pObjMaterial->GetAmbient());
-
     lMaterial->Ambient.ConnectSrcObject(CreateTexture(pScene, lMaterial, pObjMaterial->GetAmbientTex()));
     lMaterial->Diffuse.Set(pObjMaterial->GetDiffuse());
     lMaterial->Diffuse.ConnectSrcObject(CreateTexture(pScene, lMaterial, pObjMaterial->GetDiffuseTex()));
     lMaterial->Specular.Set(pObjMaterial->GetSpecular());
     lMaterial->Specular.ConnectSrcObject(CreateTexture(pScene, lMaterial, pObjMaterial->GetSpecularTex()));
-    lMaterial->TransparencyFactor.Set(1.0 - pObjMaterial->GetDissolve());
+	lMaterial->TransparentColor.Set(pObjMaterial->GetTransparency());
+	lMaterial->TransparencyFactor.Set(1.0);
     lMaterial->Shininess.Set(pObjMaterial->GetHilight());
 
     return lMaterial;

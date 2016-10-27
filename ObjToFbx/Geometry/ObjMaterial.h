@@ -30,6 +30,7 @@ public:
     virtual FbxDouble3& GetAmbient();
     virtual FbxDouble3& GetDiffuse();
     virtual FbxDouble3& GetSpecular();
+	virtual FbxDouble3& GetTransparency();
     virtual FbxDouble& GetDissolve();
     virtual FbxDouble& GetHilight();
     virtual FbxInt& GetIllumModel();
@@ -43,6 +44,7 @@ protected:
     FbxDouble3* mKa;
     FbxDouble3* mKd;
     FbxDouble3* mKs;
+	FbxDouble3* mTr;
     FbxDouble*  mD;
     FbxDouble*  mNs;
     FbxInt*     mIllum;

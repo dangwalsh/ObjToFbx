@@ -19,7 +19,7 @@ protected:
 	boost::filesystem::path* mOutPath;
 	int8_t mOptions;
 
-	void SetPath(boost::filesystem::path**, char*);
+	void SetPath(boost::filesystem::path**, char*) const;
 	void SetOptions(char*);
 };
 

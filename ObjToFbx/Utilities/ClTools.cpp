@@ -15,6 +15,7 @@ ClParser::ClParser(int pNumArgs, char** pInput)
 	mOptions = 0;
 	mOutPath = new path();
 	mInPath = new path();
+
 	for (char** lItor = ++pInput; lItor < pInput+pNumArgs-1; ++lItor)
 	{
 		if (**lItor == '-')
@@ -66,7 +67,7 @@ std::string ClParser::OutPath() const
 
 /* Protected Members */
 
-void ClParser::SetPath(path** pPath, char* lPtr)
+void ClParser::SetPath(path** pPath, char* lPtr) const
 {
 	try
 	{

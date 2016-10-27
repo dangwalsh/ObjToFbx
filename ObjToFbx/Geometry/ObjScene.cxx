@@ -169,7 +169,7 @@ vector<string>::iterator ObjScene::AddObjGroup(vector<string>& pTokens,
 	{
 		ObjGroup* lTemp = *lItor;
 		string lTempName = *(*lTemp).GetName();
-		if (lTempName == *lGroupName) // TODO: this MUST be replaced! it's a HORRIBLE hack!
+		if (lTempName == *lGroupName) 
 		{
 			lGroup = lTemp;
 			break;
