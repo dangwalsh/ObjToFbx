@@ -44,7 +44,15 @@ int main(int argc, char** argv)
     }
 
     lResult = SaveScene(lSdkManager, lScene, lOutput.c_str(), lOptions);
-	DestroySdkObjects(lSdkManager, lResult);
 
+	try
+	{
+		DestroySdkObjects(lSdkManager, lResult);
+	}
+	catch (exception ex)
+	{
+		FBXSDK_printf(ex.what());
+	}
+	
 	return 0;
 }

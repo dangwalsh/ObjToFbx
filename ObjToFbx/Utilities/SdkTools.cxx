@@ -98,7 +98,7 @@ bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename,
 	//  {
 	//      pFileFormat = pManager->GetIOPluginRegistry()->GetNativeWriterFormat();
 	//      pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX binary (*.fbx)");
-	//	  pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX ascii (*.fbx)");
+	//	    pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX ascii (*.fbx)");
 	//      int lFormatIndex, lFormatCount = pManager->GetIOPluginRegistry()->GetWriterFormatCount();
 	//  }
 
