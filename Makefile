@@ -77,9 +77,15 @@ FBXSDK_LIB   = -lfbxsdk
 BOOST_LIB    = -lboost_filesystem -lboost_system
 ifeq "$(STATIC_LINK)" ""
     CXXFLAGS += -DFBXSDK_SHARED
-    COPY_LIB = $(CP) $(LIBDIR)/libfbxsdk.dylib $(BINDIR)
+    COPY_LIB = $(CP) \
+				$(LIBDIR)/libfbxsdk.dylib \
+				$(LIBDIR)/libboost_filesystem.dylib \
+				$(LIBDIR)/libboost_system.dylib \
+				$(BINDIR)
 else
     FBXSDK_LIB = $(LIBDIR)/libfbxsdk.a
+    BOOST_LIB  = $(LIBDIR)/libboost_filesystem.a \
+				 $(LIBDIR)/libboost_system.a
 endif
 
 GEN_SYM     = $(DS) $(TARGET) $(DBFLAGS) $(TARGET).dSYM
@@ -99,7 +105,7 @@ $(TARGET): $(OBJS)
 	mv $(GEOMDIR)/*.o $(OBJDIR)
 	mv $(UTILDIR)/*.o $(OBJDIR)
 	mv $(EXCEPTDIR)/*.o $(OBJDIR)
-#	$(COPY_LIB)
+	$(COPY_LIB)
 
 .cxx.o:
 	$(CC) $(CXXFLAGS) -I$(INCDIR) -c $< -o $*.o
