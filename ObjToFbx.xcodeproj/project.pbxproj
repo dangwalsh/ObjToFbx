@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B50D62791D5FAB60007D3458 /* ObjTex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B50D62771D5FAB60007D3458 /* ObjTex.cpp */; };
 		B50D627A1D5FAB60007D3458 /* ObjTex.h in Headers */ = {isa = PBXBuildFile; fileRef = B50D62781D5FAB60007D3458 /* ObjTex.h */; };
 		B516AF861D4BEDA3001EC5EC /* MtlReader.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B516AF731D4BD523001EC5EC /* MtlReader.cxx */; };
 		B516AF871D4BEDB6001EC5EC /* MtlReader.h in Headers */ = {isa = PBXBuildFile; fileRef = B516AF741D4BD523001EC5EC /* MtlReader.h */; };
@@ -45,6 +44,7 @@
 		B5C3E50B1D3C176A00BC4579 /* StringTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597EE41D393E1600A38AD5 /* StringTools.h */; };
 		B5C3E50C1D3C183700BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
 		B5C3E5131D3C1B5000BC4579 /* libobjtofbx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */; };
+		B5E60D1B1DC621B0001DF439 /* ObjTex.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5E60D1A1DC621B0001DF439 /* ObjTex.cxx */; };
 		B5F1EA991D46B54F00B2547C /* GeometryTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5F1EA971D46B54F00B2547C /* GeometryTools.cxx */; };
 		B5F1EA9A1D46B54F00B2547C /* GeometryTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5F1EA981D46B54F00B2547C /* GeometryTools.h */; };
 /* End PBXBuildFile section */
@@ -142,7 +142,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B50D62771D5FAB60007D3458 /* ObjTex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjTex.cpp; sourceTree = "<group>"; };
 		B50D62781D5FAB60007D3458 /* ObjTex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjTex.h; sourceTree = "<group>"; };
 		B516AF731D4BD523001EC5EC /* MtlReader.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MtlReader.cxx; sourceTree = "<group>"; };
 		B516AF741D4BD523001EC5EC /* MtlReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtlReader.h; sourceTree = "<group>"; };
@@ -389,6 +388,7 @@
 		B5A0405F1D3C331400388264 /* libgtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C2294A1D3BE03D00CAD34E /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = "<group>"; };
 		B5C3E4E21D3C165300BC4579 /* libobjtofbx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libobjtofbx.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5E60D1A1DC621B0001DF439 /* ObjTex.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjTex.cxx; sourceTree = "<group>"; };
 		B5F1EA631D46492200B2547C /* box.xobj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = box.xobj; path = Assets/box.xobj; sourceTree = "<group>"; };
 		B5F1EA971D46B54F00B2547C /* GeometryTools.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryTools.cxx; sourceTree = "<group>"; };
 		B5F1EA981D46B54F00B2547C /* GeometryTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometryTools.h; sourceTree = "<group>"; };
@@ -486,6 +486,7 @@
 		B5597ED01D393E1600A38AD5 /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
+				B5E60D1A1DC621B0001DF439 /* ObjTex.cxx */,
 				B5597ED11D393E1600A38AD5 /* ObjGroup.cxx */,
 				B5597ED21D393E1600A38AD5 /* ObjGroup.h */,
 				B5597ED31D393E1600A38AD5 /* ObjFace.cxx */,
@@ -494,7 +495,6 @@
 				B5597ED61D393E1600A38AD5 /* ObjMaterial.h */,
 				B5597ED71D393E1600A38AD5 /* ObjScene.cxx */,
 				B5597ED81D393E1600A38AD5 /* ObjScene.h */,
-				B50D62771D5FAB60007D3458 /* ObjTex.cpp */,
 				B50D62781D5FAB60007D3458 /* ObjTex.h */,
 			);
 			path = Geometry;
@@ -1249,10 +1249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B50D62791D5FAB60007D3458 /* ObjTex.cpp in Sources */,
 				B53659761DBFBA66004490FD /* VectorException.cxx in Sources */,
 				B5544B301DC611B900C82EFD /* ClTools.cpp in Sources */,
 				B5C3E4F11D3C16E600BC4579 /* SdkException.cxx in Sources */,
+				B5E60D1B1DC621B0001DF439 /* ObjTex.cxx in Sources */,
 				B5C3E4F31D3C16E600BC4579 /* ObjGroup.cxx in Sources */,
 				B5C3E4F51D3C16E600BC4579 /* ObjFace.cxx in Sources */,
 				B5C3E4F71D3C16E600BC4579 /* ObjMaterial.cxx in Sources */,
