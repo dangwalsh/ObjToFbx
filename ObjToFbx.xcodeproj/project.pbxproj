@@ -14,6 +14,10 @@
 		B51D7F0D1D3D390F00685780 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B51D7F0B1D3D38E000685780 /* gtest-all.cc */; };
 		B53659761DBFBA66004490FD /* VectorException.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B57AC9F71DB6AE19002C5937 /* VectorException.cxx */; };
 		B53659771DBFBA80004490FD /* VectorException.h in Headers */ = {isa = PBXBuildFile; fileRef = B57AC9F81DB6AE19002C5937 /* VectorException.h */; };
+		B5544B1E1DC610E700C82EFD /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5544B1C1DC610E700C82EFD /* libboost_filesystem.a */; };
+		B5544B1F1DC610E700C82EFD /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5544B1D1DC610E700C82EFD /* libboost_system.a */; };
+		B5544B301DC611B900C82EFD /* ClTools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5544B2D1DC6118600C82EFD /* ClTools.cpp */; };
+		B5544B311DC611BE00C82EFD /* ClTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5544B2E1DC6118600C82EFD /* ClTools.h */; };
 		B5597EEC1D393E1600A38AD5 /* main.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597EDE1D393E1600A38AD5 /* main.cxx */; };
 		B5597EF11D393E7B00A38AD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
 		B5597EF31D393E8600A38AD5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
@@ -151,6 +155,10 @@
 		B5234C801D4BB73D00878821 /* 10074_Canyon_Romatic_Oak_001_062.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 10074_Canyon_Romatic_Oak_001_062.jpg; path = Assets/10074_Canyon_Romatic_Oak_001_062.jpg; sourceTree = "<group>"; };
 		B5234C811D4BB73D00878821 /* ash g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ash g.jpg"; path = "Assets/ash g.jpg"; sourceTree = "<group>"; };
 		B5234C821D4BB73D00878821 /* texture_test.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = texture_test.mtl; path = Assets/texture_test.mtl; sourceTree = "<group>"; };
+		B5544B1C1DC610E700C82EFD /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../../../../../../usr/local/Cellar/boost/1.62.0/lib/libboost_filesystem.a; sourceTree = "<group>"; };
+		B5544B1D1DC610E700C82EFD /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../../../../../usr/local/Cellar/boost/1.62.0/lib/libboost_system.a; sourceTree = "<group>"; };
+		B5544B2D1DC6118600C82EFD /* ClTools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClTools.cpp; sourceTree = "<group>"; };
+		B5544B2E1DC6118600C82EFD /* ClTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClTools.h; sourceTree = "<group>"; };
 		B5597EC31D393DE100A38AD5 /* ObjToFbx */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjToFbx; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5597ECE1D393E1600A38AD5 /* SdkException.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SdkException.cxx; sourceTree = "<group>"; };
 		B5597ECF1D393E1600A38AD5 /* SdkException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdkException.h; sourceTree = "<group>"; };
@@ -416,6 +424,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5544B1E1DC610E700C82EFD /* libboost_filesystem.a in Frameworks */,
+				B5544B1F1DC610E700C82EFD /* libboost_system.a in Frameworks */,
 				B5C3E4EE1D3C167800BC4579 /* SystemConfiguration.framework in Frameworks */,
 				B5C3E4ED1D3C166E00BC4579 /* Carbon.framework in Frameworks */,
 				B595B4331D4AE68100839201 /* libfbxsdk.a in Frameworks */,
@@ -506,6 +516,8 @@
 		B5597EE01D393E1600A38AD5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B5544B2D1DC6118600C82EFD /* ClTools.cpp */,
+				B5544B2E1DC6118600C82EFD /* ClTools.h */,
 				B5597EE11D393E1600A38AD5 /* SdkTools.cxx */,
 				B5597EE21D393E1600A38AD5 /* SdkTools.h */,
 				B5597EE31D393E1600A38AD5 /* StringTools.cxx */,
@@ -519,6 +531,8 @@
 		B5597EF71D39405300A38AD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5544B1C1DC610E700C82EFD /* libboost_filesystem.a */,
+				B5544B1D1DC610E700C82EFD /* libboost_system.a */,
 				B51D7EF71D3D2BF500685780 /* libfbxsdk.a */,
 				B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */,
 				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
@@ -990,6 +1004,7 @@
 				B516AF871D4BEDB6001EC5EC /* MtlReader.h in Headers */,
 				B50D627A1D5FAB60007D3458 /* ObjTex.h in Headers */,
 				B55D72901D4EB76F00482EE5 /* ObjScene.h in Headers */,
+				B5544B311DC611BE00C82EFD /* ClTools.h in Headers */,
 				B5C3E5031D3C176A00BC4579 /* SdkException.h in Headers */,
 				B53659771DBFBA80004490FD /* VectorException.h in Headers */,
 				B5C3E5041D3C176A00BC4579 /* ObjGroup.h in Headers */,
@@ -1236,6 +1251,7 @@
 			files = (
 				B50D62791D5FAB60007D3458 /* ObjTex.cpp in Sources */,
 				B53659761DBFBA66004490FD /* VectorException.cxx in Sources */,
+				B5544B301DC611B900C82EFD /* ClTools.cpp in Sources */,
 				B5C3E4F11D3C16E600BC4579 /* SdkException.cxx in Sources */,
 				B5C3E4F31D3C16E600BC4579 /* ObjGroup.cxx in Sources */,
 				B5C3E4F51D3C16E600BC4579 /* ObjFace.cxx in Sources */,
@@ -1437,7 +1453,10 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/boost/1.62.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1449,7 +1468,10 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/boost/1.62.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
