@@ -17,14 +17,15 @@ class ObjGroup
 {
 public:
     ObjGroup(ObjScene* pScene);
-    ObjGroup(ObjScene* pScene, std::string* pString);
+    ObjGroup(ObjScene* pScene, std::string* pName);
+	ObjGroup(ObjScene* pScene, std::string* pName, ObjMaterial* pMaterial);
     virtual ~ObjGroup();
 
     virtual void AddName(std::string* pString);
     virtual void AddFace(ObjFace* pFace);
     virtual void AddMaterial(ObjMaterial* pMaterial);
 
-    virtual const std::string *GetName();
+    virtual std::string& GetName();
     virtual std::vector<ObjFace*>* GetFaces();
     virtual const ObjFace* GetFaces(size_t index);
     virtual ObjMaterial* GetMaterial();

@@ -10,84 +10,28 @@
 #include <iterator>
 #include <algorithm>
 #include "../Utilities/StringTools.h"
+#include "../Exceptions/VectorException.h"
 
 using namespace std;
+
+/* Public Members - Constructors */
 
 ObjTex::ObjTex(vector<string>& pTokens)
 {
     mScale = new double[3] { 1.0, 1.0, 1.0 };
     mOrigin = new double[3] { 0.0, 0.0, 0.0 };
-    mTurbulence = new double[3] { 0.0, 0.0, 0.0 };
+	mTurbulence = new double[3]{ 0.0, 0.0, 0.0 };
 
-    size_t lCount = pTokens.size();
-
-    //switch (lCount) {
-    //    case 2:
-    //    {
-    //        mPath = pTokens[1];
-    //        break;
-    //    }
-    //    case 6:
-    //    {
-    //        SetTransforms(pTokens);
-    //        mPath = pTokens[5];
-    //        break;
-    //    }
-    //    case 10:
-    //    {
-    //        SetTransforms(pTokens);
-    //        mPath = pTokens[9];
-    //        break;
-    //    }
-    //    case 14:
-    //    {
-    //        SetTransforms(pTokens);
-    //        mPath = pTokens[13];
-    //        break;
-    //    }
-    //    default:
-    //        // TODO: throw an exception
-    //        break;
-    //}
-
-	vector<string>::iterator lItor = pTokens.begin();
-	++lItor;
-	while (lItor != pTokens.end())
-	{
-		if((*lItor)[0] == '-')
-		{
-			switch(lItor->at(1))
-			{
-			case 'o':
-				lItor = SetOrigin(++lItor);
-				break;
-			case 's':
-				lItor = SetScale(++lItor);
-				break;
-			case 't':
-				lItor = SetTurbulence(++lItor);
-				break;
-			default:
-				// TODO: throw an exception
-				break;
-			}
-		}
-		else
-		{
-			string lPath = *lItor++;
-			while (lItor != pTokens.end())
-			{
-				lPath += " " + *lItor++;
-			}
-			mPath = lPath;
-		}
-	}
+	ParseTokens(pTokens);
 }
 
 ObjTex::~ObjTex()
 {
-    
+	delete mOrigin;
+	delete mScale;
+	delete mTurbulence;
 }
+
 
 
 /* Public Members - Accessors */
@@ -113,51 +57,66 @@ double* ObjTex::GetTurbulence()
 }
 
 
+
 /* Protected Members */
 
-//void ObjTex::SetTransforms(vector<string>& pTokens)
-//{
-//    string lOptions[3] = { "-s", "-o", "-t" };
-//    double** lMembers = new double*[3] { mScale, mOrigin, mTurbulence };
-//    vector<string>::iterator lBegin = pTokens.begin();
-//    vector<string>::iterator lEnd = pTokens.end();
-//    vector<string>::iterator lToken;
-//
-//    for (size_t i = 0; i < 3; ++i)
-//    {
-//        lToken = find(lBegin, lEnd, lOptions[i]);
-//        if (lToken != lEnd) {
-//            double* lArray = CreateArray(++lToken);
-//            for (size_t j = 0; j < 3; ++j)
-//                lMembers[i][j] = lArray[j];
-//        }
-//    }
-//}
-
-double* ObjTex::CreateArray(vector<string>::iterator& pItor)
+void ObjTex::ParseTokens(vector<string>& pTokens)
 {
-    double* lArray = new double[3];
+	vector<string>::iterator lItor = pTokens.begin() + 1;
 
-    for (size_t i = 0; i < 3; ++i)
-        lArray[i] = stod(*pItor++);
-
-    return lArray;
+	while (lItor != pTokens.end())
+	{
+		if ((*lItor)[0] == '-')
+		{
+			switch (lItor->at(1))
+			{
+			case 'o':
+				SetOrigin(++lItor);
+				break;
+			case 's':
+				SetScale(++lItor);
+				break;
+			case 't':
+				SetTurbulence(++lItor);
+				break;
+			default:
+				string error = "Texture option '" + *lItor + "' not specified.";
+				throw new VectorException(error.c_str());
+			}
+		}
+		else
+		{
+			string lPath = *lItor++;
+			while (lItor != pTokens.end())
+			{
+				lPath += " " + *lItor++;
+			}
+			mPath = lPath;
+		}
+	}
 }
 
-vector<string>::iterator ObjTex::SetOrigin(vector<string>::iterator& pItor)
+void ObjTex::SetOrigin(vector<string>::iterator& pItor)
 {
-	mOrigin = CreateArray(pItor);
-	return pItor;
+	mOrigin = ConvertToDoubleArray(pItor);
 }
 
-vector<string>::iterator ObjTex::SetScale(vector<string>::iterator& pItor)
+void ObjTex::SetScale(vector<string>::iterator& pItor)
 {
-	mScale = CreateArray(pItor);
-	return pItor;
+	mScale = ConvertToDoubleArray(pItor);
 }
 
-vector<string>::iterator ObjTex::SetTurbulence(vector<string>::iterator& pItor)
+void ObjTex::SetTurbulence(vector<string>::iterator& pItor)
 {
-	mTurbulence = CreateArray(pItor);
-	return pItor;
+	mTurbulence = ConvertToDoubleArray(pItor);
+}
+
+double* ObjTex::ConvertToDoubleArray(vector<string>::iterator& pItor)
+{
+	double* lArray = new double[3];
+
+	for (size_t i = 0; i < 3; ++i)
+		lArray[i] = stod(*pItor++);
+
+	return lArray;
 }

@@ -12,12 +12,20 @@ ObjGroup::ObjGroup(ObjScene* pScene)
     mFaces = new vector<ObjFace*>;
 }
 
-ObjGroup::ObjGroup(ObjScene* pScene, string* pString)
+ObjGroup::ObjGroup(ObjScene* pScene, string* pName)
 {
     mScene = pScene;
     mFaces = new vector<ObjFace*>;
-	mName = pString;
-    mMaterial = pScene->GetMaterial(*pString);
+	mName = pName;
+    mMaterial = pScene->GetMaterial(*pName);
+}
+
+ObjGroup::ObjGroup(ObjScene* pScene, string* pName, ObjMaterial* pMaterial)
+{
+	mScene = pScene;
+	mFaces = new vector<ObjFace*>;
+	mName = pName;
+	mMaterial = pMaterial;
 }
 
 ObjGroup::~ObjGroup()
@@ -50,9 +58,9 @@ void ObjGroup::AddMaterial(ObjMaterial* pMaterial)
 
 /* Public Members - Accessors */
 
-const std::string* ObjGroup::GetName()
+string& ObjGroup::GetName()
 {
-    return mName;
+    return *mName;
 }
 
 vector<ObjFace*>* ObjGroup::GetFaces()

@@ -103,7 +103,7 @@ void ObjMaterial::SetTex_Bump(ObjTex* pTexture)
 
 /* Public Members - Accessors */
 
-const string ObjMaterial::GetName() const
+std::string& ObjMaterial::GetName()
 {
     return mName;
 }

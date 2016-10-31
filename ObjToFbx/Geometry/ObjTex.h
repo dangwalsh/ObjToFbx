@@ -1,11 +1,3 @@
-//
-//  ObjTex.hpp
-//  ObjToFbx
-//
-//  Created by Daniel Walsh on 8/13/16.
-//  Copyright © 2016 Daniel Walsh. All rights reserved.
-//
-
 #ifndef ObjTex_hpp
 #define ObjTex_hpp
 
@@ -15,6 +7,7 @@
 class ObjTex
 {
 public:
+	
     ObjTex(std::vector<std::string>& pTokens);
     ~ObjTex();
 
@@ -29,11 +22,12 @@ protected:
 	double*     mScale;
     double*     mTurbulence;
 
-    //virtual void SetTransforms(std::vector<std::string>& pTokens);
-    virtual double* CreateArray(std::vector<std::string>::iterator& pItor);
-	virtual std::vector<std::string>::iterator SetOrigin(std::vector<std::string>::iterator& pItor);
-	virtual std::vector<std::string>::iterator SetScale(std::vector<std::string>::iterator& pItor);
-	virtual std::vector<std::string>::iterator SetTurbulence(std::vector<std::string>::iterator& pItor);
+	void ParseTokens(std::vector<std::basic_string<char>>& pTokens);
+    
+	virtual void SetOrigin(std::vector<std::string>::iterator& pItor);
+	virtual void SetScale(std::vector<std::string>::iterator& pItor);
+	virtual void SetTurbulence(std::vector<std::string>::iterator& pItor);
+	virtual double* ConvertToDoubleArray(std::vector<std::string>::iterator& pItor);
 };
 
-#endif /* ObjTex_hpp */
+#endif /* OBJTEX_H */

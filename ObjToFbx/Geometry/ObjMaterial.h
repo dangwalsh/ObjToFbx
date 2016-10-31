@@ -26,7 +26,7 @@ public:
     virtual void SetTex_Ks(ObjTex* pTexture);
     virtual void SetTex_Bump(ObjTex* pTexture);
 
-    virtual const std::string GetName() const;
+    virtual std::string& GetName();
     virtual FbxDouble3& GetAmbient();
     virtual FbxDouble3& GetDiffuse();
     virtual FbxDouble3& GetSpecular();

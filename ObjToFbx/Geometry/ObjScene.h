@@ -27,17 +27,23 @@ public:
 	virtual FbxVector4& GetNormal(size_t pIndex) const;
 
 protected:
+	const char*                 mDirectory;
     std::vector<ObjMaterial*>*  mMtlLib;
 	std::vector<FbxVector4>*    mVertices;
 	std::vector<FbxVector4>*    mNormals;
 	std::vector<FbxVector2>*    mTexCoords;
     std::vector<ObjGroup*>*     mGroups;
-    const char*                 mDirectory;
+	// TODO: these should be moved into function bodies and passed as arguments
+	ObjMaterial*				mCurrentMaterial;
+	ObjGroup*					mCurrentGroup;
+
 
 	virtual void AddMtlLib(std::vector<std::string>& pTokens);
 	virtual void AddVertex(std::vector<std::string>& pTokens);
 	virtual void AddNormal(std::vector<std::string>& pTokens);
 	virtual void AddTexCoord(std::vector<std::string>& pTokens);
+	virtual void AddGroup(std::vector<std::string>& pTokens);
+	virtual void AddFace(std::vector<std::string>& pTokens);
     virtual std::vector<std::string>::iterator AddObjGroup(std::vector<std::string>& pTokens,
                                                            std::vector<std::string>::iterator pItor,
                                                            std::vector<std::string>::iterator pEnd);
@@ -45,7 +51,8 @@ protected:
     virtual int* ConvertInt(std::vector<std::string> &pTokens);
     virtual double* ConvertDouble(std::vector<std::string> &pTokens);
     virtual double* ConvertVector(std::vector<std::string> &pTokens);
-
+	virtual void HoldMaterial(std::vector<std::string> &pTokens);
+	virtual std::string& ObjScene::AssembleString(std::vector<std::string>& pTokens);
 };
 
 #endif // OBJSCENE_H

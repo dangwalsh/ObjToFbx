@@ -5,47 +5,155 @@
 #include "../Io/MtlReader.h"
 #include <iterator>
 #include "../Exceptions/SdkException.h"
+#include "../Exceptions/VectorException.h"
 
 
 using namespace std;
 
 /* Public Memebers - Constructors */
+//ObjScene::ObjScene(const char* pDirectory, std::string& pContent)
+//{
+//    mVertices = new vector<FbxVector4>;
+//    mNormals = new vector<FbxVector4>;
+//    mTexCoords = new vector<FbxVector2>;
+//    mGroups = new vector<ObjGroup*>;
+//    mMtlLib = new vector<ObjMaterial*>;
+//    //mDirectory = new string();
+//    mDirectory = pDirectory;
+//
+//    vector<string> lLines = Tokenize(pContent, '\n');
+//    vector<string>::iterator lItor;
+//    vector<string>::iterator lBegin = lLines.begin();
+//    vector<string>::iterator lEnd = lLines.end();
+//
+//    for (lItor = lBegin; lItor < lEnd; ++lItor)
+//    {
+//        vector<string> lTokens = Tokenize(*lItor);
+//        if (!lTokens.empty()) {
+//            string lType = lTokens[0];
+//            if (lType == "mtllib") {
+//                AddMtlLib(lTokens);
+//            } else if (lType == "v") {
+//                AddVertex(lTokens);
+//            } else if (lType == "vn") {
+//                AddNormal(lTokens);
+//            } else if (lType == "vt") {
+//                AddTexCoord(lTokens);
+//            } else if (lType == "usemtl") {
+//                lItor = AddObjGroup(lTokens, lItor, lEnd);
+//#ifdef WIN32
+//                if (lItor == lEnd) break;
+//#endif
+//            }
+//        }
+//    }
+//}
+
+
+
 ObjScene::ObjScene(const char* pDirectory, std::string& pContent)
 {
-    mVertices = new vector<FbxVector4>;
-    mNormals = new vector<FbxVector4>;
-    mTexCoords = new vector<FbxVector2>;
-    mGroups = new vector<ObjGroup*>;
-    mMtlLib = new vector<ObjMaterial*>;
-    //mDirectory = new string();
-    mDirectory = pDirectory;
+	mVertices = new vector<FbxVector4>;
+	mNormals = new vector<FbxVector4>;
+	mTexCoords = new vector<FbxVector2>;
+	mGroups = new vector<ObjGroup*>;
+	mMtlLib = new vector<ObjMaterial*>;
+	mDirectory = pDirectory;
+	mCurrentMaterial = NULL;
 
-    vector<string> lLines = Tokenize(pContent, '\n');
-    vector<string>::iterator lItor;
-    vector<string>::iterator lBegin = lLines.begin();
-    vector<string>::iterator lEnd = lLines.end();
+	vector<string> lLines = Tokenize(pContent, '\n');
+	vector<string>::iterator lItor;
+	vector<string>::iterator lBegin = lLines.begin();
+	vector<string>::iterator lEnd = lLines.end();
 
-    for (lItor = lBegin; lItor < lEnd; ++lItor)
-    {
-        vector<string> lTokens = Tokenize(*lItor);
-        if (!lTokens.empty()) {
-            string lType = lTokens[0];
-            if (lType == "mtllib") {
-                AddMtlLib(lTokens);
-            } else if (lType == "v") {
-                AddVertex(lTokens);
-            } else if (lType == "vn") {
-                AddNormal(lTokens);
-            } else if (lType == "vt") {
-                AddTexCoord(lTokens);
-            } else if (lType == "usemtl") {
-                lItor = AddObjGroup(lTokens, lItor, lEnd);
-#ifdef WIN32
-                if (lItor == lEnd) break;
-#endif
-            }
-        }
-    }
+	for (lItor = lBegin; lItor < lEnd; ++lItor)
+	{
+		vector<string> lTokens = Tokenize(*lItor);
+		if (!lTokens.empty()) 
+		{
+			string lType = lTokens[0];
+			if (lType == "mtllib") 
+			{
+				AddMtlLib(lTokens);
+			}
+			else if (lType == "v") 
+			{
+				AddVertex(lTokens);
+			}
+			else if (lType == "vn") 
+			{
+				AddNormal(lTokens);
+			}
+			else if (lType == "vt") 
+			{
+				AddTexCoord(lTokens);
+			}
+			else if (lType == "usemtl") 
+			{
+				HoldMaterial(lTokens);
+			}
+			else if (lType == "g")
+			{
+				AddGroup(lTokens);
+			}
+			else if (lType == "f")
+			{
+				AddFace(lTokens);
+			}
+		}
+	}
+}
+
+void ObjScene::AddGroup(vector<string>& pTokens)
+{
+	string* lName = new string(AssembleString(pTokens));
+	mCurrentGroup = NULL;
+
+	for (auto & lGroupPtr : *mGroups)
+	{
+		if (lGroupPtr->GetName() == *lName)
+		{
+			mCurrentGroup = lGroupPtr;
+		}
+	}
+
+	if(mCurrentGroup == NULL)
+	{
+		mCurrentGroup = new ObjGroup(this, lName, mCurrentMaterial);
+		mGroups->push_back(mCurrentGroup);
+	}
+}
+
+void ObjScene::AddFace(vector<string>& pTokens)
+{
+	// TODO: add a face to the current group
+}
+
+
+void ObjScene::HoldMaterial(vector<string>& pTokens)
+{
+	string lName = AssembleString(pTokens);
+
+	for (auto & lMatPtr : *mMtlLib)
+	{
+		if (lMatPtr->GetName() == lName)
+		{
+			mCurrentMaterial = lMatPtr;
+		}
+	}
+}
+
+string& ObjScene::AssembleString(vector<string>& pTokens)
+{
+	vector<string>::iterator lItor = pTokens.begin() + 1;
+	string lString = *lItor++;
+
+	while (lItor != pTokens.end())
+	{
+		lString += " " + *lItor++;
+	}
+
+	return lString;
 }
 
 ObjScene::~ObjScene()
@@ -168,7 +276,7 @@ vector<string>::iterator ObjScene::AddObjGroup(vector<string>& pTokens,
 	for (vector<ObjGroup*>::iterator lItor = mGroups->begin(); lItor != mGroups->end(); ++lItor)
 	{
 		ObjGroup* lTemp = *lItor;
-		string lTempName = *(*lTemp).GetName();
+		string lTempName = (*lTemp).GetName();
 		if (lTempName == *lGroupName) 
 		{
 			lGroup = lTemp;
