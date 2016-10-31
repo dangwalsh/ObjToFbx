@@ -15,7 +15,6 @@ int main(int argc, char** argv)
 	FbxManager* lSdkManager = NULL;
 	FbxScene* lScene = NULL;
 	ClParser lParser(argc, argv);
-
 	string lInput = lParser.InPath();
 	string lOutput = lParser.OutPath();
 	int8_t lOptions = lParser.FileFormat();
@@ -45,14 +44,7 @@ int main(int argc, char** argv)
 
     lResult = SaveScene(lSdkManager, lScene, lOutput.c_str(), lOptions);
 
-	try
-	{
-		DestroySdkObjects(lSdkManager, lResult);
-	}
-	catch (exception ex)
-	{
-		FBXSDK_printf(ex.what());
-	}
-	
+	DestroySdkObjects(lSdkManager, lResult);
+
 	return 0;
 }

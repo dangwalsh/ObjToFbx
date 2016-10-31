@@ -21,16 +21,19 @@ public:
     virtual std::string GetPath();
     virtual double* GetScale();
     virtual double* GetOrigin();
-    virtual double* GetRotation();
+    virtual double* GetTurbulence();
     
 protected:
     std::string mPath;
-    double*     mScale;
-    double*     mOrigin;
-    double*     mRotation;
+	double*     mOrigin;    
+	double*     mScale;
+    double*     mTurbulence;
 
-    virtual void SetTransforms(std::vector<std::string>& pTokens);
+    //virtual void SetTransforms(std::vector<std::string>& pTokens);
     virtual double* CreateArray(std::vector<std::string>::iterator& pItor);
+	virtual std::vector<std::string>::iterator SetOrigin(std::vector<std::string>::iterator& pItor);
+	virtual std::vector<std::string>::iterator SetScale(std::vector<std::string>::iterator& pItor);
+	virtual std::vector<std::string>::iterator SetTurbulence(std::vector<std::string>::iterator& pItor);
 };
 
 #endif /* ObjTex_hpp */

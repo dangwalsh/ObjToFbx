@@ -247,7 +247,7 @@ FbxFileTexture* ObjReader::CreateTexture(FbxScene *pScene, FbxSurfacePhong *pFbx
     lTexture->SetSwapUV(false);
     lTexture->SetTranslation(pObjTex->GetOrigin()[0], pObjTex->GetOrigin()[1]);
     lTexture->SetScale(1/pObjTex->GetScale()[0], 1/pObjTex->GetScale()[1]);
-    lTexture->SetRotation(pObjTex->GetRotation()[0], pObjTex->GetOrigin()[1]);
+    lTexture->SetRotation(pObjTex->GetTurbulence()[0], pObjTex->GetOrigin()[1]);
 
     return lTexture;
 

@@ -1,5 +1,6 @@
 #include "SdkTools.h"
 #include "StringTools.h"
+#include <exception>
 
 #ifdef IOS_REF
 	#undef  IOS_REF
@@ -29,7 +30,15 @@ void InitializeSdkObjects(FbxManager *&pManager, FbxScene *&pScene)
 
 void DestroySdkObjects(FbxManager* pManager, bool pExitStatus)
 {
-	if( pManager ) pManager->Destroy();
+	try
+	{
+		if (pManager) pManager->Destroy();
+	}
+	catch (std::exception ex)
+	{
+		FBXSDK_printf(ex.what());
+		exit(1);
+	}	
 	if( pExitStatus ) FBXSDK_printf("Program Success!\n");
 }
 
