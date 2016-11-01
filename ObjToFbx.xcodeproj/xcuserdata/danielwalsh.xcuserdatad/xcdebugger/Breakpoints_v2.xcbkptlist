@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "ObjScene::CreateMaterials(string &amp;pString)"
+            landmarkName = "ObjScene::AddVertex(vector&lt;string&gt;&amp; pTokens)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -78,9 +78,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "ObjScene::ObjScene(string&amp; pString)"
-            landmarkType = "7">
+            endingLineNumber = "36">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -95,7 +93,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
             endingLineNumber = "154"
-            landmarkName = "ObjScene::AddMtlLib(vector&lt;string&gt;&amp; pTokens)"
+            landmarkName = "ObjScene::AssembleString(vector&lt;string&gt;&amp; pTokens)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -208,6 +206,22 @@
             startingLineNumber = "115"
             endingLineNumber = "115"
             landmarkName = "ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObjToFbx/Geometry/ObjScene.cxx"
+            timestampString = "499645682.675292"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "ObjScene::AddMaterial(vector&lt;string&gt;&amp; pTokens, ObjMaterial* pMaterial)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

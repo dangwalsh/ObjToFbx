@@ -487,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				B5E60D1A1DC621B0001DF439 /* ObjTex.cxx */,
+				B50D62781D5FAB60007D3458 /* ObjTex.h */,
 				B5597ED11D393E1600A38AD5 /* ObjGroup.cxx */,
 				B5597ED21D393E1600A38AD5 /* ObjGroup.h */,
 				B5597ED31D393E1600A38AD5 /* ObjFace.cxx */,
@@ -495,7 +496,6 @@
 				B5597ED61D393E1600A38AD5 /* ObjMaterial.h */,
 				B5597ED71D393E1600A38AD5 /* ObjScene.cxx */,
 				B5597ED81D393E1600A38AD5 /* ObjScene.h */,
-				B50D62781D5FAB60007D3458 /* ObjTex.h */,
 			);
 			path = Geometry;
 			sourceTree = "<group>";

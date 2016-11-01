@@ -59,12 +59,14 @@ ObjScene::ObjScene(const char* pDirectory, std::string& pContent)
 	mGroups = new vector<ObjGroup*>;
 	mMtlLib = new vector<ObjMaterial*>;
 	mDirectory = pDirectory;
-	mCurrentMaterial = NULL;
 
 	vector<string> lLines = Tokenize(pContent, '\n');
 	vector<string>::iterator lItor;
 	vector<string>::iterator lBegin = lLines.begin();
 	vector<string>::iterator lEnd = lLines.end();
+
+	ObjMaterial* lMaterial = NULL;
+	ObjGroup* lGroup = NULL;
 
 	for (lItor = lBegin; lItor < lEnd; ++lItor)
 	{
@@ -90,67 +92,74 @@ ObjScene::ObjScene(const char* pDirectory, std::string& pContent)
 			}
 			else if (lType == "usemtl") 
 			{
-				HoldMaterial(lTokens);
+				AddMaterial(lTokens, lMaterial, lGroup);
 			}
 			else if (lType == "g")
 			{
-				AddGroup(lTokens);
+				AddGroup(lTokens, lMaterial, lGroup);
 			}
 			else if (lType == "f")
 			{
-				AddFace(lTokens);
+				AddFace(lTokens, lGroup);
 			}
 		}
 	}
 }
 
-void ObjScene::AddGroup(vector<string>& pTokens)
+void ObjScene::AddGroup(vector<string>& pTokens, ObjMaterial* pMaterial, ObjGroup* pGroup)
 {
-	string* lName = new string(AssembleString(pTokens));
-	mCurrentGroup = NULL;
+    if (pGroup != NULL)
+    {
+        throw new VectorException("Something went wrong");
+    }
+
+	string* lName = AssembleString(pTokens);
 
 	for (auto & lGroupPtr : *mGroups)
 	{
 		if (lGroupPtr->GetName() == *lName)
 		{
-			mCurrentGroup = lGroupPtr;
+			pGroup = lGroupPtr;
 		}
 	}
 
-	if(mCurrentGroup == NULL)
+	if(pGroup == NULL)
 	{
-		mCurrentGroup = new ObjGroup(this, lName, mCurrentMaterial);
-		mGroups->push_back(mCurrentGroup);
+		pGroup = new ObjGroup(this, lName, pMaterial);
+		mGroups->push_back(pGroup);
 	}
 }
 
-void ObjScene::AddFace(vector<string>& pTokens)
+void ObjScene::AddFace(vector<string>& pTokens, ObjGroup* pGroup)
 {
-	// TODO: add a face to the current group
+    ObjFace* lFace = new ObjFace(this, pTokens);
+    pGroup->AddFace(lFace);
 }
 
 
-void ObjScene::HoldMaterial(vector<string>& pTokens)
+void ObjScene::AddMaterial(vector<string>& pTokens, ObjMaterial* pMaterial, ObjGroup* pGroup)
 {
-	string lName = AssembleString(pTokens);
+    pGroup = NULL;
+    pMaterial = NULL;
+	string* lName = AssembleString(pTokens);
 
 	for (auto & lMatPtr : *mMtlLib)
 	{
-		if (lMatPtr->GetName() == lName)
+		if (lMatPtr->GetName() == *lName)
 		{
-			mCurrentMaterial = lMatPtr;
+			pMaterial = lMatPtr;
 		}
 	}
 }
 
-string& ObjScene::AssembleString(vector<string>& pTokens)
+std::string* ObjScene::AssembleString(std::vector<std::string>& pTokens)
 {
 	vector<string>::iterator lItor = pTokens.begin() + 1;
-	string lString = *lItor++;
+	string* lString = new string(*lItor++);
 
 	while (lItor != pTokens.end())
 	{
-		lString += " " + *lItor++;
+		*lString += " " + *lItor++;
 	}
 
 	return lString;
