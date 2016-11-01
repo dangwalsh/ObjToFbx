@@ -100,9 +100,13 @@ bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename,
 {
 	int lMajor, lMinor, lRevision;
 	bool lStatus = true;
-
+	
 	FbxExporter* lExporter = FbxExporter::Create(pManager, "");
 
+	if(pFileFormat == 0)
+	{
+		pEmbedMedia = true;
+	}
 	//  if( pFileFormat < 0 || pFileFormat >= pManager->GetIOPluginRegistry()->GetWriterFormatCount() )
 	//  {
 	//      pFileFormat = pManager->GetIOPluginRegistry()->GetNativeWriterFormat();

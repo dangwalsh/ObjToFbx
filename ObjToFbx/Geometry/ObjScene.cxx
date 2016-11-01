@@ -36,16 +36,17 @@ ObjScene::~ObjScene()
 }
 
 
+/* Static Members */
+bool ObjScene::ByGroupName(ObjGroup* p1, ObjGroup* p2)
+{
+	return (*p1->GetName() < *p2->GetName());
+}
+
 
 /* Public Members - Accessors */
 void ObjScene::SortGroups() const
 {
 	sort(mGroups->begin(), mGroups->end(), ByGroupName);
-}
-
-bool ObjScene::ByGroupName(ObjGroup* p1, ObjGroup* p2)
-{
-	return (*p1->GetName() < *p2->GetName());
 }
 
 vector<FbxVector4>* ObjScene::GetVertices() const
