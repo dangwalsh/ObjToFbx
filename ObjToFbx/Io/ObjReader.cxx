@@ -107,6 +107,7 @@ bool ObjReader::Read(FbxDocument* pDocument)
 
 void ObjReader::CreateFbxScene(FbxScene* pScene, ObjScene* pObjScene)
 {
+	pObjScene->SortGroups();
     for (ObjGroup* &lGroup : *pObjScene->GetGroups())
     {
         FbxNode* lNode = CreateMesh(pScene, pObjScene, lGroup);
@@ -139,7 +140,8 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
     vector<FbxVector2>* lTexCoords = pObjScene->GetTexCoords();
 
     FbxLayer* lLayer = lMesh->GetLayer(0);
-    if(lLayer == NULL){
+    if(lLayer == NULL)
+    {
         lMesh->CreateLayer();
         lLayer = lMesh->GetLayer(0);
     }
@@ -149,9 +151,9 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
     lLayerElementNormal->SetReferenceMode(FbxLayerElement::eDirect);
 
     for (FbxVector2 & lTexCoord : *lTexCoords)
-        lUVDiffuseElement->GetDirectArray().Add(lTexCoord);
-//    int count =static_cast<int>(lTexCoords->size());
-//    lUVDiffuseElement->GetIndexArray().SetCount(count);
+    {
+		lUVDiffuseElement->GetDirectArray().Add(lTexCoord);
+    }   
 
     for (ObjFace* &lFace : *pGroup->GetFaces())
     {
@@ -167,7 +169,7 @@ FbxNode* ObjReader::CreateMesh(FbxScene* pScene, ObjScene* pObjScene, ObjGroup* 
         lLayerElementNormal->GetDirectArray().Add(*lFace->GetNormal());
     }
 
-    lLayer->SetNormals(lLayerElementNormal);
+    //lLayer->SetNormals(lLayerElementNormal);
     FbxNode* lNode = FbxNode::Create(pScene, pGroup->GetName()->c_str());
     lNode->SetNodeAttribute(lMesh);
     lNode->SetShadingMode(FbxNode::eTextureShading);

@@ -24,6 +24,7 @@ public:
     virtual const std::vector<ObjMaterial*>* GetMtlLib() const;
 	virtual ObjMaterial* GetMaterial(std::string) const;
 	virtual FbxVector4& GetNormal(size_t pIndex) const;
+	virtual void SortGroups() const;
 
 protected:
 	const char*                 mDirectory;
@@ -50,6 +51,7 @@ protected:
     virtual double* ConvertVector(std::vector<std::string> &pTokens);
 
 	virtual std::string* AssembleString(std::vector<std::string>& pTokens);
+	static bool ByGroupName(ObjGroup* g1, ObjGroup* g2);
 };
 
 #endif // OBJSCENE_H
