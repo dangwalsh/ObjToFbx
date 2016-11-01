@@ -58,9 +58,9 @@ void ObjGroup::AddMaterial(ObjMaterial* pMaterial)
 
 /* Public Members - Accessors */
 
-string& ObjGroup::GetName()
+string* ObjGroup::GetName()
 {
-    return *mName;
+    return mName;
 }
 
 vector<ObjFace*>* ObjGroup::GetFaces()

@@ -12,7 +12,7 @@ class ObjTex;
 class ObjMaterial
 {
 public:
-    ObjMaterial(ObjScene* pScene, std::string& pString);
+    ObjMaterial(ObjScene* pScene, std::string* pString);
     virtual ~ObjMaterial();
 
     virtual void SetKa(double pValues[3]);
@@ -40,7 +40,7 @@ public:
     virtual ObjTex* GetBumpTex();
 
 protected:
-    std::string mName;
+    std::string* mName;
     FbxDouble3* mKa;
     FbxDouble3* mKd;
     FbxDouble3* mKs;

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-ObjMaterial::ObjMaterial(ObjScene* pScene, string& pString)
+ObjMaterial::ObjMaterial(ObjScene* pScene, string* pString)
 {
 	mScene = pScene;
     mName = pString;
@@ -105,7 +105,7 @@ void ObjMaterial::SetTex_Bump(ObjTex* pTexture)
 
 std::string& ObjMaterial::GetName()
 {
-    return mName;
+    return *mName;
 }
 
 FbxDouble3& ObjMaterial::GetAmbient()

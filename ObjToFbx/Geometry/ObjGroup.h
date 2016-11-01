@@ -25,7 +25,7 @@ public:
     virtual void AddFace(ObjFace* pFace);
     virtual void AddMaterial(ObjMaterial* pMaterial);
 
-    virtual std::string& GetName();
+    virtual std::string* GetName();
     virtual std::vector<ObjFace*>* GetFaces();
     virtual const ObjFace* GetFaces(size_t index);
     virtual ObjMaterial* GetMaterial();

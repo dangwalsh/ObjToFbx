@@ -22,7 +22,6 @@ public:
     virtual std::vector<ObjGroup*>* GetGroups() const;
     virtual FbxVector4& GetVertex(size_t pIndex) const;
     virtual const std::vector<ObjMaterial*>* GetMtlLib() const;
-    virtual const ObjMaterial* GetMaterial(size_t pIndex) const;
 	virtual ObjMaterial* GetMaterial(std::string) const;
 	virtual FbxVector4& GetNormal(size_t pIndex) const;
 
@@ -34,17 +33,17 @@ protected:
 	std::vector<FbxVector2>*    mTexCoords;
     std::vector<ObjGroup*>*     mGroups;
 
-
+	void ParseTokens(std::string& pContent);
 	virtual void AddMtlLib(std::vector<std::string>& pTokens);
 	virtual void AddVertex(std::vector<std::string>& pTokens);
 	virtual void AddNormal(std::vector<std::string>& pTokens);
 	virtual void AddTexCoord(std::vector<std::string>& pTokens);
-    virtual void AddMaterial(std::vector<std::string> &pTokens, ObjMaterial* pMaterial, ObjGroup* pGroup);
-	virtual void AddGroup(std::vector<std::string>& pTokens, ObjMaterial* pMaterial, ObjGroup* pGroup);
+    virtual void AddMaterial(std::vector<std::string> &pTokens, ObjMaterial** pMaterial, ObjGroup** pGroup);
+	virtual void AddGroup(std::vector<std::string>& pTokens, ObjMaterial** pMaterial, ObjGroup** pGroup);
 	virtual void AddFace(std::vector<std::string>& pTokens, ObjGroup* pGroup);
-    virtual std::vector<std::string>::iterator AddObjGroup(std::vector<std::string>& pTokens,
-                                                           std::vector<std::string>::iterator pItor,
-                                                           std::vector<std::string>::iterator pEnd);
+    //virtual std::vector<std::string>::iterator AddObjGroup(std::vector<std::string>& pTokens,
+    //                                                       std::vector<std::string>::iterator pItor,
+    //                                                       std::vector<std::string>::iterator pEnd);
     virtual void CreateMaterials(std::string &pString);
     virtual int* ConvertInt(std::vector<std::string> &pTokens);
     virtual double* ConvertDouble(std::vector<std::string> &pTokens);
