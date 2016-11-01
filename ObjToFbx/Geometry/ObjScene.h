@@ -50,7 +50,7 @@ protected:
     virtual double* ConvertDouble(std::vector<std::string> &pTokens);
     virtual double* ConvertVector(std::vector<std::string> &pTokens);
 
-	virtual std::string* ObjScene::AssembleString(std::vector<std::string>& pTokens);
+	virtual std::string* AssembleString(std::vector<std::string>& pTokens);
 };
 
 #endif // OBJSCENE_H
