@@ -13,6 +13,7 @@
 		B51D7F0D1D3D390F00685780 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = B51D7F0B1D3D38E000685780 /* gtest-all.cc */; };
 		B53659761DBFBA66004490FD /* VectorException.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B57AC9F71DB6AE19002C5937 /* VectorException.cxx */; };
 		B53659771DBFBA80004490FD /* VectorException.h in Headers */ = {isa = PBXBuildFile; fileRef = B57AC9F81DB6AE19002C5937 /* VectorException.h */; };
+		B554481E1DD20A0B00225C79 /* libfbxsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B554481D1DD20A0B00225C79 /* libfbxsdk.a */; };
 		B5544B1E1DC610E700C82EFD /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5544B1C1DC610E700C82EFD /* libboost_filesystem.a */; };
 		B5544B1F1DC610E700C82EFD /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5544B1D1DC610E700C82EFD /* libboost_system.a */; };
 		B5544B311DC611BE00C82EFD /* ClTools.h in Headers */ = {isa = PBXBuildFile; fileRef = B5544B2E1DC6118600C82EFD /* ClTools.h */; };
@@ -23,7 +24,6 @@
 		B55D72901D4EB76F00482EE5 /* ObjScene.h in Headers */ = {isa = PBXBuildFile; fileRef = B5597ED81D393E1600A38AD5 /* ObjScene.h */; };
 		B58F31721D3BD3F5003BA001 /* Test_Bundle.mm in Sources */ = {isa = PBXBuildFile; fileRef = B58F31711D3BD3F5003BA001 /* Test_Bundle.mm */; };
 		B58F887C1DC626780078ED6C /* ClTools.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B58F887B1DC626780078ED6C /* ClTools.cxx */; };
-		B595B4331D4AE68100839201 /* libfbxsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D7EF71D3D2BF500685780 /* libfbxsdk.a */; };
 		B5C3E4ED1D3C166E00BC4579 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF01D393E7B00A38AD5 /* Carbon.framework */; };
 		B5C3E4EE1D3C167800BC4579 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */; };
 		B5C3E4F11D3C16E600BC4579 /* SdkException.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5597ECE1D393E1600A38AD5 /* SdkException.cxx */; };
@@ -145,7 +145,6 @@
 		B50D62781D5FAB60007D3458 /* ObjTex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjTex.h; sourceTree = "<group>"; };
 		B516AF731D4BD523001EC5EC /* MtlReader.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MtlReader.cxx; sourceTree = "<group>"; };
 		B516AF741D4BD523001EC5EC /* MtlReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MtlReader.h; sourceTree = "<group>"; };
-		B51D7EF71D3D2BF500685780 /* libfbxsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfbxsdk.a; path = "../../../../../../Applications/Autodesk/FBX SDK/2016.1.1/lib/clang/debug/libfbxsdk.a"; sourceTree = "<group>"; };
 		B51D7F081D3D380500685780 /* ObjFaceTest.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjFaceTest.cxx; sourceTree = "<group>"; };
 		B51D7F0B1D3D38E000685780 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "Google Test/gtest-all.cc"; sourceTree = "<group>"; };
 		B51D7F0E1D3D394700685780 /* texture_test.xobj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = texture_test.xobj; path = Assets/texture_test.xobj; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		B5234C801D4BB73D00878821 /* 10074_Canyon_Romatic_Oak_001_062.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 10074_Canyon_Romatic_Oak_001_062.jpg; path = Assets/10074_Canyon_Romatic_Oak_001_062.jpg; sourceTree = "<group>"; };
 		B5234C811D4BB73D00878821 /* ash g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ash g.jpg"; path = "Assets/ash g.jpg"; sourceTree = "<group>"; };
 		B5234C821D4BB73D00878821 /* texture_test.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = texture_test.mtl; path = Assets/texture_test.mtl; sourceTree = "<group>"; };
+		B554481D1DD20A0B00225C79 /* libfbxsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfbxsdk.a; path = "../../../../../../Applications/Autodesk/FBX SDK/2015.1/lib/clang/release/libfbxsdk.a"; sourceTree = "<group>"; };
 		B5544B1C1DC610E700C82EFD /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../../../../../../usr/local/Cellar/boost/1.62.0/lib/libboost_filesystem.a; sourceTree = "<group>"; };
 		B5544B1D1DC610E700C82EFD /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../../../../../usr/local/Cellar/boost/1.62.0/lib/libboost_system.a; sourceTree = "<group>"; };
 		B5544B2E1DC6118600C82EFD /* ClTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClTools.h; sourceTree = "<group>"; };
@@ -428,7 +428,7 @@
 				B5544B1F1DC610E700C82EFD /* libboost_system.a in Frameworks */,
 				B5C3E4EE1D3C167800BC4579 /* SystemConfiguration.framework in Frameworks */,
 				B5C3E4ED1D3C166E00BC4579 /* Carbon.framework in Frameworks */,
-				B595B4331D4AE68100839201 /* libfbxsdk.a in Frameworks */,
+				B554481E1DD20A0B00225C79 /* libfbxsdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,9 +531,9 @@
 		B5597EF71D39405300A38AD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B554481D1DD20A0B00225C79 /* libfbxsdk.a */,
 				B5544B1C1DC610E700C82EFD /* libboost_filesystem.a */,
 				B5544B1D1DC610E700C82EFD /* libboost_system.a */,
-				B51D7EF71D3D2BF500685780 /* libfbxsdk.a */,
 				B5597EF21D393E8600A38AD5 /* SystemConfiguration.framework */,
 				B5597EF01D393E7B00A38AD5 /* Carbon.framework */,
 			);
@@ -1319,8 +1319,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				HEADER_SEARCH_PATHS = (
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"/Applications/Autodesk/FBX SDK/2015.1/lib/clang/release\"",
+					/usr/local/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1360,8 +1366,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				HEADER_SEARCH_PATHS = (
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"/Applications/Autodesk/FBX SDK/2015.1/lib/clang/release\"",
+					/usr/local/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;

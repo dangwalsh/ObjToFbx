@@ -37,11 +37,12 @@ ifeq "$(M64)" "-m64"
 endif
 
 PROJECT     = ObjToFbx
-BINDIR      = ../../bin/$(COMPILER)/$(ARCH)/$(VARIANT)/$(PROJECT)
-OBJDIR      = ../../obj/$(COMPILER)/$(ARCH)/$(VARIANT)/$(PROJECT)
-#LIBDIR      = ../../lib/$(COMPILER)/$(VARIANT)
+BINDIR      = ~/bin/$(COMPILER)/$(ARCH)/$(VARIANT)/$(PROJECT)
+OBJDIR      = ~/obj/$(COMPILER)/$(ARCH)/$(VARIANT)/$(PROJECT)
 LIBDIR      = /usr/local/lib
-INCDIR      = ../../include
+LIBDIR_FBX  = /Applications/Autodesk/FBX\ SDK/2015.1/lib/$(COMPILER)/$(VARIANT)
+INCDIR      = /usr/local/include
+INCDIR_FBX  = /Applications/Autodesk/FBX\ SDK/2015.1/include
 PROJDIR	    = ./$(PROJECT)
 EXCEPTDIR   = $(PROJDIR)/Exceptions
 GEOMDIR	    = $(PROJDIR)/Geometry
@@ -78,14 +79,14 @@ BOOST_LIB    = -lboost_filesystem -lboost_system
 ifeq "$(STATIC_LINK)" ""
     CXXFLAGS += -DFBXSDK_SHARED
     COPY_LIB = $(CP) \
-				$(LIBDIR)/libfbxsdk.dylib \
-				$(LIBDIR)/libboost_filesystem.dylib \
-				$(LIBDIR)/libboost_system.dylib \
-				$(BINDIR)
+                $(LIBDIR_FBX)/libfbxsdk.dylib \
+                $(LIBDIR)/libboost_filesystem.dylib \
+                $(LIBDIR)/libboost_system.dylib \
+                $(BINDIR)
 else
-    FBXSDK_LIB = $(LIBDIR)/libfbxsdk.a
+    FBXSDK_LIB = $(LIBDIR_FBX)/libfbxsdk.a
     BOOST_LIB  = $(LIBDIR)/libboost_filesystem.a \
-				 $(LIBDIR)/libboost_system.a
+                 $(LIBDIR)/libboost_system.a
 endif
 
 GEN_SYM     = $(DS) $(TARGET) $(DBFLAGS) $(TARGET).dSYM
@@ -98,7 +99,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	@if [ ! -d $(@D) ]; then mkdir -p $(@D) ; fi
 	@if [ ! -d $(OBJDIR) ]; then mkdir -p $(OBJDIR) ; fi
-	$(LD) $(LDFLAGS) -o $@ $(OBJS) -L$(LIBDIR) $(LIBS)
+	$(LD) $(LDFLAGS) -o $@ $(OBJS) -L$(LIBDIR) $(LIBS) -L$(LIBDIR_FBX)
 	$(GEN_SYM)
 	mv $(PROJDIR)/*.o $(OBJDIR)
 	mv $(IODIR)/*.o $(OBJDIR)
@@ -108,7 +109,7 @@ $(TARGET): $(OBJS)
 	$(COPY_LIB)
 
 .cxx.o:
-	$(CC) $(CXXFLAGS) -I$(INCDIR) -c $< -o $*.o
+	$(CC) $(CXXFLAGS) -I$(INCDIR) -I$(INCDIR_FBX) -c $< -o $*.o
 
 clean:
 	$(RM) $(OBJDIR)
