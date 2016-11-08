@@ -85,7 +85,7 @@ bool ObjReader::Read(FbxDocument* pDocument)
 			try { lObjScene = new ObjScene(mDirectory, lString); }
 			catch (exception e)
 			{
-				FBXSDK_printf(e.what());
+				FBXSDK_printf("%s", e.what());
 				free(lBuffer);
 				return lResult;
 			}
@@ -93,7 +93,7 @@ bool ObjReader::Read(FbxDocument* pDocument)
 			try { CreateFbxScene(lScene, lObjScene); }
 			catch (exception e)
 			{
-				FBXSDK_printf(e.what());
+				FBXSDK_printf("%s", e.what());
 				free(lBuffer);
 				return lResult;
 			}

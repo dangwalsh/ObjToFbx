@@ -34,9 +34,9 @@ void DestroySdkObjects(FbxManager* pManager, bool pExitStatus)
 	{
 		if (pManager) pManager->Destroy();
 	}
-	catch (std::exception ex)
+	catch (std::exception e)
 	{
-		FBXSDK_printf(ex.what());
+		FBXSDK_printf("%s", e.what());
 		exit(1);
 	}	
 	if( pExitStatus ) FBXSDK_printf("Program Success!\n");
