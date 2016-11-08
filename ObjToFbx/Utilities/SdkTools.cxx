@@ -103,18 +103,6 @@ bool SaveScene(FbxManager* pManager, FbxDocument* pScene, const char* pFilename,
 	
 	FbxExporter* lExporter = FbxExporter::Create(pManager, "");
 
-	if(pFileFormat == 0)
-	{
-		pEmbedMedia = true;
-	}
-	//  if( pFileFormat < 0 || pFileFormat >= pManager->GetIOPluginRegistry()->GetWriterFormatCount() )
-	//  {
-	//      pFileFormat = pManager->GetIOPluginRegistry()->GetNativeWriterFormat();
-	//      pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX binary (*.fbx)");
-	//	    pFileFormat = pManager->GetIOPluginRegistry()->FindWriterIDByDescription("FBX ascii (*.fbx)");
-	//      int lFormatIndex, lFormatCount = pManager->GetIOPluginRegistry()->GetWriterFormatCount();
-	//  }
-
 	IOS_REF.SetBoolProp(EXP_FBX_MATERIAL, true);
 	IOS_REF.SetBoolProp(EXP_FBX_TEXTURE, true);
 	IOS_REF.SetBoolProp(EXP_FBX_EMBEDDED, pEmbedMedia);

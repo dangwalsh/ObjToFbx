@@ -36,9 +36,11 @@
 *.xcuserstate
 *.VC*
 *.vcxproj*
-.idea
-.vs/
+*.idea
+*.sdf
+*.vs/
 Debug/
 Release/
 Assets/
+
 

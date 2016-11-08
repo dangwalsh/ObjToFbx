@@ -42,7 +42,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    lResult = SaveScene(lSdkManager, lScene, lOutput.c_str(), lOptions);
+    lResult = SaveScene(lSdkManager, lScene, lOutput.c_str(), lOptions, lOptions?0:1);
 
 	DestroySdkObjects(lSdkManager, lResult);
 
